@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import BlogFooter from '../components/blogFooter';
-import Post_template from '../components/post-template';
-import Sidebar from '../components/sidebar';
+import BlogFooter from '../../components/blogFooter';
+import Post_template from '../../components/post-template';
+import Sidebar from '../../components/sidebar';
 
 export default function Blog() {
   return (
