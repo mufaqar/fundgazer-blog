@@ -7,7 +7,7 @@ export default function Blog() {
   return (
     <>
       <section>
-        <div className="container flex items-center pt-10 mx-auto">
+        <div className="container flex items-center pt-10 mx-auto lg:pl-16">
           <div className="p-4">
             <h1 className="md:text-6xl text-3xl font-bold text-[#E86A34] font-productSansBold">
               Blogs
@@ -16,7 +16,7 @@ export default function Blog() {
         </div>
       </section>
       <section>
-        <div className="container pb-10 mx-auto">
+        <div className="container pb-10 mx-auto lg:pl-16">
           <div className="flex flex-col gap-10 md:flex-row">
             {/* Posts Column Start*/}
             <div className="w-full md:w-9/12">
@@ -28,7 +28,7 @@ export default function Blog() {
                       src="/images/img1.png"
                       alt="img1"
                       layout="fill"
-                      className="object-cover rounded-lg"
+                      className="object-cover shadow-lg rounded-2xl"
                     ></Image>
                   </figure>
                 </div>
@@ -37,7 +37,7 @@ export default function Blog() {
                     <h3 className="mb-3 text-2xl font-bold md:text-4xl text-skin-dark font-productSansBold">
                       7 Best Investing Blogs 2022: Think Like an Investor
                     </h3>
-                    <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansBold">
+                    <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansReqular">
                       <li>
                         <Link href="#">
                           <a>#Economy</a>
@@ -55,7 +55,7 @@ export default function Blog() {
                       invaluable to the modern investor: blogs.
                     </p>
                   </div>
-                  <ul className="flex mb-4 space-x-3 text-sm font-normal md:text-xl text-skin-muted font-interRegular">
+                  <ul className="flex mb-4 space-x-4 text-[15px] font-normal text-skin-muted font-interRegular">
                     <li>
                       <Link href="#">
                         <a>Shashank Gupta</a>
