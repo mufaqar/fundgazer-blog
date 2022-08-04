@@ -1,36 +1,43 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./pages/**/*.{html,js,jsx,ts,tsx}",
-    "./components/**/*.{html,js,jsx,ts,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
-      colors: {
-        "accent-1": "#FAFAFA",
-        "accent-2": "#EAEAEA",
-        "accent-7": "#333",
-        success: "#0070f3",
-        cyan: "#79FFE1",
+      textColor:{
+        skin: {
+          primary: 'var(--color-primary)',
+          secondry: 'var(--color-secondry)',
+          muted: 'var(--color-text-muted)',
+          light: 'var(--color-text-light)',
+          dark: 'var(--color-dark)',
+
+        }
       },
-      spacing: {
-        28: "7rem",
+      backgroundColor:{
+        skin: {
+          dark: 'var(--color-dark)',
+          light: 'var(--color-text-light)',
+          buttonAccent: 'var(--color-button-accen)',
+          buttonMuted: 'var(--color-button-muted)',
+          bgFooter: 'var(--color-bg-footer)',
+          primary: 'var(--color-primary)',
+          secondry: 'var(--color-secondry)',
+        }
       },
-      letterSpacing: {
-        tighter: "-.04em",
-      },
-      lineHeight: {
-        tight: 1.2,
-      },
-      fontSize: {
-        "5xl": "2.5rem",
-        "6xl": "2.75rem",
-        "7xl": "4.5rem",
-        "8xl": "6.25rem",
-      },
-      boxShadow: {
-        small: "0 5px 10px rgba(0, 0, 0, 0.12)",
-        medium: "0 8px 30px rgba(0, 0, 0, 0.12)",
+      fontFamily: {
+        productSansBold: ["ProductSansBold", "sans-serif"],
+        productSansReqular: ["ProductSansReqular", "sans-serif"],
+        interBold: ["InterBold", "sans-serif"],
+        interExtraBold: ["InterExtraBold", "sans-serif"],
+        interRegular: ["InterRegular", "sans-serif"],
+        interMedium: ["InterMedium", "sans-serif"],
+        interLight: ["InterLight", "sans-serif"],
+        gildaDisplay: ["GildaDisplay", "sans-serif"],
       },
     },
   },
-};
+  plugins: [],
+}
