@@ -1,10 +1,11 @@
-import Link from "next/link";
-import { useState } from "react";
-import Image from "next/image";
-import Logo from "../public/images/logo.png";
-import whiteLogo from "../public/images/white-logo.png";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
+import Link from 'next/link';
+import { useState } from 'react';
+import Image from 'next/image';
+import Logo from '../public/images/logo.png';
+import whiteLogo from '../public/images/white-logo.png';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import Head from 'next/head';
 
 function NavLink({ to, children }) {
   return (
@@ -18,7 +19,7 @@ function MobileNav({ open, setOpen }) {
   return (
     <div
       className={`absolute top-0 left-0 h-screen w-screen bg-[#FAF9FD] transform ${
-        open ? "-translate-x-0" : "-translate-x-full"
+        open ? '-translate-x-0' : '-translate-x-full'
       } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
     >
       <div className="flex items-center justify-center filter bg-[#FAF9FD] h-20">
@@ -64,78 +65,84 @@ export default function Header() {
       let currentPosition = window.pageYOffset;
       setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
     }
-    scrollTop >= "20" ? setHeaderClr(true) : setHeaderClr(false);
+    scrollTop >= '20' ? setHeaderClr(true) : setHeaderClr(false);
 
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
   }, [scrollTop]);
 
   return (
-    <nav
-      className={`flex filter px-5 transition-all duration-300 py-4 h-20 items-center fixed top-0 right-0 left-0 z-50 ${
-        headerClr ? "bg-[#6F49DD]" : "bg-[#FAF9FD]"
-      }`}
-    >
-      <div className="container flex items-center justify-between mx-auto">
-        <MobileNav open={open} setOpen={setOpen} />
-        <div className="flex items-center w-3/12">
-          <Link href="/">
-            <a className="text-2xl font-semibold">
-              {headerClr ? (
-                <Image
-                  src={whiteLogo}
-                  alt="logo"
-                  width={165}
-                  height={40}
-                  className="z-10"
-                ></Image>
-              ) : (
-                <Image
-                  src={Logo}
-                  alt="logo"
-                  width={165}
-                  height={40}
-                  className="z-10"
-                ></Image>
-              )}
-            </a>
-          </Link>
-        </div>
-        <div className="flex items-center justify-end w-9/12">
-          <div
-            className="relative z-50 flex flex-col items-center justify-between w-8 h-8 md:hidden"
-            onClick={() => {
-              setOpen(!open);
-            }}
-          >
-            {/* hamburger button */}
-            <span
-              className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${
-                open ? "rotate-45 translate-y-3.5" : ""
-              }`}
-            />
-            <span
-              className={`h-1 w-full bg-black rounded-lg transition-all duration-300 ease-in-out ${
-                open ? "w-0" : "w-full"
-              }`}
-            />
-            <span
-              className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${
-                open ? "-rotate-45 -translate-y-3.5" : ""
-              }`}
-            />
+    <>
+      <Head>
+        <title>Fundgazer | Blog</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <nav
+        className={`flex filter px-5 transition-all duration-300 py-4 h-20 items-center fixed top-0 right-0 left-0 z-50 ${
+          headerClr ? 'bg-[#6F49DD]' : 'bg-[#FAF9FD]'
+        }`}
+      >
+        <div className="container flex items-center justify-between mx-auto">
+          <MobileNav open={open} setOpen={setOpen} />
+          <div className="flex items-center w-3/12">
+            <Link href="/">
+              <a className="text-2xl font-semibold">
+                {headerClr ? (
+                  <Image
+                    src={whiteLogo}
+                    alt="logo"
+                    width={165}
+                    height={40}
+                    className="z-10"
+                  ></Image>
+                ) : (
+                  <Image
+                    src={Logo}
+                    alt="logo"
+                    width={165}
+                    height={40}
+                    className="z-10"
+                  ></Image>
+                )}
+              </a>
+            </Link>
           </div>
+          <div className="flex items-center justify-end w-9/12">
+            <div
+              className="relative z-50 flex flex-col items-center justify-between w-8 h-8 md:hidden"
+              onClick={() => {
+                setOpen(!open);
+              }}
+            >
+              {/* hamburger button */}
+              <span
+                className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${
+                  open ? 'rotate-45 translate-y-3.5' : ''
+                }`}
+              />
+              <span
+                className={`h-1 w-full bg-black rounded-lg transition-all duration-300 ease-in-out ${
+                  open ? 'w-0' : 'w-full'
+                }`}
+              />
+              <span
+                className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${
+                  open ? '-rotate-45 -translate-y-3.5' : ''
+                }`}
+              />
+            </div>
 
-          <div
-            className={`hidden text-xl font-bold md:flex space-x-10 ${
-              headerClr ? "text-[#FAF9FD]" : "text-black"
-            }`}
-          >
-            <NavLink to="/our-community">Join Our Community</NavLink>
-            <NavLink to="/blog">Blogs</NavLink>
+            <div
+              className={`hidden text-xl font-bold md:flex space-x-10 ${
+                headerClr ? 'text-[#FAF9FD]' : 'text-black'
+              }`}
+            >
+              <NavLink to="/our-community">Join Our Community</NavLink>
+              <NavLink to="/blog">Blogs</NavLink>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   );
 }
