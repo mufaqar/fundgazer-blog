@@ -35,7 +35,7 @@ export default function Single_Post() {
                 </p>
               </div>
               <div className="text-center mb-7">
-                <figure className="md:w-[889px] md:h-[395px] w-full h-[179px] relative  mb-3">
+                <figure className="w-full md:h-[395px] h-[179px] relative  mb-3">
                   <Image
                     src="/images/postBanner.png"
                     alt="postBanner.png"
@@ -47,7 +47,7 @@ export default function Single_Post() {
                 </span>
               </div>
               <div>
-                <div className="md:border-0 border border-gray-200 p-5 mb-5">
+                <div className="md:shadow-none shadow-3xl p-5 mb-5">
                   <ul className="md:flex-col flex gap-5 items-center md:fixed left-4 top-1/3 z-40">
                     <li className="font-productSansBold md:text-xl text-sm font-bold text-skin-dark">
                       Share
@@ -149,7 +149,7 @@ export default function Single_Post() {
                 <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
                   Tags
                 </h6>
-                <ul className="flex flex-wrap gap-3 mb-5">
+                <ul className="flex flex-wrap gap-3 mb-5 tags">
                   <li className="py-2">
                     <Link href="#">
                       <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
