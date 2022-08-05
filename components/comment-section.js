@@ -14,7 +14,7 @@ export default function Comment_Section() {
               <form>
                 <div className="mb-5 ">
                   <label
-                    for="name"
+                    htmlFor="name"
                     className="md:text-xl text-base font-interRegular font-normal text-skin-muted"
                   >
                     User Name
@@ -28,7 +28,7 @@ export default function Comment_Section() {
                 </div>
                 <div className="mb-5 ">
                   <label
-                    for="email"
+                    htmlFor="email"
                     className="md:text-xl text-base font-interRegular font-normal text-skin-muted"
                   >
                     Email
@@ -42,7 +42,7 @@ export default function Comment_Section() {
                 </div>
                 <div className="mb-5 ">
                   <label
-                    for="comment"
+                    htmlFor="comment"
                     className="md:text-xl text-base font-interRegular font-normal text-skin-muted"
                   >
                     Your Comment

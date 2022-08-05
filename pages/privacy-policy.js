@@ -38,7 +38,7 @@ export default function PrivacyPolicy() {
                 a survey or fill out a form
               </p>
               <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5">
-                Name/username <br></br> Email Addresses <br></br> Location{' '}
+                Name/username <br></br> Email Addresses <br></br> Location
                 <br></br> Age
               </p>
               <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5">
@@ -63,7 +63,7 @@ export default function PrivacyPolicy() {
                 <li className="md:text-xl text-base font-interRegular font-normal text-skin-muted">
                   To improve our service we continually strive to improve our
                   service offerings based on the information and feedback we
-                  receive from you)
+                  receive from you
                 </li>
                 <li className="md:text-xl text-base font-interRegular font-normal text-skin-muted">
                   To improve customer service (your information helps us to more
@@ -322,7 +322,7 @@ export default function PrivacyPolicy() {
                 accessible by those authorized with special access nights to
                 such systems and are required to keep the information
                 confidential. After a transaction, your private information
-                (credit cards, social security numbers, financials, etc is never
+                credit cards, social security numbers, financials, etc is never
                 kept on file we cannot however, ensure or warrant the absolute
                 security of any information you transmit to us or guarantee that
                 your information on the Service may not be accessed, disclosed,
@@ -433,9 +433,9 @@ export default function PrivacyPolicy() {
               </h6>
               <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5">
                 We may display, include or make available third-party content
-                (including data, information, applications and other products
-                services) or provide links to third-party websites or services
-                (Third-Party Services")"
+                including data, information, applications and other products
+                services or provide links to third-party websites or services
+                Third-Party Services"
               </p>
               <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5">
                 You acknowledge and agree that we shall not be responsible for
@@ -466,7 +466,7 @@ export default function PrivacyPolicy() {
                 Information about General Data Protection
               </h6>
               <h6 className="md:text-xl text-lg font-interBold text-skin-dark mb-5 font-bold">
-                Regulation (GDPR)
+                Regulation
               </h6>
               <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5">
                 We may be collecting and using information from you if you are
@@ -493,7 +493,6 @@ export default function PrivacyPolicy() {
           </div>
         </div>
       </section>
-      {/* Content Section End*/}
     </>
   );
 }
