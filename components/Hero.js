@@ -8,25 +8,25 @@ export default function Posts() {
   const [ref, inView] = useInView();
   const animation = useAnimation();
 
-  useEffect((animation) => {
-    if (inView) {
-      animation.start({
-        opacity: 1,
-        scale: 1,
-        transition: {
-          type: "spring",
-          duration: 2,
-          bounce: 0.3,
-        },
-      });
+  // useEffect((animation) => {
+  //   if (inView) {
+  //     animation.start({
+  //       opacity: 1,
+  //       scale: 1,
+  //       transition: {
+  //         type: "spring",
+  //         duration: 2,
+  //         bounce: 0.3,
+  //       },
+  //     });
       
-    } else {
-      animation.start({
-        opacity: 0,
-        scale: 0.8,
-      });
-    }
-  }, [inView]);
+  //   } else {
+  //     animation.start({
+  //       opacity: 0,
+  //       scale: 0.8,
+  //     });
+  //   }
+  // }, [inView]);
 
   return (
     <>
