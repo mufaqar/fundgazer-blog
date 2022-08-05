@@ -6,11 +6,11 @@ import { useInView } from "react-hook-inview"; // use current active screen Area
 
 export default function Posts() {
   const [ref, inView] = useInView();
-  const animationText = useAnimation();
+  const animation = useAnimation();
 
-  useEffect(() => {
+  useEffect((animation) => {
     if (inView) {
-      animationText.start({
+      animation.start({
         opacity: 1,
         scale: 1,
         transition: {
@@ -21,7 +21,7 @@ export default function Posts() {
       });
       
     } else {
-      animationText.start({
+      animation.start({
         opacity: 0,
         scale: 0.8,
       });
@@ -34,7 +34,7 @@ export default function Posts() {
       <section>
         <div className="container grid items-center lg:h-[800px] grid-cols-1 gap-4 py-10 pt-0 mx-auto lg:grid-cols-3 mt-20">
           <div ref={ref} className="flex flex-col justify-between h-full p-4 py-20 lg:pb-36">
-            <motion.div className="" animate={animationText}>
+            <motion.div className="" animate={animation}>
               <h1 className="text-6xl font-thin font-interRegular" >
                 The <span className="font-bold text-skin-primary">Future </span>
                 of <br />
