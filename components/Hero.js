@@ -1,6 +1,6 @@
-import Link from "next/link";
-import Image from "next/image";
-import { BsChevronDown } from "react-icons/bs";
+import Link from 'next/link';
+import Image from 'next/image';
+import { BsChevronDown } from 'react-icons/bs';
 
 export default function Posts() {
   return (
@@ -35,7 +35,7 @@ export default function Posts() {
             <video
               width="1000"
               height="800"
-              autoplay="autoplay"
+              autoPlay="autoplay"
               className=""
               loop
               muted
