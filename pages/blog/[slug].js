@@ -3,31 +3,26 @@ import Link from 'next/link';
 import Sidebar from '../../components/sidebar';
 import BlogFooter from '../../components/blogFooter';
 import { FaLinkedinIn, FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa';
-import RelatedPosts from '../../components/relatedPosts';
+//import RelatedPosts from '../../components/relatedPosts';
 import Comment_Section from '../../components/comment-section';
 import { BsFacebook, BsTwitter, BsWhatsapp } from 'react-icons/bs';
 import { useState } from 'react';
-import { useEffect } from "react";
+import { useEffect } from 'react';
 // import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-hook-inview"; // use current active screen Area
-
+import { useInView } from 'react-hook-inview'; // use current active screen Area
 
 export default function Single_Post() {
-
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
-  
 
   useEffect(() => {
     if (inView) {
-      setSocialSticky(false)
+      setSocialSticky(false);
     } else {
-      inView2 ? '' : setSocialSticky(true)
+      inView2 ? '' : setSocialSticky(true);
     }
-    
   }, [inView, inView2]);
-
 
   return (
     <>
@@ -69,7 +64,11 @@ export default function Single_Post() {
               </div>
               <div>
                 <div className="md:border-0 border border-gray-200 p-5 mb-5">
-                  <ul className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${socialSticky ? 'md:fixed' : 'md:block' }`}>
+                  <ul
+                    className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
+                      socialSticky ? 'md:fixed' : 'md:block'
+                    }`}
+                  >
                     <li className="font-productSansBold md:text-xl text-sm font-bold text-skin-dark">
                       Share
                     </li>
@@ -166,7 +165,7 @@ export default function Single_Post() {
                   </p>
                 </div>
               </div>
-              <div className="mb-10" >
+              <div className="mb-10">
                 <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
                   Tags
                 </h6>
@@ -266,7 +265,7 @@ export default function Single_Post() {
               </div>
             </div>
             {/* Posts Column END*/}
-            
+
             {/* Sidebar Column Start*/}
             <div className="md:w-3/12 w-full">
               <Sidebar />
@@ -277,7 +276,7 @@ export default function Single_Post() {
       </section>
       <div ref={ref}></div>
       <div ref={ref2}>
-        <RelatedPosts/>
+        {/* <RelatedPosts/> */}
         <Comment_Section />
         <BlogFooter />
       </div>
