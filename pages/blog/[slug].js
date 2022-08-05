@@ -26,7 +26,7 @@ export default function Single_Post() {
       inView2 ? '' : setSocialSticky(true)
     }
     
-  }, [inView]);
+  }, [inView, inView2]);
 
 
   return (

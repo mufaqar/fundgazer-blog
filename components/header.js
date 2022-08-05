@@ -8,7 +8,7 @@ import { useEffect } from "react";
 
 function NavLink({ to, children }) {
   return (
-    <Link href={to} className={`mx-4 font-interBold tracking-wider`}>
+    <Link className={`mx-4 font-interBold tracking-wider`}>
       {children}
     </Link>
   );
@@ -131,8 +131,8 @@ export default function Header() {
               headerClr ? "text-[#FAF9FD]" : "text-black"
             }`}
           >
-            <NavLink to="/our-community">Join Our Community</NavLink>
-            <NavLink to="/blog">Blogs</NavLink>
+            <NavLink href="/our-community">Join Our Community</NavLink>
+            <NavLink href="/blog">Blogs</NavLink>
           </div>
         </div>
       </div>
