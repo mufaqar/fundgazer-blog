@@ -6,9 +6,9 @@ import { useRouter } from 'next/router';
 
 function NavLink({ to, children }) {
   return (
-    <a href={to} className={`mx-4 font-interBold tracking-wider`}>
+    <Link href={to} className={`mx-4 font-interBold tracking-wider`}>
       {children}
-    </a>
+    </Link>
   );
 }
 
@@ -89,7 +89,7 @@ export default function Header() {
             />
           </div>
 
-          <div className="hidden text-xl font-bold md:flex">
+          <div className="hidden text-xl font-bold md:flex space-x-10">
             <NavLink to="/our-community">Join Our Community</NavLink>
             <NavLink to="/blog">Blogs</NavLink>
           </div>
