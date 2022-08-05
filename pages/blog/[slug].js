@@ -6,15 +6,36 @@ import { FaLinkedinIn, FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa';
 import RelatedPosts from '../../components/relatedPosts';
 import Comment_Section from '../../components/comment-section';
 import { BsFacebook, BsTwitter, BsWhatsapp } from 'react-icons/bs';
+import { useState } from 'react';
+import { useEffect } from "react";
+// import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-hook-inview"; // use current active screen Area
+
 
 export default function Single_Post() {
+
+  const [socialSticky, setSocialSticky] = useState(true);
+  const [ref, inView] = useInView();
+  const [ref2, inView2] = useInView();
+  
+
+  useEffect(() => {
+    if (inView) {
+      setSocialSticky(false)
+    } else {
+      inView2 ? '' : setSocialSticky(true)
+    }
+    
+  }, [inView]);
+
+
   return (
     <>
       <section>
         <div className="container mx-auto pt-28 pb-10 ">
           <div className="flex md:flex-row flex-col gap-16">
             {/* Posts Column Start*/}
-            <div className="md:w-9/12 w-full p-5 md:pl-10">
+            <div className="relative md:w-9/12 w-full p-5 md:pl-20">
               <div className="mb-7">
                 <ul className="mb-5">
                   <li>
@@ -35,7 +56,7 @@ export default function Single_Post() {
                 </p>
               </div>
               <div className="text-center mb-7">
-                <figure className="md:w-[889px] md:h-[395px] w-full h-[179px] relative  mb-3">
+                <figure className="md:h-[395px] w-full h-[179px] relative  mb-3">
                   <Image
                     src="/images/postBanner.png"
                     alt="postBanner.png"
@@ -48,7 +69,7 @@ export default function Single_Post() {
               </div>
               <div>
                 <div className="md:border-0 border border-gray-200 p-5 mb-5">
-                  <ul className="md:flex-col flex gap-5 items-center md:fixed left-4 top-1/3 z-40">
+                  <ul className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${socialSticky ? 'md:fixed' : 'md:block' }`}>
                     <li className="font-productSansBold md:text-xl text-sm font-bold text-skin-dark">
                       Share
                     </li>
@@ -88,7 +109,7 @@ export default function Single_Post() {
                     their own blog these days, and while we’re not decrying the
                     merits of a good dog blog, we’ve cut through the noise and
                     listed our favorite investing blogs so you don’t have to
-                    slog through the fog (Dr. Seuss eat your heart out).{' '}
+                    slog through the fog (Dr. Seuss eat your heart out).
                   </p>
                   <p className="font-gildaDisplay md:text-xl text-lg font-normal text-skin-dark mb-5">
                     If you like this, check out our other resources to start
@@ -139,13 +160,13 @@ export default function Single_Post() {
                     pieces, which are produced weekly. His perspective on
                     macro-economics is really unique, as is the subject matter
                     of his weekly post.<br></br>I would highly recommend his
-                    article the{' '}
-                    <span className="text-skin-primary">freakishly strong</span>{' '}
+                    article the
+                    <span className="text-skin-primary">freakishly strong</span>
                     base for any investor getting started in the stock market.
                   </p>
                 </div>
               </div>
-              <div className="mb-10">
+              <div className="mb-10" >
                 <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
                   Tags
                 </h6>
@@ -223,7 +244,7 @@ export default function Single_Post() {
                         <p className="text-skin-primary font-interRegular font-normal md:text-lg text-sm flex gap-2 items-bottom">
                           <span className="text-2xl">
                             <FaRegThumbsUp />
-                          </span>{' '}
+                          </span>
                           <span className="font-bold">Like</span> 2,562
                         </p>
                       </a>
@@ -235,7 +256,7 @@ export default function Single_Post() {
                         <p className="text-[#E86A34] font-interRegular font-normal md:text-lg text-sm flex gap-2 items-bottom">
                           <span className="text-2xl rotate-180">
                             <FaRegThumbsUp />
-                          </span>{' '}
+                          </span>
                           <span className="font-bold">Dislike</span> 256
                         </p>
                       </a>
@@ -245,7 +266,7 @@ export default function Single_Post() {
               </div>
             </div>
             {/* Posts Column END*/}
-
+            
             {/* Sidebar Column Start*/}
             <div className="md:w-3/12 w-full">
               <Sidebar />
@@ -254,10 +275,12 @@ export default function Single_Post() {
           </div>
         </div>
       </section>
-
-      <RelatedPosts />
-      <Comment_Section />
-      <BlogFooter />
+      <div ref={ref}></div>
+      <div ref={ref2}>
+        <RelatedPosts/>
+        <Comment_Section />
+        <BlogFooter />
+      </div>
     </>
   );
 }
