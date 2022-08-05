@@ -27,7 +27,7 @@ function MobileNav({ open, setOpen }) {
         {/*logo container*/}
       </div>
       <div className="flex flex-col ml-4">
-        <a
+        <Link
           className="my-4 text-xl font-bold"
           href="/our-community"
           onClick={() =>
@@ -37,8 +37,8 @@ function MobileNav({ open, setOpen }) {
           }
         >
           Join Our Community
-        </a>
-        <a
+        </Link>
+        <Link
           className="my-4 text-xl font-bold"
           href="#"
           onClick={() =>
@@ -48,7 +48,7 @@ function MobileNav({ open, setOpen }) {
           }
         >
           Blogs
-        </a>
+        </Link>
       </div>
     </div>
   );

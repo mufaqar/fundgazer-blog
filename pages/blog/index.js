@@ -7,7 +7,7 @@ export default function Blog() {
   return (
     <>
       <section>
-        <div className="container flex items-center pb-6 mx-auto pt-28 lg:pt-0 lg:pl-16">
+        <div className="container flex items-center pb-6 mx-auto pt-28 lg:pt-0 lg:pl-16 mt-24">
           <div className="p-4">
             <h1 className="md:text-6xl text-3xl font-bold text-[#E86A34] font-productSansBold">
               Blogs
