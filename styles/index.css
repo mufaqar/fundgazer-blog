@@ -2,47 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    :root {
-        --color-primary: #6F49DD;
-        --color-secondry: #7289DA;
-        --color-text-muted: #615F5F;
-        --color-text-light: #ffffff;
-        --color-button-accen: #0088CC;
-        --color-button-muted: #7289DA;
-        --color-dark: #000000;
-        --color-bg-footer: #2B195A;
-      }
+@layer base {
+  :root {
+    --color-primary: #6f49dd;
+    --color-secondry: #7289da;
+    --color-text-muted: #615f5f;
+    --color-text-light: #ffffff;
+    --color-button-accen: #0088cc;
+    --color-button-muted: #7289da;
+    --color-dark: #000000;
+    --color-bg-footer: #2b195a;
+  }
 }
 @font-face {
-  font-family: "ProductSansBold";
-  src: url("../public/fonts/Product\ Sans\ Bold.woff2");
+  font-family: 'ProductSansBold';
+  src: url('../public/fonts/Product\ Sans\ Bold.woff2');
 }
 @font-face {
-  font-family: "ProductSansReqular";
-  src: url("../public/fonts/Product\ Sans\ Regular.woff2");
+  font-family: 'ProductSansReqular';
+  src: url('../public/fonts/Product\ Sans\ Regular.woff2');
 }
 @font-face {
-  font-family: "InterBold";
-  src: url("../public/fonts/Inter-Bold.woff2");
+  font-family: 'InterBold';
+  src: url('../public/fonts/Inter-Bold.woff2');
 }
 @font-face {
-  font-family: "InterExtraBold"; 
-  src: url("../public/fonts/Inter-ExtraBold.woff2");
+  font-family: 'InterExtraBold';
+  src: url('../public/fonts/Inter-ExtraBold.woff2');
 }
 @font-face {
-  font-family: "InterRegular";
-  src: url("../public/fonts/Inter-Regular.woff2");
+  font-family: 'InterRegular';
+  src: url('../public/fonts/Inter-Regular.woff2');
 }
 @font-face {
-  font-family: "InterMedium";
-  src: url("../public/fonts/Inter-Medium.woff2");
+  font-family: 'InterMedium';
+  src: url('../public/fonts/Inter-Medium.woff2');
 }
 @font-face {
-  font-family: "InterLight";
-  src: url("../public/fonts/Inter-Light.woff2"); 
+  font-family: 'InterLight';
+  src: url('../public/fonts/Inter-Light.woff2');
 }
 @font-face {
-  font-family: "GildaDisplay";
-  src: url("../public/fonts/GildaDisplay-Regular.woff2");
+  font-family: 'GildaDisplay';
+  src: url('../public/fonts/GildaDisplay-Regular.woff2');
 }

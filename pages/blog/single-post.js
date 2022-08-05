@@ -2,8 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Sidebar from '../../components/sidebar';
 import BlogFooter from '../../components/blogFooter';
-import { FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa';
+import { FaLinkedinIn, FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa';
 import RelatedPosts from '../../components/relatedPosts';
+import Comment_Section from '../../components/comment-section';
+import { BsFacebook, BsTwitter, BsWhatsapp } from 'react-icons/bs';
 
 export default function Single_Post() {
   return (
@@ -12,7 +14,7 @@ export default function Single_Post() {
         <div className="container mx-auto pt-28 pb-10">
           <div className="flex md:flex-row flex-col gap-16">
             {/* Posts Column Start*/}
-            <div className="md:w-9/12 w-full p-5">
+            <div className="md:w-9/12 w-full p-5 md:pl-10">
               <div className="mb-7">
                 <ul className="mb-5">
                   <li>
@@ -33,7 +35,7 @@ export default function Single_Post() {
                 </p>
               </div>
               <div className="text-center mb-7">
-                <figure className="md:w-[889px] md:h-[395px] relative  mb-3">
+                <figure className="md:w-[889px] md:h-[395px] w-full h-[179px] relative  mb-3">
                   <Image
                     src="/images/postBanner.png"
                     alt="postBanner.png"
@@ -45,6 +47,41 @@ export default function Single_Post() {
                 </span>
               </div>
               <div>
+                <div className="md:border-0 border border-gray-200 p-5 mb-5">
+                  <ul className="md:flex-col flex gap-5 items-center md:fixed left-4 top-1/3 z-40">
+                    <li className="font-productSansBold md:text-xl text-sm font-bold text-skin-dark">
+                      Share
+                    </li>
+                    <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
+                      <Link href="#">
+                        <a>
+                          <BsFacebook />
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
+                      <Link href="#">
+                        <a>
+                          <BsTwitter />
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
+                      <Link href="#">
+                        <a>
+                          <FaLinkedinIn />
+                        </a>
+                      </Link>
+                    </li>
+                    <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
+                      <Link href="#">
+                        <a>
+                          <BsWhatsapp />
+                        </a>
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
                 <div className="mb-7">
                   <p className="font-gildaDisplay md:text-xl text-lg font-normal text-skin-dark mb-5">
                     Now we know what you’re thinking, everyone and their dog has
@@ -76,7 +113,7 @@ export default function Single_Post() {
                   </ul>
                 </div>
                 <div className="mb-7">
-                  <h6 className="font-productSansBold text-2xl font-bold text-skin-dark mb-5">
+                  <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
                     MyWallSt Blog
                   </h6>
                   <p className="font-gildaDisplay md:text-xl text-lg font-normal text-skin-dark mb-5">
@@ -91,7 +128,7 @@ export default function Single_Post() {
                   </p>
                 </div>
                 <div className="mb-7">
-                  <h6 className="font-productSansBold text-2xl font-bold text-skin-dark mb-5">
+                  <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
                     The Collaborative Fund: Morgan Housel
                   </h6>
                   <p className="font-gildaDisplay md:text-xl text-lg font-normal text-skin-dark mb-5">
@@ -109,7 +146,7 @@ export default function Single_Post() {
                 </div>
               </div>
               <div className="mb-10">
-                <h6 className="font-productSansBold text-2xl font-bold text-skin-dark mb-5">
+                <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
                   Tags
                 </h6>
                 <ul className="flex flex-wrap gap-3 mb-5">
@@ -179,11 +216,11 @@ export default function Single_Post() {
                 </ul>
               </div>
               <div>
-                <ul className="flex gap-10 items-center">
+                <ul className="flex gap-10 md:justify-start justify-between items-center">
                   <li>
                     <Link href="#">
                       <a>
-                        <p className="text-skin-primary font-interRegular font-normal text-lg flex gap-2 items-bottom">
+                        <p className="text-skin-primary font-interRegular font-normal md:text-lg text-sm flex gap-2 items-bottom">
                           <span className="text-2xl">
                             <FaRegThumbsUp />
                           </span>{' '}
@@ -195,7 +232,7 @@ export default function Single_Post() {
                   <li>
                     <Link href="#">
                       <a>
-                        <p className="text-[#E86A34] font-interRegular font-normal text-lg flex gap-2 items-bottom">
+                        <p className="text-[#E86A34] font-interRegular font-normal md:text-lg text-sm flex gap-2 items-bottom">
                           <span className="text-2xl rotate-180">
                             <FaRegThumbsUp />
                           </span>{' '}
@@ -219,6 +256,7 @@ export default function Single_Post() {
       </section>
 
       <RelatedPosts />
+      <Comment_Section />
       <BlogFooter />
     </>
   );
