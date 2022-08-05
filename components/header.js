@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Image from "next/image";
 import Logo from "../public/images/logo.png";
+import { useRouter } from 'next/router';
 
 function NavLink({ to, children }) {
   return (
@@ -51,6 +52,7 @@ function MobileNav({ open, setOpen }) {
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const router = useRouter();
   return (
     <nav className="flex filter bg-[#FAF9FD] px-5 py-4 h-20 items-center">
       <div className="container flex items-center justify-between mx-auto">

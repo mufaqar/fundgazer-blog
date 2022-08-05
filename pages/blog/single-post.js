@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import Sidebar from '../components/sidebar'
-import BlogFooter from '../components/blogFooter'
+import Sidebar from '../../components/sidebar'
+import BlogFooter from '../../components/blogFooter'
 import { FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa'
-import RelatedPosts from '../components/relatedPosts'
+import RelatedPosts from '../../components/relatedPosts'
 
 export default function Single_Post() {
     return (
