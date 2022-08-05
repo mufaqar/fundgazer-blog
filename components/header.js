@@ -3,6 +3,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Logo from "../public/images/logo.png";
 import { useRouter } from 'next/router';
+import {useEffect} from 'react';
+
 
 function NavLink({ to, children }) {
   return (
@@ -13,11 +15,13 @@ function NavLink({ to, children }) {
 }
 
 function MobileNav({ open, setOpen }) {
+
   return (
     <div
       className={`absolute top-0 left-0 h-screen w-screen bg-[#FAF9FD] transform ${
         open ? "-translate-x-0" : "-translate-x-full"
-      } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
+      } transition-transform duration-300 ease-in-out filter drop-shadow-md `} 
+      
     >
       <div className="flex items-center justify-center filter bg-[#FAF9FD] h-20">
         {/*logo container*/}
@@ -53,8 +57,24 @@ function MobileNav({ open, setOpen }) {
 export default function Header() {
   const [open, setOpen] = useState(false);
   const router = useRouter();
+
+  const [scrollTop, setScrollTop] = useState(0);
+  const [headerClr, setHeaderClr] = useState(false);
+
+
+  useEffect(() => {
+    function onScroll() {
+      let currentPosition = window.pageYOffset;
+      setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
+    }
+    scrollTop >= '20' ? setHeaderClr(true) : setHeaderClr(false)
+    
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [scrollTop]);
+
   return (
-    <nav className="flex filter bg-[#FAF9FD] px-5 py-4 h-20 items-center">
+    <nav className={`flex filter px-5 transition-all duration-300 py-4 h-20 items-center fixed top-0 right-0 left-0 z-50 ${ headerClr ? 'bg-[#6F49DD]' : 'bg-[#FAF9FD]' }`}>
       <div className="container flex items-center justify-between mx-auto">
         <MobileNav open={open} setOpen={setOpen} />
         <div className="flex items-center w-3/12">
@@ -89,7 +109,7 @@ export default function Header() {
             />
           </div>
 
-          <div className="hidden text-xl font-bold md:flex space-x-10">
+          <div className={`hidden text-xl font-bold md:flex space-x-10 ${ headerClr ? 'text-[#FAF9FD]' : 'text-black' }`}>
             <NavLink to="/our-community">Join Our Community</NavLink>
             <NavLink to="/blog">Blogs</NavLink>
           </div>

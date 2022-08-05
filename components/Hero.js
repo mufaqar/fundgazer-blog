@@ -1,16 +1,41 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import { BsChevronDown } from 'react-icons/bs';
+import Link from "next/link";
+import { BsChevronDown } from "react-icons/bs";
+import { useEffect } from "react";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-hook-inview"; // use current active screen Area
 
 export default function Posts() {
+  const [ref, inView] = useInView();
+  const animationText = useAnimation();
+
+  useEffect(() => {
+    if (inView) {
+      animationText.start({
+        opacity: 1,
+        scale: 1,
+        transition: {
+          type: "spring",
+          duration: 2,
+          bounce: 0.3,
+        },
+      });
+      
+    } else {
+      animationText.start({
+        opacity: 0,
+        scale: 0.8,
+      });
+    }
+  }, [inView]);
+
   return (
     <>
       {/* Banner Section Start*/}
       <section>
-        <div className="container grid items-center lg:h-[800px] grid-cols-1 gap-4 py-10 pt-0 mx-auto lg:grid-cols-3">
-          <div className="flex flex-col justify-between h-full p-4 py-20 lg:pb-36">
-            <div className="">
-              <h1 className="text-6xl font-thin font-interRegular">
+        <div className="container grid items-center lg:h-[800px] grid-cols-1 gap-4 py-10 pt-0 mx-auto lg:grid-cols-3 mt-20">
+          <div ref={ref} className="flex flex-col justify-between h-full p-4 py-20 lg:pb-36">
+            <motion.div className="" animate={animationText}>
+              <h1 className="text-6xl font-thin font-interRegular" >
                 The <span className="font-bold text-skin-primary">Future </span>
                 of <br />
                 <span className="md:whitespace-nowrap">
@@ -21,7 +46,7 @@ export default function Posts() {
                 From building your diversified long-term portfolio and tracking
                 your assets to finding investment ideas, we got you covered.
               </p>
-            </div>
+            </motion.div>
             <Link href="#">
               <a className="flex items-center mt-20 space-x-2 text-3xl font-semibold lg:mt-0 font-interMedium group">
                 <span className="text-skin-primary group-hover:animate-bounce">
@@ -52,8 +77,8 @@ export default function Posts() {
 
       {/* Jion Us Section Start*/}
       <section className="bg-skin-primary">
-        <div className="container grid items-center h-[800px] grid-cols-1 gap-8 py-20 mx-auto md:grid-cols-2">
-          <div className="p-4">
+        <div  className="container grid items-center h-[800px] grid-cols-1 gap-8 py-20 mx-auto md:grid-cols-2">
+          <div className="p-4" >
             <h1 className="text-6xl font-normal text-[#D1C6FF] font-interRegular">
               <span className="font-bold text-skin-light">Join </span> Waitlist
             </h1>
