@@ -64,10 +64,7 @@ export default function Posts() {
               loop
               muted
             >
-              <source
-                src="http://localhost:3000/video/video.mp4"
-                type="video/mp4"
-              />
+              <source src="video/video.mp4" type="video/mp4" />
             </video>
           </div>
         </div>
