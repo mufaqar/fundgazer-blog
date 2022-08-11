@@ -34,15 +34,12 @@ export default function Posts() {
         <div className="container grid items-center lg:h-[800px] grid-cols-1 gap-4 py-10 pt-0 mx-auto lg:grid-cols-3 mt-20">
           <div
             ref={ref}
-            className="flex flex-col justify-between h-full p-4 py-20 lg:pb-36"
+            className="flex flex-col justify-between h-full p-4 py-20 lg:pb-24"
           >
             <motion.div className="z-10" animate={animationText}>
               <h1 className="text-6xl font-thin font-interRegular">
                 The <span className="font-bold text-skin-primary">Future </span>
-                of <br />
-                <span className="md:whitespace-nowrap">
-                  Personal Investment.
-                </span>
+                of <span className="md:whitespace-nowrap"> Personal Investment. </span>
               </h1>
               <p className="mt-3 text-xl font-medium font-interRegular">
                 From building your diversified long-term portfolio and tracking
@@ -51,10 +48,10 @@ export default function Posts() {
             </motion.div>
             <Link href="#">
               <a className="flex items-center mt-20 space-x-2 text-3xl font-semibold lg:mt-0 font-interMedium group">
-                <span className="text-skin-primary group-hover:animate-bounce">
+                <span className="text-skin-primary animate-bounce">
                   <BsChevronDown strokeWidth={2} />
                 </span>
-                <span>Join Waitlist</span>
+                <span className=''>Join Waitlist</span>
               </a>
             </Link>
           </div>

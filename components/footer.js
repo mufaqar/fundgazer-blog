@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer>
       <section className="bg-skin-bgFooter">
-        <div className="container grid items-center grid-cols-1 py-12 mx-auto md:grid-cols-2">
+        <div className="container grid items-center grid-cols-1 py-8 mx-auto md:grid-cols-2">
           <div className="p-5">
             <ul className="flex flex-row justify-between gap-5 md:flex-col">
               <li>
