@@ -7,7 +7,7 @@ export default function Blog() {
   return (
     <>
       <section>
-        <div className="container flex items-center pb-6 mx-auto pt-28 lg:pt-0 lg:pl-16 mt-24">
+        <div className="container flex items-center pt-8 pb-6 mx-auto mt-24 md:pt-28 lg:pt-0 lg:pl-16">
           <div className="p-4">
             <h1 className="md:text-6xl text-3xl font-bold text-[#E86A34] font-productSansBold">
               Blogs
@@ -15,11 +15,11 @@ export default function Blog() {
           </div>
         </div>
       </section>
-      <section>
+      <section className='mb-12'>
         <div className="container pb-10 mx-auto lg:pl-16">
           <div className="flex flex-col gap-10 md:flex-row">
             {/* Posts Column Start*/}
-            <div className="w-full md:w-9/12">
+            <div className="w-full lg:pr-20 md:w-9/12">
               {/* Main Post Start*/}
               <div className="flex flex-col-reverse py-5 mb-10 border-b md:flex-row md:gap-8">
                 <div className="w-full p-4 md:w-5/12 md:p-0">
@@ -81,19 +81,19 @@ export default function Blog() {
 
               {/* All Posts Start*/}
               <div>
-                <div className="flex flex-row gap-5 py-3 border-b">
+                <div className="flex flex-row gap-5 px-5 py-3 mt-12 border-b md:px-0">
                   <Post_template/>
                 </div>
-                <div className="flex flex-row gap-5 py-3 border-b">
+                <div className="flex flex-row gap-5 px-5 py-3 mt-12 border-b md:px-0">
                   <Post_template/>
                 </div>
-                <div className="flex flex-row gap-5 py-3 border-b">
+                <div className="flex flex-row gap-5 px-5 py-3 mt-12 border-b md:px-0">
                   <Post_template/>
                 </div>
-                <div className="flex flex-row gap-5 py-3 border-b">
+                <div className="flex flex-row gap-5 px-5 py-3 mt-12 border-b md:px-0">
                   <Post_template/>
                 </div>
-                <div className="flex flex-row gap-5 py-3 border-b">
+                <div className="flex flex-row gap-5 px-5 py-3 mt-12 border-b md:px-0">
                   <Post_template/>
                 </div>
               </div>

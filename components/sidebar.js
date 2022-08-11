@@ -2,8 +2,28 @@ import { BsDiscord, BsLinkedin } from 'react-icons/bs';
 import { FaTelegramPlane } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
+
+
 
 export default function Sidebar() {
+  const [profileHide, setProfileHide] = useState(false)
+  let route =  useRouter();
+  
+  useEffect(() => {
+    if(route.pathname === '/blog'){
+      setProfileHide(true);
+      console.error('in blog ');
+    }else{
+      setProfileHide(false);
+      console.error('in single ');
+    }
+  }, []);
+
+  
+  
+   
   return (
     <>
       <aside>
@@ -42,7 +62,7 @@ export default function Sidebar() {
             </div>
           </form>
         </div>
-        <div className="flex items-center justify-between p-5 mb-5 border-b md:px-0">
+        <div className={`flex items-center justify-between p-5 mb-5 border-b md:px-0 ${profileHide ? 'hidden' : 'flex'}`}>
           <div className="flex gap-4">
             <div>
               <figure className="md:w-[56px] w-[45px] md:h-[53px] h-[45px] relative">
@@ -147,12 +167,12 @@ export default function Sidebar() {
           <h6 className="mb-5 text-xl font-bold text-skin-dark font-productSansBold">
             Join Our Community
           </h6>
-          <div className="flex justify-center gap-4 md:px-0">
+          <div className="flex flex-wrap justify-center gap-4 md:px-0 lg:flex-nowrap">
             <button className="flex items-center justify-center w-full py-4 space-x-3 text-[15px] tracking-wide rounded-md font-interRegular bg-skin-secondry text-skin-light hover:opacity-75 px-7">
-              <BsDiscord size={24} /> <span>Discord</span>{' '}
+              <BsDiscord size={24} /> <span>Discord</span>
             </button>
             <button className="flex items-center justify-center w-full py-4 space-x-3 text-[15px] tracking-wide rounded-md font-interRegular bg-skin-buttonAccent hover:bg-skin-buttonMuted text-skin-light px-7">
-              <FaTelegramPlane size={24} /> <span>Telegram</span>{' '}
+              <FaTelegramPlane size={24} /> <span>Telegram</span>
             </button>
           </div>
         </div>

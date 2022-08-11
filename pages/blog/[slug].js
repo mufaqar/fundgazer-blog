@@ -32,10 +32,10 @@ export default function Single_Post() {
   return (
     <>
       <section>
-        <div className="container mx-auto pt-28 pb-10 ">
-          <div className="flex md:flex-row flex-col gap-16">
+        <div className="container pb-10 mx-auto pt-28 ">
+          <div className="flex flex-col gap-16 md:flex-row">
             {/* Posts Column Start*/}
-            <div className="relative md:w-9/12 w-full p-5 md:pl-20">
+            <div className="relative w-full p-5 pr-5 md:pr-16 md:w-9/12 md:pl-20">
               <div className="mb-7">
                 <ul className="mb-5">
                   <li>
@@ -46,10 +46,10 @@ export default function Single_Post() {
                     </Link>
                   </li>
                 </ul>
-                <h2 className="md:text-4xl text-3xl font-productSansBold font-bold text-skin-dark mb-5">
+                <h2 className="mb-5 text-3xl font-bold md:text-4xl font-productSansBold text-skin-dark">
                   7 Best Investing Blogs 2022: Think Like an Investor
                 </h2>
-                <p className="font-gildaDisplay md:text-2xl text-lg font-normal text-skin-dark mb-5">
+                <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-2xl text-skin-dark">
                   In this segment of our ‘Think Like an Investor’ series, we’re
                   going to look at another resource which proves invaluable to
                   the modern investor: blogs.
@@ -63,14 +63,14 @@ export default function Single_Post() {
                     layout="fill"
                   ></Image>
                 </figure>
-                <span className="font-interRegular text-sm font-normal italic text-skin-muted">
+                <span className="text-sm italic font-normal font-interRegular text-skin-muted">
                   Photo caption if any goes here
                 </span>
               </div>
               <div>
-                <div className="md:border-0 border border-gray-200 p-5 mb-5">
+                <div className="p-5 mb-5 border border-gray-200 md:border-0">
                   <ul className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${socialSticky ? 'md:fixed' : 'md:block' }`}>
-                    <li className="font-productSansBold md:text-xl text-sm font-bold text-skin-dark">
+                    <li className="text-sm font-bold font-productSansBold md:text-xl text-skin-dark">
                       Share
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
@@ -104,40 +104,40 @@ export default function Single_Post() {
                   </ul>
                 </div>
                 <div className="mb-7">
-                  <p className="font-gildaDisplay md:text-xl text-lg font-normal text-skin-dark mb-5">
+                  <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-xl text-skin-dark">
                     Now we know what you’re thinking, everyone and their dog has
                     their own blog these days, and while we’re not decrying the
                     merits of a good dog blog, we’ve cut through the noise and
                     listed our favorite investing blogs so you don’t have to
                     slog through the fog (Dr. Seuss eat your heart out).
                   </p>
-                  <p className="font-gildaDisplay md:text-xl text-lg font-normal text-skin-dark mb-5">
+                  <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-xl text-skin-dark">
                     If you like this, check out our other resources to start
                     thinking like an investor:
                   </p>
-                  <ul className="list-disc list-inside space-y-2">
-                    <li className="font-interRegular md:text-xl text-lg font-normal text-skin-primary">
+                  <ul className="space-y-2 list-disc list-inside">
+                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
                       Best Investing Apps
                     </li>
-                    <li className="font-interRegular md:text-xl text-lg font-normal text-skin-primary">
+                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
                       Best Investing Podcasts
                     </li>
-                    <li className="font-interRegular md:text-xl text-lg font-normal text-skin-primary">
+                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
                       Best Investing Twitter Accounts
                     </li>
-                    <li className="font-interRegular md:text-xl text-lg font-normal text-skin-primary">
+                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
                       Best Investing Books
                     </li>
-                    <li className="font-interRegular md:text-xl text-lg font-normal text-skin-primary">
+                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
                       Best Investing Newsletters
                     </li>
                   </ul>
                 </div>
                 <div className="mb-7">
-                  <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
+                  <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
                     MyWallSt Blog
                   </h6>
-                  <p className="font-gildaDisplay md:text-xl text-lg font-normal text-skin-dark mb-5">
+                  <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-xl text-skin-dark">
                     Here at MyWallSt, we provide something for everyone. From
                     daily business and stock market news to analyzing individual
                     stocks and an ever-expanding mine of educational posts to
@@ -149,10 +149,10 @@ export default function Single_Post() {
                   </p>
                 </div>
                 <div className="mb-7">
-                  <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
+                  <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
                     The Collaborative Fund: Morgan Housel
                   </h6>
-                  <p className="font-gildaDisplay md:text-xl text-lg font-normal text-skin-dark mb-5">
+                  <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-xl text-skin-dark">
                     Morgan Housel is an amazing writer who produces insights
                     that are as eye-opening as they are simple. Taking a few
                     steps back, he surveys a wide range of economic and
@@ -167,7 +167,7 @@ export default function Single_Post() {
                 </div>
               </div>
               <div className="mb-10" >
-                <h6 className="font-productSansBold md:text-2xl text-xl font-bold text-skin-dark mb-5">
+                <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
                   Tags
                 </h6>
                 <ul className="flex flex-wrap gap-3 mb-5">
@@ -237,11 +237,11 @@ export default function Single_Post() {
                 </ul>
               </div>
               <div>
-                <ul className="flex gap-10 md:justify-start justify-between items-center">
+                <ul className="flex items-center justify-between gap-10 md:justify-start">
                   <li>
                     <Link href="#">
                       <a>
-                        <p className="text-skin-primary font-interRegular font-normal md:text-lg text-sm flex gap-2 items-bottom">
+                        <p className="flex gap-2 text-sm font-normal text-skin-primary font-interRegular md:text-lg items-bottom">
                           <span className="text-2xl">
                             <FaRegThumbsUp />
                           </span>
@@ -268,7 +268,7 @@ export default function Single_Post() {
             {/* Posts Column END*/}
             
             {/* Sidebar Column Start*/}
-            <div className="md:w-3/12 w-full">
+            <div className="w-full md:w-3/12">
               <Sidebar />
             </div>
             {/* Sidebar Column End*/}
