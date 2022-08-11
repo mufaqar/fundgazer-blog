@@ -10,7 +10,7 @@ export default function Disclaimer() {
         <div className="container md:w-[1020px] mx-auto py-20">
           <div className="p-4">
             <h3 className="md:text-5xl text-3xl font-interBold font-bold text-skin-primary mb-10">
-              Disclaimer
+              Disclaimer 01
             </h3>
 
             <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5">
