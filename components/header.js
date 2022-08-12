@@ -109,8 +109,8 @@ export default function Header() {
             </Link>
           </div>
           <div className="flex items-center justify-end w-9/12">
-            <div className='block md:hidden mr-5'> {/* search icon */}
-              <BiSearch className={`text-3xl ${headerClr ? 'text-white' : 'text-black'}`} />
+            <div className={`md:hidden mr-5 ${router.pathname === '/blog' ? 'block' : 'hidden'}`}> {/* search icon */}
+              <BiSearch className={`text-3xl ${headerClr ? 'text-white' : 'text-black'} `}  />
             </div>
             <div
               className="relative z-50 flex flex-col items-center justify-between w-7 h-6 md:hidden"
