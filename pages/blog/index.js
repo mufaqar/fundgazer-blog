@@ -2,8 +2,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Post_template from '../../components/post-template';
 import Sidebar from '../../components/sidebar';
+import { client } from '../../lib/conn'
+import imageUrlBuilder from '@sanity/image-url'
 
-export default function Blog() {
+
+
+export default function Blog({blogs}) {
+  
+  console.log('blogs****', blogs);
+
   return (
     <>
       <section>
@@ -112,4 +119,27 @@ export default function Blog() {
       
     </>
   );
+}
+
+
+
+export async function getStaticProps() {
+  const blogs = await client.fetch(`*[_type == "blog"]{
+    title,
+    featureImage{
+      asset->{
+        url
+      }
+    },
+    author{
+      author->{
+        name
+      }
+    }
+  }`);
+  return {
+    props: {
+      blogs
+    }
+  };
 }

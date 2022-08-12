@@ -82,8 +82,9 @@ export default function Footer() {
           </div>
         </div>
       </section>
+      
       <section className="bg-skin-dark">
-        <div className="container py-3 mx-auto">
+        <div className="container py-6 lg:py-3 mx-auto">
           <div>
             <p className="text-sm font-normal text-center md:text-base text-skin-light font-interRegular">
               @Copyrighted by Fundgazer
