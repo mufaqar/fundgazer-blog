@@ -14,8 +14,8 @@ export default function Disclaimer() {
             </h3>
 
             <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5">
-              The content odfgsdgff this website has been prepared by
-              contributions from people from the Investments community.
+              The content this website has been prepared by contributions from
+              people from the Investments community.
             </p>
             <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5">
               The content on this website created solely for educational

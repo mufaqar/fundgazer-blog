@@ -50,3 +50,10 @@
   background-color: var(--color-primary);
   color: var(--color-text-light);
 }
+.captcha{
+  margin: 1rem 0 !important;
+}
+.hero-mobile-banner>span{
+  width: 100% !important;
+  height: 550px !important;
+}

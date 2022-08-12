@@ -10,7 +10,7 @@ export default function Footer() {
           <div className="p-5">
             <ul className="flex flex-row justify-between gap-5 md:flex-col">
               <li>
-                <Link href="#">
+                <Link href="/about">
                   <a className="text-base font-normal md:text-lg text-skin-light font-interRegular">
                     About Us
                   </a>
@@ -82,8 +82,9 @@ export default function Footer() {
           </div>
         </div>
       </section>
+      
       <section className="bg-skin-dark">
-        <div className="container py-3 mx-auto">
+        <div className="container py-6 lg:py-3 mx-auto">
           <div>
             <p className="text-sm font-normal text-center md:text-base text-skin-light font-interRegular">
               @Copyrighted by Fundgazer

@@ -6,6 +6,7 @@ import whiteLogo from '../public/images/white-logo.png';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Head from 'next/head';
+import { BiSearch } from "react-icons/bi";
 
 function NavLink({ to, children }) {
   return (
@@ -84,7 +85,7 @@ export default function Header() {
       >
         <div className="container flex items-center justify-between mx-auto">
           <MobileNav open={open} setOpen={setOpen} />
-          <div className="flex items-center w-3/12">
+          <div className="flex items-center w-2/3 lg:w-3/12">
             <Link href="/">
               <a className="text-2xl font-semibold">
                 {headerClr ? (
@@ -108,25 +109,28 @@ export default function Header() {
             </Link>
           </div>
           <div className="flex items-center justify-end w-9/12">
+            <div className='block md:hidden mr-5'> {/* search icon */}
+              <BiSearch className={`text-3xl ${headerClr ? 'text-white' : 'text-black'}`} />
+            </div>
             <div
-              className="relative z-50 flex flex-col items-center justify-between w-8 h-8 md:hidden"
+              className="relative z-50 flex flex-col items-center justify-between w-7 h-6 md:hidden"
               onClick={() => {
                 setOpen(!open);
               }}
             >
               {/* hamburger button */}
               <span
-                className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${
+                className={`h-1 w-full ${headerClr ? 'bg-white' : 'bg-black'}  rounded-lg transform transition duration-300 ease-in-out ${
                   open ? 'rotate-45 translate-y-3.5' : ''
                 }`}
               />
               <span
-                className={`h-1 w-full bg-black rounded-lg transition-all duration-300 ease-in-out ${
+                className={`h-1 w-full ${headerClr ? 'bg-white' : 'bg-black'} rounded-lg transition-all duration-300 ease-in-out ${
                   open ? 'w-0' : 'w-full'
                 }`}
               />
               <span
-                className={`h-1 w-full bg-black rounded-lg transform transition duration-300 ease-in-out ${
+                className={`h-1 w-full ${headerClr ? 'bg-white' : 'bg-black'} rounded-lg transform transition duration-300 ease-in-out ${
                   open ? '-rotate-45 -translate-y-3.5' : ''
                 }`}
               />
