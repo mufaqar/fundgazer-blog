@@ -1,3 +1,5 @@
+import React from "react";
+import { client } from "../../lib/conn";
 import Image from "next/image";
 import Link from "next/link";
 import Sidebar from "../../components/sidebar";
@@ -8,12 +10,13 @@ import Comment_Section from "../../components/comment-section";
 import { BsFacebook, BsTwitter, BsWhatsapp } from "react-icons/bs";
 import { useState } from "react";
 import { useEffect } from "react";
-// import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-hook-inview"; // use current active screen Area
 import AuthorProfile from "../../components/authorProfile";
-import { Router } from "next/router";
+import PortableText from "react-portable-text"
 
-export default function Single_Post() {
+export default function Single({ blog, latestBlogs, tags }) {
+  console.log("tags in function", blog);
+
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
@@ -38,42 +41,37 @@ export default function Single_Post() {
                   <li>
                     <Link href="#">
                       <a className="text-sm font-normal font-interRegular text-skin-muted">
-                        11 March 2023
+                      {blog.releaseDate}
                       </a>
                     </Link>
                   </li>
                 </ul>
                 <h2 className="mb-5 text-3xl font-bold md:text-4xl font-productSansBold text-skin-dark">
-                  7 Best Investing Blogs 2022: Think Like an Investor
+                  {blog.title}
                 </h2>
                 <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansReqular">
-                  <li>
-                    <Link href="#">
-                      <a>#Economy</a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <a>#Crypto</a>
-                    </Link>
-                  </li>
+                  {blog.tags.slice(0, 2).map((tag, index) => (
+                    <li key={index} className="hover:underline">
+                      <Link href="#">
+                        <a>#{tag.tag}</a>
+                      </Link>
+                    </li>
+                  ))}
                 </ul>
                 <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-2xl text-skin-dark">
-                  In this segment of our ‘Think Like an Investor’ series, we’re
-                  going to look at another resource which proves invaluable to
-                  the modern investor: blogs.
+                {blog.excerpt}
                 </p>
               </div>
               <div className="text-center mb-7">
                 <figure className="md:h-[395px] w-full h-[179px] relative  mb-3">
                   <Image
-                    src="/images/postBanner.png"
-                    alt="postBanner.png"
+                    src={blog.featureImage.asset.url}
+                    alt={blog.title}
                     layout="fill"
                   ></Image>
                 </figure>
                 <span className="text-sm italic font-normal font-interRegular text-skin-muted">
-                  Photo caption if any goes here
+                  { !blog.featureImage.caption ? '' : blog.featureImage.caption }
                 </span>
               </div>
               <div>
@@ -116,72 +114,24 @@ export default function Single_Post() {
                     </li>
                   </ul>
                 </div>
-                <div className="mb-7">
-                  <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-xl text-skin-dark">
-                    Now we know what you’re thinking, everyone and their dog has
-                    their own blog these days, and while we’re not decrying the
-                    merits of a good dog blog, we’ve cut through the noise and
-                    listed our favorite investing blogs so you don’t have to
-                    slog through the fog (Dr. Seuss eat your heart out).
-                  </p>
-                  <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-xl text-skin-dark">
-                    If you like this, check out our other resources to start
-                    thinking like an investor:
-                  </p>
-                  <ul className="space-y-2 list-disc list-inside">
-                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
-                      Best Investing Apps
-                    </li>
-                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
-                      Best Investing Podcasts
-                    </li>
-                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
-                      Best Investing Twitter Accounts
-                    </li>
-                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
-                      Best Investing Books
-                    </li>
-                    <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
-                      Best Investing Newsletters
-                    </li>
-                  </ul>
+                <div className="single_inner_content">
+                  <PortableText
+                    // Pass in block content straight from Sanity.io
+                    content={blog.content}
+                    // Optionally override marks, decorators, blocks, etc. in a flat
+                    // structure without doing any gymnastics
+                    serializers={{
+                      h6: ({ children }) => ( <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">{children}</h6> ),
+                      ul: ({ children }) => ( <ul className="space-y-2 list-disc list-inside">{children}</ul> ),
+                      li: ({ children }) => ( <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">{children}</li> ),
+                    }}
+                  />
                 </div>
-                <div className="mb-7">
-                  <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
-                    MyWallSt Blog
-                  </h6>
-                  <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-xl text-skin-dark">
-                    Here at MyWallSt, we provide something for everyone. From
-                    daily business and stock market news to analyzing individual
-                    stocks and an ever-expanding mine of educational posts to
-                    make you a better investor, our blog accommodates every type
-                    of retail investor out there. It also boasts the best
-                    writing team out there.<br></br>Possibly the best writing
-                    team ever produced, they provide humble and unbiased
-                    analysis at every step!
-                  </p>
-                </div>
-                <div className="mb-7">
-                  <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
-                    The Collaborative Fund: Morgan Housel
-                  </h6>
-                  <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-xl text-skin-dark">
-                    Morgan Housel is an amazing writer who produces insights
-                    that are as eye-opening as they are simple. Taking a few
-                    steps back, he surveys a wide range of economic and
-                    historical factors to mold and support his long-form opinion
-                    pieces, which are produced weekly. His perspective on
-                    macro-economics is really unique, as is the subject matter
-                    of his weekly post.<br></br>I would highly recommend his
-                    article the
-                    <span className="text-skin-primary">freakishly strong</span>
-                    base for any investor getting started in the stock market.
-                  </p>
-                </div>
+                
               </div>
               {/* author profile  */}
               <div className="block md:hidden">
-              <AuthorProfile/>
+                <AuthorProfile />
               </div>
               {/* xx author profile  xx */}
               <div className="mb-10">
@@ -189,69 +139,16 @@ export default function Single_Post() {
                   Tags
                 </h6>
                 <ul className="flex flex-wrap gap-3 mb-5">
-                  <li className="py-2">
+                  
+                  {blog.tags.map((tag, index) => (
+                    <li className="py-2" key={index}>
                     <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Investment
+                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-[#6F49DD] hover:text-white">
+                        #{tag.tag}
                       </a>
                     </Link>
                   </li>
-                  <li className="py-2">
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Crypto
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="py-2">
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Economy
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="py-2">
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Something
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="py-2">
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Crypto
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="py-2">
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Economy
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="py-2">
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Investment
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="py-2">
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Crypto
-                      </a>
-                    </Link>
-                  </li>
-                  <li className="py-2">
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular">
-                        #Economy
-                      </a>
-                    </Link>
-                  </li>
+                  ))}
                 </ul>
               </div>
               <div>
@@ -263,7 +160,7 @@ export default function Single_Post() {
                           <span className="text-2xl">
                             <FaRegThumbsUp />
                           </span>
-                          <span className="font-bold">Like</span> 2,562
+                          <span className="font-bold">Like</span> {blog.likes}
                         </p>
                       </a>
                     </Link>
@@ -275,7 +172,7 @@ export default function Single_Post() {
                           <span className="text-2xl rotate-180">
                             <FaRegThumbsUp />
                           </span>
-                          <span className="font-bold">Dislike</span> 256
+                          <span className="font-bold">Dislike</span> {blog.dislikes}
                         </p>
                       </a>
                     </Link>
@@ -287,7 +184,7 @@ export default function Single_Post() {
 
             {/* Sidebar Column Start*/}
             <div className="w-full md:w-3/12 hidden md:block">
-              <Sidebar />
+              <Sidebar blog={blog} latestBlogs={latestBlogs}/>
             </div>
             {/* Sidebar Column End*/}
           </div>
@@ -302,3 +199,47 @@ export default function Single_Post() {
     </>
   );
 }
+
+export const getServerSideProps = async (pageContext) => {
+  const pageSlug = pageContext.query.slug;
+  const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
+    title,
+    tags[]->{
+        tag
+    },
+    likes,
+    excerpt,
+    content,
+    dislikes,
+    slug,
+    releaseDate,
+    featureImage{
+      asset->{
+        url
+      },
+      caption
+    },
+    author{
+      author->{
+        name
+      }
+    }
+  }`;
+  const blog = await client.fetch(query, { pageSlug });
+
+  const latestBlogs = await client.fetch(`*[_type == "blog"]{
+    title,
+    slug,
+    releaseDate,
+  }`);
+
+  const tags = await client.fetch(`*[_type == "tags"]`);
+
+  return {
+    props: {
+      blog,
+      latestBlogs,
+      tags
+    }, // will be passed to the page component as props
+  };
+};

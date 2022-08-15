@@ -3,13 +3,14 @@ import RecentPost from "./recentPost";
 import PopularTag from "./popularTag";
 import Search from "./search";
 
-export default function Sidebar() {
+export default function Sidebar({latestBlogs, blog}) {
+
   return (
     <aside>
       <Search />
-      <AuthorProfile />
+      <AuthorProfile blog= {blog}/>
       <PopularTag />
-      <RecentPost />
+      <RecentPost latestBlogs={latestBlogs} />
     </aside>
   );
 }

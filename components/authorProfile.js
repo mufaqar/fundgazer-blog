@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { BsLinkedin } from 'react-icons/bs';
 
-export default function AuthorProfile() {
+export default function AuthorProfile({blog}) {
     const [profileHide, setProfileHide] = useState(false)
     let route =  useRouter();
     

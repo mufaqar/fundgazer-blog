@@ -20,52 +20,103 @@ export default {
       },
     },
     {
-      title: 'Feature Image',
-      name: 'featureImage',
-      type: 'image',
+      title: "Feature Image",
+      name: "featureImage",
+      type: "image",
       options: {
-        hotspot: true // <-- Defaults to false
+        hotspot: true, // <-- Defaults to false
       },
       fields: [
         {
-          name: 'caption',
-          type: 'string',
-          title: 'Caption',
+          name: "caption",
+          type: "string",
+          title: "Caption",
           options: {
-            isHighlighted: true // <-- make this field easily accessible
-          }
+            isHighlighted: true, // <-- make this field easily accessible
+          },
         },
         {
           // Editing this field will be hidden behind an "Edit"-button
-          name: 'attribution',
-          type: 'string',
-          title: 'Attribution',
+          name: "attribution",
+          type: "string",
+          title: "Attribution",
+        },
+      ],
+    },
+    {
+      title: "Excerpt",
+      name: "excerpt",
+      type: "text",
+    },
+    {
+      title: "Release date",
+      name: "releaseDate",
+      type: "date",
+      options: {
+        dateFormat: "YYYY-MM-DD",
+        calendarTodayLabel: "Today",
+      },
+    },
+    {
+      name: "author",
+      type: "object",
+      fields: [
+        {
+          title: "Author",
+          name: "author",
+          type: "reference",
+          to: [{ type: "author" }],
+        },
+      ],
+    },
+    {
+      title: 'Tags',
+      name: 'tags',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            {type: 'tags'},
+          ]
         }
       ]
     },
     {
-      title: 'Excerpt',
-      name: 'excerpt',
-      type: 'text'
+      name: "likes",
+      type: "string",
+      title: "Likes",
     },
     {
-      title: 'Release date',
-      name: 'releaseDate',
-      type: 'date',
-      options: {
-        dateFormat: 'YYYY-MM-DD',
-        calendarTodayLabel: 'Today'
-      }
+      name: "dislikes",
+      type: "string",
+      title: "Dis Likes",
     },
     {
-      name: 'author',
-      type: 'object',
-      fields: [
+      name: 'content',
+      title: 'Content',
+      type: 'array',
+      of: [
         {
-          title: 'Author',
-          name: 'author',
-          type: 'reference',
-          to: [{type: 'author'}]
+          type: 'block'
+        },
+        {
+          type: 'image',
+          fields: [
+            {
+              type: 'text',
+              name: 'alt',
+              title: 'Alternative text',
+              description: `Some of your visitors cannot see images, 
+                be they blind, color-blind, low-sighted; 
+                alternative text is of great help for those 
+                people that can rely on it to have a good idea of 
+                what\'s on your page.`,
+              options: {
+                isHighlighted: true
+              }
+            }
+          ]
         }
       ]
     },

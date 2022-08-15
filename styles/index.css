@@ -57,3 +57,18 @@
   width: 100% !important;
   height: 550px !important;
 }
+
+.single_inner_content p{
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  color: var(--color-dark); 
+  font-weight: 400;
+  font-family: GildaDisplay, sans-serif;
+  margin-bottom: 1.25rem;
+}
+.single_inner_content ul{
+  margin-bottom: 1.25rem;
+}
+.single_inner_content span{
+  color: #E86A34;
+}
