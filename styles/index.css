@@ -72,3 +72,6 @@
 .single_inner_content span{
   color: #E86A34;
 }
+._block{
+  display: block !important;
+}

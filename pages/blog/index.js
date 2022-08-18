@@ -57,7 +57,7 @@ export default function Blog({ blogs, tags }) {
                     return (
                       <div
                         key={index}
-                        className="flex flex-row gap-5 px-5 py-3 mt-5 border-b md:px-0"
+                        className="flex flex-row gap-5 px-5 py-3 mt-5 md:px-0"
                       >
                         <Post_template blog={blog} />
                       </div>
@@ -67,12 +67,9 @@ export default function Blog({ blogs, tags }) {
                   if (index === 0) {
                   } else {
                     return (
-                      <div
-                        key={index}
-                        className="flex flex-row gap-5 px-5 py-3 mt-5 border-b md:px-0"
-                      >
-                        <Post_template blog={blog} />
-                      </div>
+                     
+                      <Post_template blog={blog} />
+                      
                     );
                   }
                 })

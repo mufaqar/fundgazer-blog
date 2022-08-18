@@ -11,7 +11,7 @@ export default function AuthorProfile({authorName, ProfileURL, linkedinURL}) {
     let route =  useRouter();
     
     function profile() {
-      if(route.pathname === '/blog'){
+      if(route.pathname === '/blog' || route.pathname === '/blog/tag'){
         setProfileHide(true);
       }else{
         setProfileHide(false);

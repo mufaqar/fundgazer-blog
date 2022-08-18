@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function FirstBlog({data}) {
-  
+  // console.log('data>>>>>>>>', data)
   return (
     <>
       <div className="flex flex-col-reverse py-5 mb-10 border-b md:flex-row md:gap-8 pt-0">
@@ -56,7 +56,7 @@ export default function FirstBlog({data}) {
               {data.excerpt}
             </p>
           </div>
-          <ul className="hidden md:flex mb-4 space-x-3 text-[15px] font-normal text-skin-muted font-interRegular">
+          <ul className="hidden md:flex  space-x-3 text-[15px] font-normal text-skin-muted font-interRegular">
             <li>
               <div>
                 <a>{data.author.author.name}</a>

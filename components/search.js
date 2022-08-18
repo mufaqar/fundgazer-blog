@@ -10,13 +10,15 @@ export default function Search({setSearchInput, serachInput}) {
     setSearchInput(e.target.value);
   }
   const handleClick = () => {
-    router.pathname.includes('/blog/') &&  router.push('/blog')
-    
+    // router.pathname.includes('/blog/')  &&  router.push('/blog')
+    // router.pathname.includes('/blog/tag') 
   }
+
+  console.log('',router)
 
   return (
     <>
-      <div className="p-5 mb-5 border-b md:px-0">
+      <div className={`p-5 mb-5 border-b md:px-0 ${router.pathname.includes('/blog/') ? 'hidden' : 'block'} ${router.pathname.includes('/blog/tag') ? '_block' : ''}`}>
         <form>
           <label
             htmlFor="default-search"
