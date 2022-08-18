@@ -9,6 +9,11 @@ export default {
       title: "Name",
     },
     {
+      name: "linkedinurl",
+      type: "string",
+      title: "Linkedin Url",
+    },
+    {
       title: "Author Profile",
       name: "authorprofile",
       type: "image",

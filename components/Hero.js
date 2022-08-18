@@ -1,17 +1,20 @@
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-hook-inview"; // use current active screen Area
-import mobileBanner from '../public/images/hero-mobile.png'
 import Image from 'next/image'
 import OurCommunity from "../pages/our-community";
+import {useRef} from 'react';
 
 export default function Posts() {
   const [ref, inView] = useInView();
   const animationText = useAnimation();
+  const uref = useRef(null);
+  const tempanim = useRef();
 
-  useEffect(() => {
+
+  function animationfun(){
     if (inView) {
       animationText.start({
         opacity: 1,
@@ -28,7 +31,35 @@ export default function Posts() {
         scale: 0.8,
       });
     }
+  }
+
+  tempanim.current = animationfun
+
+  useEffect(() => {
+    tempanim.current()
   }, [inView]);
+
+
+  const el2 = uref.current;
+
+  // useEffect(() => {
+ 
+  // });
+  
+  // const [scrollPosition, setScrollPosition] = useState(0);
+  // const handleScroll = () => {
+  //     const position = window.pageYOffset;
+  //     setScrollPosition(position);
+  // };
+  
+  // useEffect(() => {
+  //     window.addEventListener('scroll', handleScroll, { passive: true });
+  
+  //     return () => {
+  //         window.removeEventListener('scroll', handleScroll);
+  //     };
+  // }, []);
+
 
   return (
     <>
@@ -60,7 +91,7 @@ export default function Posts() {
             </Link>
           </div>
           <div className="float-right col-span-2 md:p-4 overflow-x-hidden landingVideo">
-            <div className="md:block hidden">
+            <div className="md:block">
               <video
                 width="1000"
                 height="800"
@@ -73,13 +104,13 @@ export default function Posts() {
               </video>
             </div>
             
-            <figure className="hero-mobile-banner md:hidden">
+            {/* <figure className="hero-mobile-banner md:hidden">
             <Image 
                 src= {mobileBanner}
                 alt="Mobile Banner"
                 className="w-full"
               />
-            </figure>
+            </figure> */}
           
             <div className="mx-4 block md:hidden">
               <Link href="#">
@@ -97,8 +128,8 @@ export default function Posts() {
       {/* Banner Section End*/}
 
       {/* Jion Us Section Start*/}
-      <section className="bg-skin-primary">
-        <div className="container grid items-center lg:h-[800px] grid-cols-1 gap-8 py-12 lg:py-20 mx-auto md:grid-cols-2">
+      <section className="bg-skin-primary cta" ref={uref}>
+        <div className="container grid items-center lg:h-[100vh] grid-cols-1 gap-8 py-12 lg:py-20 mx-auto md:grid-cols-2">
           <div className="p-4 order-last md:order-first mt-10 md:mt-0">
             <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-[#D1C6FF] font-interRegular">
               <span className="font-bold text-skin-light">Join </span> Waitlist

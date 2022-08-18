@@ -8,7 +8,7 @@ export default function Post_template({ blog }) {
         <div>
           <Link href={`/blog/${blog.slug.current}`}>
             <a>
-              <h3 className="mb-3 text-base font-bold md:text-3xl text-skin-dark font-productSansBold">
+              <h3 className="mb-3 text-base font-bold md:text-3xl text-skin-dark font-productSansBold hover:underline transition-all ease-in-out duration-300">
                 {blog.title}
               </h3>
             </a>
@@ -26,28 +26,28 @@ export default function Post_template({ blog }) {
             {blog.excerpt}
           </p>
         </div>
-        <ul className="flex gap-6 text-[15px] font-normal font-interRegular text-skin-muted mt-6">
+        <ul className="flex gap-3 text-[15px] font-normal font-interRegular text-skin-muted mt-6">
           <li>
-            <Link href="#">
+            <div>
               <a>{blog.author.author.name}</a>
-            </Link>
+            </div>
           </li>
           <li>
-            <Link href="#">
+            <div>
               <a>{blog.releaseDate}</a>
-            </Link>
+            </div>
           </li>
         </ul>
       </div>
       <div className="w-3/12">
         <Link href={`/blog/${blog.slug.current}`}>
           <a>
-            <figure className="md:max-h-[202px] h-[94px] md:max-w-[235px] md:w-full md:h-full relative ml-auto">
+            <figure className="md:max-h-[202px] h-[94px] md:max-w-[235px] md:w-full md:h-full relative ml-auto rounded-lg overflow-hidden">
               <Image
                 src={blog.featureImage.asset.url}
                 alt="img2"
                 layout="fill"
-                className="object-cover rounded-lg"
+                className="object-cover rounded-lg hover:scale-105 transition-all ease-in-out duration-300"
               ></Image>
             </figure>
           </a>

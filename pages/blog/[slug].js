@@ -12,10 +12,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useInView } from "react-hook-inview"; // use current active screen Area
 import AuthorProfile from "../../components/authorProfile";
-import PortableText from "react-portable-text"
+import PortableText from "react-portable-text";
 
 export default function Single({ blog, latestBlogs, tags }) {
-  console.log("tags in function", blog);
+  // console.log("tags in function", blog.author.author);
 
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
@@ -35,13 +35,13 @@ export default function Single({ blog, latestBlogs, tags }) {
         <div className="container pb-10 mx-auto pt-28 ">
           <div className="flex flex-col gap-16 md:flex-row">
             {/* Posts Column Start*/}
-            <div className="relative w-full p-5 pr-5 md:pr-16 md:w-9/12 md:pl-20">
+            <div className="relative w-full px-6 lg:pr-3 md:w-9/12 md:pl-20">
               <div className="mb-7">
                 <ul className="mb-5">
                   <li>
                     <Link href="#">
                       <a className="text-sm font-normal font-interRegular text-skin-muted">
-                      {blog.releaseDate}
+                        {blog.releaseDate}
                       </a>
                     </Link>
                   </li>
@@ -59,7 +59,7 @@ export default function Single({ blog, latestBlogs, tags }) {
                   ))}
                 </ul>
                 <p className="mb-5 text-lg font-normal font-gildaDisplay md:text-2xl text-skin-dark">
-                {blog.excerpt}
+                  {blog.excerpt}
                 </p>
               </div>
               <div className="text-center mb-7">
@@ -71,7 +71,7 @@ export default function Single({ blog, latestBlogs, tags }) {
                   ></Image>
                 </figure>
                 <span className="text-sm italic font-normal font-interRegular text-skin-muted">
-                  { !blog.featureImage.caption ? '' : blog.featureImage.caption }
+                  {!blog.featureImage.caption ? "" : blog.featureImage.caption}
                 </span>
               </div>
               <div>
@@ -121,13 +121,24 @@ export default function Single({ blog, latestBlogs, tags }) {
                     // Optionally override marks, decorators, blocks, etc. in a flat
                     // structure without doing any gymnastics
                     serializers={{
-                      h6: ({ children }) => ( <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">{children}</h6> ),
-                      ul: ({ children }) => ( <ul className="space-y-2 list-disc list-inside">{children}</ul> ),
-                      li: ({ children }) => ( <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">{children}</li> ),
+                      h6: ({ children }) => (
+                        <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
+                          {children}
+                        </h6>
+                      ),
+                      ul: ({ children }) => (
+                        <ul className="space-y-2 list-disc list-inside">
+                          {children}
+                        </ul>
+                      ),
+                      li: ({ children }) => (
+                        <li className="text-lg font-normal font-interRegular md:text-xl text-skin-primary">
+                          {children}
+                        </li>
+                      ),
                     }}
                   />
                 </div>
-                
               </div>
               {/* author profile  */}
               <div className="block md:hidden">
@@ -139,15 +150,14 @@ export default function Single({ blog, latestBlogs, tags }) {
                   Tags
                 </h6>
                 <ul className="flex flex-wrap gap-3 mb-5">
-                  
                   {blog.tags.map((tag, index) => (
                     <li className="py-2" key={index}>
-                    <Link href="#">
-                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-[#6F49DD] hover:text-white">
-                        #{tag.tag}
-                      </a>
-                    </Link>
-                  </li>
+                      <Link href="#">
+                        <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-[#6F49DD] hover:text-white">
+                          #{tag.tag}
+                        </a>
+                      </Link>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -170,9 +180,10 @@ export default function Single({ blog, latestBlogs, tags }) {
                       <a>
                         <p className="text-[#E86A34] font-interRegular font-normal md:text-lg text-sm flex gap-2 items-bottom">
                           <span className="text-2xl rotate-180">
-                            <FaRegThumbsUp />
+                            <FaRegThumbsDown />
                           </span>
-                          <span className="font-bold">Dislike</span> {blog.dislikes}
+                          <span className="font-bold">Dislike</span>{" "}
+                          {blog.dislikes}
                         </p>
                       </a>
                     </Link>
@@ -184,7 +195,7 @@ export default function Single({ blog, latestBlogs, tags }) {
 
             {/* Sidebar Column Start*/}
             <div className="w-full md:w-3/12 hidden md:block">
-              <Sidebar blog={blog} latestBlogs={latestBlogs}/>
+              <Sidebar tags={tags} latestBlogs={latestBlogs} authorName={blog.author.author.name} ProfileURL={blog.author.author.authorprofile.asset.url} linkedinURL={blog.author.author.linkedinurl}/>
             </div>
             {/* Sidebar Column End*/}
           </div>
@@ -193,7 +204,7 @@ export default function Single({ blog, latestBlogs, tags }) {
       <div ref={ref}></div>
       <div ref={ref2}>
         <RelatedPosts />
-        <Comment_Section />
+        <Comment_Section blog={blog} />
         <BlogFooter />
       </div>
     </>
@@ -204,10 +215,12 @@ export const getServerSideProps = async (pageContext) => {
   const pageSlug = pageContext.query.slug;
   const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
     title,
+    _id,
     tags[]->{
         tag
     },
     likes,
+    'comment' :*[_type == 'comment' && blog._ref == ^._id && approved == true],
     excerpt,
     content,
     dislikes,
@@ -221,10 +234,19 @@ export const getServerSideProps = async (pageContext) => {
     },
     author{
       author->{
-        name
+      name,
+      linkedinurl,
+       authorprofile{
+        asset->{
+          url
+        }
+       }
       }
     }
   }`;
+
+  
+
   const blog = await client.fetch(query, { pageSlug });
 
   const latestBlogs = await client.fetch(`*[_type == "blog"]{
@@ -239,7 +261,7 @@ export const getServerSideProps = async (pageContext) => {
     props: {
       blog,
       latestBlogs,
-      tags
+      tags,
     }, // will be passed to the page component as props
   };
 };

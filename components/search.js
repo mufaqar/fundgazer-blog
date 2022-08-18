@@ -1,6 +1,19 @@
+import { useRouter } from 'next/router';
 
 
-export default function Search() {
+export default function Search({setSearchInput, serachInput}) {
+  
+  const router = useRouter();
+  console.log('router.pathname', router.pathname.includes('/blog/'));
+
+  const handleChange = (e) => {
+    setSearchInput(e.target.value);
+  }
+  const handleClick = () => {
+    router.pathname.includes('/blog/') &&  router.push('/blog')
+    
+  }
+
   return (
     <>
       <div className="p-5 mb-5 border-b md:px-0">
@@ -34,6 +47,9 @@ export default function Search() {
               id="search"
               className="block p-4 pl-10 bg-skin-light text-skin-dark text-sm font-medium border border-black focus:border-[#6F49DD] focus:outline-none py-3 px-4 rounded w-full font-interMedium"
               placeholder="Search"
+              value={serachInput}
+              onChange={handleChange}
+              onClick={handleClick}
             />
           </div>
         </form>

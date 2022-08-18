@@ -1,14 +1,18 @@
-import Header from '../components/header';
-import '../styles/index.css';
+import Header from "../components/header";
+import "../styles/index.css";
+import { store } from "../lib/store";
+import { Provider } from "react-redux";
 
-import Footer from '../components/footer';
+import Footer from "../components/footer";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Header />
-      <Component {...pageProps} />
-      <Footer />
+      <Provider store={store}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </Provider>
     </>
   );
 }

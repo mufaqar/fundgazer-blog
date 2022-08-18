@@ -19,7 +19,7 @@ export default function RecentPost({ latestBlogs }) {
                 </a>
               </Link>
               <Link href={`/blog/${blog.slug.current}`}>
-                <a className="text-base font-normal md:text-[22px] text-skin-dark font-productSansReqular">
+                <a className="text-base hover:underline transition-all ease-linear duration-500 font-normal md:text-[22px] text-skin-dark font-productSansReqular">
                   {blog.title}
                 </a>
               </Link>

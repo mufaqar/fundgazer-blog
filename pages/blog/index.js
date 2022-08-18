@@ -1,17 +1,18 @@
-import Image from "next/image";
-import Link from "next/link";
+
 import BlogFooter from "../../components/blogFooter";
 import Post_template from "../../components/post-template";
 import Sidebar from "../../components/sidebar";
 import { client } from "../../lib/conn";
-import blog from "../../backend/schemas/blog";
 import { useState } from "react";
+import FirstBlog from "../../components/FirstBlog";
 
-export default function Blog({ blogs }) {
-  console.log("blogs****", blogs);
-  const [blogsData, setBlogsData] = useState(blogs);
-  const blogLength = blogs.length;
-
+export default function Blog({ blogs, tags }) {
+  // console.log("blogs****", blogs);
+  const [blogsData, setBlogsData] = useState( blogs );
+  const [serachInput, setSearchInput] = useState(); 
+  const filterData = blogsData.filter((item) => item.title.toLowerCase().includes(serachInput));
+  const [Flength, setFLength] = useState(false); 
+  
   return (
     <>
       <section>
@@ -24,91 +25,58 @@ export default function Blog({ blogs }) {
         </div>
       </section>
       <section className="mb-12 md:mt-28">
-        <div className="container md:pb-10 mx-auto lg:pl-16">
+        <div className="container md:pb-10 mx-auto">
           <div className="flex flex-col gap-10 md:flex-row">
             {/* Posts Column Start*/}
-            <div className="w-full lg:pr-20 md:w-9/12">
+            <div className="w-full lg:pr-10 md:w-9/12">
               {/* Main Post Start*/}
-              <div className="flex flex-col-reverse py-5 mb-10 border-b md:flex-row md:gap-8 pt-0">
-                <div className="w-full p-4 pb-0 md:pb-4 pt-0 md:pt-4 md:w-5/12 md:p-0">
-                  <Link href={`/blog/${blogsData[0].slug.current}`}>
-                    <a>
-                      <figure className="h-[162px] md:h-full lg:h-[360px] w-full relative">
-                        <Image
-                          src={blogsData[0].featureImage.asset.url}
-                          alt="img1"
-                          layout="fill"
-                          className="object-cover rounded-lg"
-                        ></Image>
-                      </figure>
-                    </a>
-                  </Link>
-                  <ul className="flex md:hidden justify-between mt-3 space-x-3 text-[15px] font-normal text-skin-muted font-interRegular">
-                    <li>
-                      <Link href="#">
-                        <a>Shashank Gupta</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#">
-                        <a>11 March 2023</a>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-                <div className="flex flex-col justify-between p-4 md:w-7/12 md:p-0">
-                  <div>
-                    <Link href={`/blog/${blogsData[0].slug.current}`}>
-                      <a>
-                        <h3 className="mb-3 text-2xl font-bold md:text-4xl text-skin-dark font-productSansBold">
-                          {blogsData[0].title}
-                        </h3>
-                      </a>
-                    </Link>
-                    <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansReqular">
-                      {blogs[0].tags.slice(0, 2).map((tag, index) => (
-                        <li key={index}>
-                          <Link href="#">
-                            <a>#{tag.tag}</a>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    <p className="mb-3 text-base font-normal md:text-xl text-skin-muted font-gildaDisplay">
-                      {blogsData[0].excerpt}
-                    </p>
-                  </div>
-                  <ul className="hidden md:flex mb-4 space-x-3 text-[15px] font-normal text-skin-muted font-interRegular">
-                    <li>
-                      <Link href="#">
-                        <a>{blogsData[0].author.author.name}</a>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link href="#">
-                        <a>{blogsData[0].releaseDate}</a>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                {
+                  serachInput ? filterData.map((blog, index) => {
+                  if (index === 0) {
+                    return (
+                      <FirstBlog  data={blog} key={index}/>
+                    );
+                  }}) : blogs.map((blog, index) => {
+                    if (index === 0) {
+                      return (
+                        <FirstBlog data={blog} key={index}/>
+                      );
+                    }})
+
+                }
               {/* Main Post END*/}
 
               {/* All Posts Start*/}
               <div>
-                {blogs.map((blog, index) => {
+                {serachInput ? filterData.length<1 ? <span className="mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">Result Not Found</span> : '' : ''}
+
+                {
+                  serachInput ? filterData.map((blog, index) => {
                   if (index === 0) {
                   } else {
                     return (
                       <div
                         key={index}
-                        className="flex flex-row gap-5 px-5 py-3 mt-12 border-b md:px-0"
+                        className="flex flex-row gap-5 px-5 py-3 mt-5 border-b md:px-0"
                       >
                         <Post_template blog={blog} />
                       </div>
                     );
                   }
-                })}
+                }) : blogs.map((blog, index) => {
+                  if (index === 0) {
+                  } else {
+                    return (
+                      <div
+                        key={index}
+                        className="flex flex-row gap-5 px-5 py-3 mt-5 border-b md:px-0"
+                      >
+                        <Post_template blog={blog} />
+                      </div>
+                    );
+                  }
+                })
+                }            
               </div>
               {/* All Posts END*/}
             </div>
@@ -116,7 +84,7 @@ export default function Blog({ blogs }) {
 
             {/* Sidebar Column Start*/}
             <div className="w-full md:w-3/12 hidden md:block">
-              <Sidebar latestBlogs={blogs} />
+              <Sidebar tags={tags} latestBlogs={blogs} setSearchInput={setSearchInput} serachInput={serachInput}/>
             </div>
             {/* Sidebar Column End*/}
           </div>
@@ -150,10 +118,12 @@ export async function getStaticProps() {
     }
   }`);
 
-  
+  const tags = await client.fetch(`*[_type == "tags"]`);
+
   return {
     props: {
       blogs,
+      tags
     },
   };
 }

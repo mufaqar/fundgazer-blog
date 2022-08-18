@@ -8,27 +8,23 @@ import { useEffect } from 'react';
 import Head from 'next/head';
 import { BiSearch } from "react-icons/bi";
 
-function NavLink({ to, children }) {
-  return (
-    <Link href={to} className={`mx-4 font-interBold tracking-wider`}>
-      {children}
-    </Link>
-  );
-}
+
+
+
 
 function MobileNav({ open, setOpen }) {
   return (
     <div
       className={`absolute top-0 left-0 h-screen w-screen bg-[#FAF9FD] transform ${
         open ? '-translate-x-0' : '-translate-x-full'
-      } transition-transform duration-300 ease-in-out filter drop-shadow-md `}
+      } transition-transform duration-300 ease-in-out filter drop-shadow-md h-80`}
     >
       <div className="flex items-center justify-center filter bg-[#FAF9FD] h-20">
         {/*logo container*/}
       </div>
-      <div className="flex flex-col ml-4">
+      <div className={`flex space-y-2 flex-col ml-4 ${open ? 'mt-8' : 'mt-0'}`}>
         <Link
-          className="my-4 text-xl font-bold"
+          className="my-4 text-xl font-bold "
           href="/our-community"
           onClick={() =>
             setTimeout(() => {
@@ -71,6 +67,8 @@ export default function Header() {
     window.addEventListener('scroll', onScroll);
     return () => window.removeEventListener('scroll', onScroll);
   }, [scrollTop]);
+
+
 
   return (
     <>
@@ -137,12 +135,14 @@ export default function Header() {
             </div>
 
             <div
-              className={`hidden text-xl font-bold md:flex space-x-10 ${
-                headerClr ? 'text-[#FAF9FD]' : 'text-black'
-              }`}
+              className={`hidden text-xl font-bold md:flex space-x-10 ${headerClr ? 'text-[#FAF9FD]' : 'text-black'} `}
             >
-              <NavLink to="/our-community">Join Our Community</NavLink>
-              <NavLink to="/blog">Blogs</NavLink>
+              <Link href="/our-community" className={`mx-4 font-interBold tracking-wider `}>
+                <a className={`hover:text-[#6F49DD] ${open ? '' : ''}`}>Join Our Community</a>
+              </Link>
+              <Link href="/blog" className={`mx-4 font-interBold tracking-wider  `}>
+                <a className='hover:text-[#6F49DD]'>Blogs</a>
+              </Link>
             </div>
           </div>
         </div>
