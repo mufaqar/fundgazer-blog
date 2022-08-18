@@ -7,7 +7,7 @@ export default async function createComment(req, res) {
     projectId: "3jk4lurs",
     dataset: "production",
     useCdn: false,
-    token: process.env.SANITY_API_TOKEN
+    token: "skWp3pAEFbN5jZDFAfJkPvfth6XBBNvV2dsUUErbldkZcP7NT6b5DpSbmDqLgPRvEE9NLAdVpZBykZe7QFEMJUKnFrcNanqoP6WyioEQ4O6wRV6TS4zpJ33uplGUAVYQbBE18WTHDswjAkwce6utiYqORbR3QNvr7Ldee5J6bUuWtuHwu6uS"
   };
 
   const client = sanityClient(config);
