@@ -24,8 +24,11 @@ export default function RelatedPosts({ allBlogs, tag }) {
         </h6>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {tagData.slice(0, 3).map((item) => (
-            <div className="flex md:flex-col flex-row-reverse gap-4 items-center md:border-b-0 border-b border-gray-200 md:py-0 py-3">
+          {tagData.slice(0, 3).map((item, index) => (
+            <div
+              key={index}
+              className="flex md:flex-col flex-row-reverse gap-4 items-center md:border-b-0 border-b border-gray-200 md:py-0 py-3"
+            >
               <Link href={`/blog/${item.slug.current}`}>
                 <a>
                   <figure className="md:w-[402px] w-[93px] md:h-[226px] h-[94px] relative">
