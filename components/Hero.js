@@ -11,7 +11,7 @@ export default function Posts() {
   const [ref, inView] = useInView();
   const animationText = useAnimation();
   const uref = useRef(null);
-  const tempanim = useRef();
+  const tempanim = useRef(); // use to remove React Hook useEffect has a missing dependency:
 
 
   function animationfun(){
@@ -33,10 +33,10 @@ export default function Posts() {
     }
   }
 
-  tempanim.current = animationfun
+  tempanim.current = animationfun  // use to remove React Hook useEffect has a missing dependency:
 
   useEffect(() => {
-    tempanim.current()
+    tempanim.current()   // use to remove React Hook useEffect has a missing dependency:
   }, [inView]);
 
 
