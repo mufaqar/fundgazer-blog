@@ -8,12 +8,16 @@ export default function RelatedPosts({ allBlogs, tag }) {
   let propsTag = tag;
   var tagData = [];
 
-  allBlogs.map((item) => {
-    item.tags.map((tag) => {
-      if (tag.tag === propsTag) {
-        tagData.push(item);
-      }
-    });
+  allBlogs.map((item, key) => {
+    <div key={key}>
+      {item.tags.map((tag, key2) => {
+        
+          if (tag.tag === propsTag) {
+          tagData.push(item);
+        }
+        
+      })}
+    </div>;
   });
 
   return (
@@ -24,7 +28,7 @@ export default function RelatedPosts({ allBlogs, tag }) {
         </h6>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {tagData.slice(0,3).map((item) => (
+          {tagData.slice(0, 3).map((item) => (
             <div className="flex md:flex-col flex-row-reverse gap-4 items-center md:border-b-0 border-b border-gray-200 md:py-0 py-3">
               <Link href={`/blog/${item.slug.current}`}>
                 <a>
@@ -38,7 +42,7 @@ export default function RelatedPosts({ allBlogs, tag }) {
                   </figure>
                 </a>
               </Link>
-              <Link  href={`/blog/${item.slug.current}`}>
+              <Link href={`/blog/${item.slug.current}`}>
                 <a>
                   <h5 className="font-productSansReqular md:text-2xl text-lg font-normal text-skin-dark">
                     {item.title}
