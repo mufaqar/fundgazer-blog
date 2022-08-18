@@ -12,9 +12,10 @@ export default function RelatedPosts({ allBlogs, tag }) {
     <div key={key}>
       {item.tags.map((tag, key2) => {
         
-          if (tag.tag === propsTag) {
-          tagData.push(item);
-        }
+         <div key={key2}>
+          { tag.tag === propsTag && tagData.push(item);}
+         </div>
+        
         
       })}
     </div>;
