@@ -14,7 +14,7 @@ export default function Search({setSearchInput, serachInput}) {
     // router.pathname.includes('/blog/tag') 
   }
 
-  console.log('',router)
+
 
   return (
     <>

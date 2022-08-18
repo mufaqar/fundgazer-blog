@@ -31,7 +31,7 @@ export default function Tag({ blogs, tags, tagblog }) {
 
 
 
-  // console.log('tagData', tagData)
+  console.log('tagblog', tagblog)
 
   return (
     <>

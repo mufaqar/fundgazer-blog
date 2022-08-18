@@ -14,8 +14,8 @@ import { useInView } from "react-hook-inview"; // use current active screen Area
 import AuthorProfile from "../../components/authorProfile";
 import PortableText from "react-portable-text";
 
-export default function Single({ blog, latestBlogs, tags }) {
-  // console.log("tags in function", blog.author.author);
+export default function Single({ blog, latestBlogs, tags, allBlogs }) {
+  // console.log("tags in function", tagblog);
 
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
@@ -63,10 +63,11 @@ export default function Single({ blog, latestBlogs, tags }) {
                 </p>
               </div>
               <div className="text-center mb-7">
-                <figure className="md:h-[395px] w-full h-[179px] relative  mb-3">
+                <figure className="md:h-[400px] w-full h-[179px] relative  mb-3">
                   <Image
                     src={blog.featureImage.asset.url}
                     alt={blog.title}
+                    className="object-cover"
                     layout="fill"
                   ></Image>
                 </figure>
@@ -203,7 +204,7 @@ export default function Single({ blog, latestBlogs, tags }) {
       </section>
       <div ref={ref}></div>
       <div ref={ref2}>
-        <RelatedPosts />
+        <RelatedPosts allBlogs={allBlogs} tag={blog.tags[0].tag}/>
         <Comment_Section blog={blog} />
         <BlogFooter />
       </div>
@@ -245,7 +246,27 @@ export const getServerSideProps = async (pageContext) => {
     }
   }`;
 
-  
+  const allBlogs = await client.fetch(`*[_type == "blog"]{
+    title,
+    tags[]->{
+      tag
+    },
+    likes,
+    excerpt,
+    dislikes,
+    slug,
+    releaseDate,
+    featureImage{
+      asset->{
+        url
+      }
+    },
+    author{
+      author->{
+        name
+      }
+    }
+  }`);
 
   const blog = await client.fetch(query, { pageSlug });
 
@@ -262,6 +283,7 @@ export const getServerSideProps = async (pageContext) => {
       blog,
       latestBlogs,
       tags,
+      allBlogs 
     }, // will be passed to the page component as props
   };
 };

@@ -11,7 +11,7 @@ export default function Blog({ blogs, tags }) {
   const [blogsData, setBlogsData] = useState( blogs );
   const [serachInput, setSearchInput] = useState(); 
   const filterData = blogsData.filter((item) => item.title.toLowerCase().includes(serachInput));
-  const [Flength, setFLength] = useState(false); 
+  
   
   return (
     <>
