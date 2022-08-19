@@ -66,7 +66,7 @@ export default function Header({headerClr}) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <nav
-        className={`flex filter px-5 transition-all duration-100 py-4 h-20 items-center fixed top-0 right-0 left-0 z-50 ${router.pathname === '/' ?  headerClr ? 'bg-[#6F49DD]' : 'bg-[#FAF9FD]' : 'bg-[#FAF9FD]'}  
+        className={`flex filter px-5 transition-all duration-100 py-4 h-20 items-center shadow-sm fixed top-0 right-0 left-0 z-50 ${router.pathname === '/' ?  headerClr ? 'bg-[#6F49DD]' : 'bg-[#FAF9FD]' : 'bg-[#FAF9FD]'}  
         }`}
       >
         <div className="container flex items-center justify-between mx-auto">
