@@ -10,7 +10,6 @@ import {useRef} from 'react';
 export default function Posts() {
   const [ref, inView] = useInView();
   const animationText = useAnimation();
-  const uref = useRef(null);
   const tempanim = useRef(); // use to remove React Hook useEffect has a missing dependency:
 
 
@@ -40,25 +39,9 @@ export default function Posts() {
   }, [inView]);
 
 
-  const el2 = uref.current;
+  
 
-  // useEffect(() => {
- 
-  // });
-  
-  // const [scrollPosition, setScrollPosition] = useState(0);
-  // const handleScroll = () => {
-  //     const position = window.pageYOffset;
-  //     setScrollPosition(position);
-  // };
-  
-  // useEffect(() => {
-  //     window.addEventListener('scroll', handleScroll, { passive: true });
-  
-  //     return () => {
-  //         window.removeEventListener('scroll', handleScroll);
-  //     };
-  // }, []);
+
 
 
   return (
@@ -82,16 +65,29 @@ export default function Posts() {
               </p>
             </motion.div>
             <Link href="#">
-              <a className="md:flex hidden items-center mt-20 space-x-2 text-3xl font-semibold lg:mt-0 font-interMedium group">
+              <a className="items-center hidden mt-20 space-x-2 text-3xl font-semibold md:flex lg:mt-0 font-interMedium group">
                 <span className="text-skin-primary animate-bounce">
                   <BsChevronDown strokeWidth={2} />
                 </span>
-                <span className="">Join Waitlist</span>
+                <span className="">Join Waitlist </span>
               </a>
             </Link>
           </div>
-          <div className="float-right col-span-2 md:p-4 overflow-x-hidden landingVideo">
-            <div className="md:block">
+          <div className="float-right col-span-2 overflow-x-hidden md:p-4 landingVideo">
+            <div className="mr-20 md:block md:mr-0 md:ml-0 -ml-52">
+              <video
+                width="1000"
+                height="800"
+                autoPlay="autoplay"
+                className=""
+                loop
+                muted
+              >
+                <source src="video/video.mp4" type="video/mp4" />
+              </video>
+            </div>
+
+            <div className="ml-12 -mt-12 md:hidden -mr-44">
               <video
                 width="1000"
                 height="800"
@@ -104,21 +100,15 @@ export default function Posts() {
               </video>
             </div>
             
-            {/* <figure className="hero-mobile-banner md:hidden">
-            <Image 
-                src= {mobileBanner}
-                alt="Mobile Banner"
-                className="w-full"
-              />
-            </figure> */}
+            
           
-            <div className="mx-4 block md:hidden">
+            <div className="block mx-4 md:hidden">
               <Link href="#">
                 <a className="flex items-center mt-20 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium group">
                   <span className="text-skin-primary animate-bounce">
                     <BsChevronDown strokeWidth={2} />
                   </span>
-                  <span className="">Join Waitlist</span>
+                  <span className="">Join Waitlist </span>
                 </a>
               </Link>
             </div>
@@ -128,9 +118,9 @@ export default function Posts() {
       {/* Banner Section End*/}
 
       {/* Jion Us Section Start*/}
-      <section className="bg-skin-primary cta" ref={uref}>
+      <section className="bg-skin-primary cta" >
         <div className="container grid items-center lg:h-[100vh] grid-cols-1 gap-8 py-12 lg:py-20 mx-auto md:grid-cols-2">
-          <div className="p-4 order-last md:order-first mt-10 md:mt-0">
+          <div className="order-last p-4 mt-10 md:order-first md:mt-0">
             <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-[#D1C6FF] font-interRegular">
               <span className="font-bold text-skin-light">Join </span> Waitlist
             </h1>
@@ -175,7 +165,7 @@ export default function Posts() {
               <span className="font-bold text-skin-light"> Fundgazer? </span>
             </h1>
             <iframe
-              className="w-full aspect-video rounded-lg"
+              className="w-full rounded-lg aspect-video"
               src="https://www.youtube.com/embed/tgbNymZ7vqY"
             ></iframe>
           </div>

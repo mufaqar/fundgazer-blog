@@ -7,10 +7,7 @@ import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Head from 'next/head';
 import { BiSearch } from "react-icons/bi";
-
-
-
-
+import Search from '../components/search'
 
 function MobileNav({ open, setOpen }) {
   return (
@@ -50,25 +47,17 @@ function MobileNav({ open, setOpen }) {
   );
 }
 
-export default function Header() {
+export default function Header({headerClr}) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
-  const [scrollTop, setScrollTop] = useState(0);
-  const [headerClr, setHeaderClr] = useState(false);
+  const SearchBlock = () => {
+    return(
+      <Search />
+    )
+  }
 
-  useEffect(() => {
-    function onScroll() {
-      let currentPosition = window.pageYOffset;
-      setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
-    }
-    scrollTop >= '20' ? setHeaderClr(true) : setHeaderClr(false);
-
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, [scrollTop]);
-
-
+ 
 
   return (
     <>
@@ -77,8 +66,7 @@ export default function Header() {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <nav
-        className={`flex filter px-5 transition-all duration-300 py-4 h-20 items-center fixed top-0 right-0 left-0 z-50 ${
-          headerClr ? 'bg-[#6F49DD]' : 'bg-[#FAF9FD]'
+        className={`flex filter px-5 transition-all duration-100 py-4 h-20 items-center fixed top-0 right-0 left-0 z-50 ${router.pathname === '/' ?  headerClr ? 'bg-[#6F49DD]' : 'bg-[#FAF9FD]' : 'bg-[#FAF9FD]'}  
         }`}
       >
         <div className="container flex items-center justify-between mx-auto">
@@ -86,7 +74,8 @@ export default function Header() {
           <div className="flex items-center w-2/3 lg:w-3/12">
             <Link href="/">
               <a className="text-2xl font-semibold">
-                {headerClr ? (
+                {
+                  router.pathname === '/' ? headerClr ? (
                   <Image
                     src={whiteLogo}
                     alt="logo"
@@ -102,16 +91,24 @@ export default function Header() {
                     height={40}
                     className="z-10"
                   ></Image>
-                )}
+                ) : <Image
+                    src={Logo}
+                    alt="logo"
+                    width={165}
+                    height={40}
+                    className="z-10"
+                  ></Image>
+                }
+                
               </a>
             </Link>
           </div>
           <div className="flex items-center justify-end w-9/12">
-            <div className={`md:hidden mr-5 ${router.pathname === '/blog' ? 'block' : 'hidden'}`}> {/* search icon */}
+            <div className={`md:hidden mr-5 ${ router.pathname === '/blog' ? 'block' : 'hidden'}`}> {/* search icon */}
               <BiSearch className={`text-3xl ${headerClr ? 'text-white' : 'text-black'} `}  />
             </div>
             <div
-              className="relative z-50 flex flex-col items-center justify-between w-7 h-6 md:hidden"
+              className="relative z-50 flex flex-col items-center justify-between h-6 w-7 md:hidden"
               onClick={() => {
                 setOpen(!open);
               }}
@@ -135,7 +132,7 @@ export default function Header() {
             </div>
 
             <div
-              className={`hidden text-xl font-bold md:flex space-x-10 ${headerClr ? 'text-[#FAF9FD]' : 'text-black'} `}
+              className={`hidden text-xl font-bold md:flex space-x-10 ${ router.pathname === '/' ? headerClr ? 'text-[#FAF9FD]' : 'text-black' : 'text-black' }`}
             >
               <Link href="/our-community" className={`mx-4 font-interBold tracking-wider `}>
                 <a className={`hover:text-[#6F49DD] ${open ? '' : ''}`}>Join Our Community</a>
@@ -144,8 +141,10 @@ export default function Header() {
                 <a className='hover:text-[#6F49DD]'>Blogs</a>
               </Link>
             </div>
+            
           </div>
         </div>
+       {/* <SearchBlock/>  */}
       </nav>
     </>
   );
