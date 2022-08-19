@@ -35,7 +35,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
         <div className="container pb-10 mx-auto pt-28 ">
           <div className="flex flex-col gap-16 md:flex-row">
             {/* Posts Column Start*/}
-            <div className="relative w-full px-6 lg:pr-3 md:w-9/12 md:pl-20">
+            <div className="relative w-full px-6 lg:pr-3 md:w-9/12 md:pl-20 rpadding">
               <div className="mb-7">
                 <ul className="mb-5">
                   <li>
@@ -195,7 +195,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
             {/* Posts Column END*/}
 
             {/* Sidebar Column Start*/}
-            <div className="w-full md:w-3/12 hidden md:block">
+            <div className="hidden w-full md:w-3/12 md:block">
               <Sidebar tags={tags} latestBlogs={latestBlogs} authorName={blog.author.author.name} ProfileURL={blog.author.author.authorprofile.asset.url} linkedinURL={blog.author.author.linkedinurl}/>
             </div>
             {/* Sidebar Column End*/}
@@ -205,7 +205,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       <div ref={ref}></div>
       <div ref={ref2}>
         <RelatedPosts allBlogs={allBlogs} tag={blog.tags[0].tag}/>
-        <Comment_Section blog={blog} />
+        <div className="container mx-auto"><Comment_Section blog={blog} /></div>
         <BlogFooter />
       </div>
     </>

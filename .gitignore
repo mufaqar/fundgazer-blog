@@ -12,7 +12,7 @@ node_modules
 /.next/
 /out/
 
-.next
+.next/
 
 # production
 /build

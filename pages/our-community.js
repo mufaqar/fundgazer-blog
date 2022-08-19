@@ -15,7 +15,7 @@ export default function OurCommunity() {
     <>
       {/* Banner Section Start*/}
       <section>
-        <div className="container grid items-center grid-cols-1 gap-8 pt-40 pb-20 lg:pb-32 lg:pt-52 mx-auto md:grid-cols-2">
+        <div className="container grid items-center grid-cols-1 gap-8 pt-40 pb-20 mx-auto lg:pb-32 lg:pt-52 md:grid-cols-2">
           <div className="p-4">
             <h1 className="text-4xl font-normal md:text-6xl font-interRegular">
               <span className="font-bold text-skin-primary font-interBold">
@@ -35,10 +35,10 @@ export default function OurCommunity() {
             </Link>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-5 p-4 md:justify-end lg:flex-nowrap">
-            <button className="flex items-center py-3 space-x-3 text-lg font-semibold w-full rounded-md font-interRegular bg-skin-dark text-skin-light hover:opacity-75 md:text-2xl px-7 justify-center  md:max-w-[200px]">
+            <button className="flex items-center py-3 space-x-3 text-lg font-semibold w-full rounded-md font-interRegular bg-skin-dark text-skin-light hover:opacity-75 md:text-2xl px-7 justify-center  md:max-w-[200px] transition ease-in-out delay-75  hover:scale-110 hover:bg-skin-primary duration-200">
               <BsDiscord /> <span>Discord</span>
             </button>
-            <button className="flex items-center py-3 space-x-3 text-lg font-semibold w-full rounded-md font-interRegular bg-skin-buttonAccent hover:bg-skin-buttonMuted text-skin-light md:text-2xl px-7 justify-center md:max-w-[200px]">
+            <button className="flex items-center py-3 space-x-3 text-lg font-semibold w-full rounded-md font-interRegular bg-skin-buttonAccent hover:bg-skin-buttonMuted text-skin-light md:text-2xl px-7 justify-center md:max-w-[200px] transition ease-in-out delay-75  hover:scale-110 duration-200">
               <FaTelegramPlane /> <span>Telegram</span>
             </button>
           </div>
@@ -48,8 +48,8 @@ export default function OurCommunity() {
 
       {/* Resources Section Start*/}
       <section className={`bg-[#E9E1FF] ${route.pathname === '/our-community' ? 'block' : 'hidden' }`}>
-        <div className="container grid grid-cols-1 gap-2 py-12 md:py-20 mx-auto md:grid-cols-4">
-          <div className="p-4">
+        <div className="container grid grid-cols-1 gap-2 py-12 mx-auto md:py-20 md:grid-cols-4">
+          <div className="p-4 transition-all duration-300 ease-in-out transform cursor-pointer hover:-translate-y-2">
             <h5 className="flex items-center mb-3 space-x-2 text-xl font-bold font-interBold md:text-2xl">
               <span className="text-skin-primary">
                 <BiPolygon strokeWidth={2} />
@@ -61,7 +61,7 @@ export default function OurCommunity() {
               investors and don’t forget to give back!
             </p>
           </div>
-          <div className="p-4">
+          <div className="p-4 transition-all duration-300 ease-in-out transform cursor-pointer hover:-translate-y-2">
             <h5 className="flex items-center mb-3 space-x-2 text-xl font-bold font-interBold md:text-2xl">
               <span className="text-skin-primary">
                 <FiLayers strokeWidth={3} />
@@ -73,7 +73,7 @@ export default function OurCommunity() {
               investment strategies and systems.
             </p>
           </div>
-          <div className="p-4">
+          <div className="p-4 transition-all duration-300 ease-in-out transform cursor-pointer hover:-translate-y-2">
             <h5 className="flex items-center mb-3 space-x-2 text-xl font-bold font-interBold md:text-2xl">
               <span className="text-skin-primary">
                 <BiPolygon strokeWidth={2} />
@@ -85,7 +85,7 @@ export default function OurCommunity() {
               proprietary algorithms.
             </p>
           </div>
-          <div className="p-4">
+          <div className="p-4 transition-all duration-300 ease-in-out transform cursor-pointer hover:-translate-y-2">
             <h5 className="flex items-center mb-3 space-x-2 text-xl font-bold font-interBold md:text-2xl">
               <span className="text-skin-primary">
                 <FiClock strokeWidth={3} />
