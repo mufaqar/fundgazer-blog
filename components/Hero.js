@@ -145,7 +145,7 @@ export default function Posts() {
                 </button>
                 <button
                   type="submit"
-                  className="flex items-center px-12 py-3 text-[20px] w-full justify-center md:w-auto font-medium rounded-md font-interMedium bg-skin-dark text-skin-light hover:opacity-75"
+                  className="flex items-center px-12 py-3 text-[20px] w-full justify-center md:w-auto font-medium rounded-md font-interMedium bg-skin-dark text-skin-light hover:opacity-75 transition ease-in-out delay-75  hover:scale-110  duration-200"
                 >
                   Join
                 </button>
