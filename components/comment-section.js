@@ -34,11 +34,11 @@ export default function Comment_Section({ blog }) {
 
   const SubmitedMessage = () => {
     return (
-      <div className="border border-gray-200 p-8 mb-3">
+      <div className="p-8 mb-3 border border-gray-200">
         <h1 className="text-2xl font-semibold  text-[#E86A34]">
           Thank You For You'r Submiting Your Comment !
         </h1>
-        <h2 className="font-interRegular md:text-xl text-sm font-normal text-skin-muted mt-2">
+        <h2 className="mt-2 text-sm font-normal font-interRegular md:text-xl text-skin-muted">
           Once it has been approved it will appear below.
         </h2>
       </div>
@@ -48,13 +48,13 @@ export default function Comment_Section({ blog }) {
   return (
     <>
       <section>
-        <div className="container mx-auto py-20">
-          <div className="md:w-9/12 w-full mx-auto p-5">
+        <div className="py-20">
+          <div className="w-full p-5 md:w-9/12">
             {submited ? (
               <SubmitedMessage />
             ) : (
-              <div className="border border-gray-200 md:p-7 p-5 mb-10">
-                <h6 className="md:text-xl text-base font-productSansBold font-bold text-skin-dark mb-5">
+              <div className="p-5 mb-10 border border-gray-200 md:p-7">
+                <h6 className="mb-5 text-base font-bold md:text-xl font-productSansBold text-skin-dark">
                   Add New Comment
                 </h6>
 
@@ -69,7 +69,7 @@ export default function Comment_Section({ blog }) {
 
                     <label
                       htmlFor="name"
-                      className="md:text-xl text-base font-interRegular font-normal text-skin-muted"
+                      className="text-base font-normal md:text-xl font-interRegular text-skin-muted"
                     >
                       User Name
                     </label>
@@ -84,7 +84,7 @@ export default function Comment_Section({ blog }) {
                   <div className="mb-5 ">
                     <label
                       htmlFor="email"
-                      className="md:text-xl text-base font-interRegular font-normal text-skin-muted"
+                      className="text-base font-normal md:text-xl font-interRegular text-skin-muted"
                     >
                       Email
                     </label>
@@ -99,7 +99,7 @@ export default function Comment_Section({ blog }) {
                   <div className="mb-5 ">
                     <label
                       htmlFor="comment"
-                      className="md:text-xl text-base font-interRegular font-normal text-skin-muted"
+                      className="text-base font-normal md:text-xl font-interRegular text-skin-muted"
                     >
                       Your Comment
                     </label>
@@ -115,24 +115,24 @@ export default function Comment_Section({ blog }) {
                   </div>
                   <div className="mb-2">
                     {errors.name && (
-                      <span className="text-red-400 block">
+                      <span className="block text-red-400">
                         Name field is required<sup>*</sup>
                       </span>
                     )}
                     {errors.email && (
-                      <span className="text-red-400 block">
+                      <span className="block text-red-400">
                         Email field is required<sup>*</sup>
                       </span>
                     )}
                     {errors.comment && (
-                      <span className="text-red-400 block">
+                      <span className="block text-red-400">
                         Comment field is required<sup>*</sup>
                       </span>
                     )}
                   </div>
                   <input
                     type="submit"
-                    className="text-xl cursor-pointer font-interBold font-bold text-skin-light bg-skin-primary w-full py-3 rounded"
+                    className="w-full py-3 text-xl font-bold rounded cursor-pointer font-interBold text-skin-light bg-skin-primary"
                     value="Submit"
                   />
                 </form>
@@ -140,12 +140,12 @@ export default function Comment_Section({ blog }) {
             )}
             <div></div>
             <div>
-              <h6 className="md:text-xl text-base font-productSansBold font-bold text-skin-dark mb-5">
+              <h6 className="mb-5 text-base font-bold md:text-xl font-productSansBold text-skin-dark">
                 Comments
               </h6>
               {blog.comment.slice(0,limit).map((singleC, index) => (
-                <div key={index} className="border border-gray-200 p-5 mb-3">
-                  <p className="font-interRegular md:text-xl text-sm font-normal text-skin-muted mb-5">
+                <div key={index} className="p-5 mb-3 border border-gray-200">
+                  <p className="mb-5 text-sm font-normal font-interRegular md:text-xl text-skin-muted">
                     {singleC.comment}
                   </p>
                   <ul className="font-interRegular md:text-lg text-sm font-normal italic text-[#E86A34] flex justify-between">
@@ -157,7 +157,7 @@ export default function Comment_Section({ blog }) {
               <ul>
                 <li>
                   
-                  <div onClick={loadMore} className="cursor-pointer font-interRegular md:text-lg text-base font-normal italic text-skin-primary flex gap-2 items-center justify-end">
+                  <div onClick={loadMore} className="flex items-center justify-end gap-2 text-base italic font-normal cursor-pointer font-interRegular md:text-lg text-skin-primary">
                     See More Comments
                     <span>
                       <BsChevronDown strokeWidth={2} />

@@ -205,7 +205,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       <div ref={ref}></div>
       <div ref={ref2}>
         <RelatedPosts allBlogs={allBlogs} tag={blog.tags[0].tag}/>
-        <Comment_Section blog={blog} />
+        <div className="container mx-auto"><Comment_Section blog={blog} /></div>
         <BlogFooter />
       </div>
     </>
