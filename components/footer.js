@@ -11,21 +11,21 @@ export default function Footer() {
             <ul className="flex flex-row justify-between gap-5 md:flex-col">
               <li>
                 <Link href="/about">
-                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular">
+                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
                     About Us
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="/disclaimer">
-                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular">
+                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
                     Disclaimer
                   </a>
                 </Link>
               </li>
               <li>
                 <Link href="privacy-policy">
-                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular">
+                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
                     Privacy Policy
                   </a>
                 </Link>
@@ -36,7 +36,7 @@ export default function Footer() {
             <ul className="flex justify-center mb-2 md:justify-end">
               <li>
                 <Link href="mailto:support@fundgazer.com">
-                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular">
+                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
                     support@fundgazer.com
                   </a>
                 </Link>
@@ -84,7 +84,7 @@ export default function Footer() {
       </section>
       
       <section className="bg-skin-dark">
-        <div className="container py-6 lg:py-3 mx-auto">
+        <div className="container py-6 mx-auto lg:py-3">
           <div>
             <p className="text-sm font-normal text-center md:text-base text-skin-light font-interRegular">
               @Copyrighted by Fundgazer

@@ -134,11 +134,11 @@ export default function Header({headerClr}) {
             <div
               className={`hidden text-xl font-bold md:flex space-x-10 ${ router.pathname === '/' ? headerClr ? 'text-[#FAF9FD]' : 'text-black' : 'text-black' }`}
             >
-              <Link href="/our-community" className={`mx-4 font-interBold tracking-wider `}>
-                <a className={`hover:text-[#6F49DD] ${open ? '' : ''}`}>Join Our Community</a>
+              <Link href="/our-community" className={`mx-4 font-interBold tracking-wider `} >
+                <a className={`${router.pathname === '/' ?  headerClr ? 'hover:text-black' : 'hover:text-[#6F49DD]' : 'hover:text-[#6F49DD]'} `} onClick={()=>setOpen(false)}>Join Our Community</a>
               </Link>
-              <Link href="/blog" className={`mx-4 font-interBold tracking-wider  `}>
-                <a className='hover:text-[#6F49DD]'>Blogs</a>
+              <Link href="/blog" className={`mx-4 font-interBold tracking-wider  `} >
+                <a className={`${router.pathname === '/' ?  headerClr ? 'hover:text-black' : 'hover:text-[#6F49DD]' : 'hover:text-[#6F49DD]'} `} onClick={()=>setOpen(false)} >Blogs</a>
               </Link>
             </div>
             

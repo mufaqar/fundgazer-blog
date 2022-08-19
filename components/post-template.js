@@ -19,7 +19,7 @@ export default function Post_template({ blog }) {
             </Link>
             <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansReqular">
               {blog.tags.slice(0, 2).map((tag, index) => (
-                <li key={index}>
+                <li key={index} className="hover:underline">
                   <Link href="#">
                     <a>#{tag.tag}</a>
                   </Link>

@@ -75,3 +75,6 @@
 ._block{
   display: block !important;
 }
+html {
+  scroll-behavior: smooth;
+}
