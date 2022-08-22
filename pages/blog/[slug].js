@@ -19,21 +19,35 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
   // console.log("tags in function", tagblog);
 
   const [socialSticky, setSocialSticky] = useState(true);
-  const [sideBarSticky, setSideBarSticky] = useState(false);
-  console.log("🚀 ~ file: [slug].js ~ line 23 ~ Single ~ sideBarSticky", sideBarSticky)
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
-  const [sRef, inView3] = useInView();
+  // const [scrollTop, setScrollTop] = useState(0);
+  // const [ssticky, setSSticky] = useState(false);
+  // const [sideBarSticky, setSideBarSticky] = useState(true);
+  // const [reflatest, inView3] = useInView();
+
+  // useEffect(() => {
+  //   inView2 ? setSideBarSticky(false) : setSideBarSticky(true);
+  // });
+
+  // useEffect(() => {
+  //   function onScroll() {
+  //     let currentPosition = window.pageYOffset;
+  //     setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
+  //   }
+  //   scrollTop >= "440" ? setSSticky(true) : setSSticky(false);
+  //   window.addEventListener("scroll", onScroll);
+  //   return () => window.removeEventListener("scroll", onScroll);
+  // }, [scrollTop]);
 
   useEffect(() => {
     if (inView) {
       setSocialSticky(false);
-      setSideBarSticky(true);
     } else {
       inView2 ? "" : setSocialSticky(true);
     }
-  }, [inView, inView2, inView3]);
+  }, [inView, inView2]);
 
   const handleClick = (event) => {
     const tag = event.target.getAttribute("tag-name");
@@ -48,8 +62,6 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       },
     });
   }
-
-
 
   return (
     <>
@@ -73,10 +85,14 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 </h2>
                 <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansReqular">
                   {blog.tags.slice(0, 2).map((tag, index) => (
-                    <li key={index} >
-                        <button onClick={handleClick} tag-name={tag.tag} className="hover:underline">
-                          #{tag.tag}
-                        </button>
+                    <li key={index}>
+                      <button
+                        onClick={handleClick}
+                        tag-name={tag.tag}
+                        className="hover:underline"
+                      >
+                        #{tag.tag}
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -215,7 +231,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
               </div>
             </div>
             {/* Posts Column END*/}
-            <div ref={sRef}></div>       
+
             {/* Sidebar Column Start*/}
             <div className="hidden w-full md:w-3/12 md:block">
               <Sidebar
@@ -224,6 +240,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 authorName={blog.author.author.name}
                 ProfileURL={blog.author.author.authorprofile.asset.url}
                 linkedinURL={blog.author.author.linkedinurl}
+
               />
             </div>
             {/* Sidebar Column End*/}
@@ -232,11 +249,14 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       </section>
       <div ref={ref}></div>
       <div ref={ref2}>
+       
         <RelatedPosts allBlogs={allBlogs} tag={blog.tags[0].tag} />
-        <div className="container mx-auto">
-          <Comment_Section blog={blog} />
-        </div>
-        <BlogFooter />
+          <div className="container mx-auto">
+            <Comment_Section blog={blog} />
+          </div>
+
+          <BlogFooter />
+       
       </div>
     </>
   );

@@ -6,6 +6,7 @@ import { client } from "../../lib/conn";
 import { useState, useEffect } from "react";
 import FirstBlog from "../../components/FirstBlog";
 import { BsChevronDown } from "react-icons/bs";
+import { useInView } from "react-hook-inview"; 
 
 export default function Tag({ blogs, tags, tagblog }) {
   
@@ -13,6 +14,11 @@ export default function Tag({ blogs, tags, tagblog }) {
   const [serachInput, setSearchInput] = useState();
   const [eLimit, setELimit] = useState(8);
   var length = blogs.length;
+  const [scrollTop, setScrollTop] = useState(0);
+  const [ssticky, setSSticky] = useState(false);
+  const [sideBarSticky, setSideBarSticky] = useState(true);
+  const [ref, inView] = useInView();
+
   // const [tagData, setTagData] = useState();
   const filterData = blogsData.filter((item) =>
     item.title.toLowerCase().includes(serachInput)
@@ -37,6 +43,20 @@ export default function Tag({ blogs, tags, tagblog }) {
     setELimit(eLimit + 5);
   };
 
+  useEffect(() => {
+    inView ? setSideBarSticky(false) : setSideBarSticky(true)
+  })
+
+  useEffect(() => {
+    function onScroll() {
+      let currentPosition = window.pageYOffset;
+      setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
+    }
+    scrollTop >= '440' ? setSSticky(true) : setSSticky(false);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+    
+  }, [scrollTop]);
 
 
   return (
@@ -112,13 +132,17 @@ export default function Tag({ blogs, tags, tagblog }) {
                 latestBlogs={blogs}
                 setSearchInput={setSearchInput}
                 serachInput={serachInput}
+                ssticky={ssticky}
+                sideBarSticky={sideBarSticky}
               />
             </div>
             {/* Sidebar Column End*/}
           </div>
         </div>
       </section>
+      <div ref={ref}>
       <BlogFooter />
+      </div>
     </>
   );
 }

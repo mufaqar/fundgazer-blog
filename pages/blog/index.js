@@ -2,16 +2,22 @@ import BlogFooter from "../../components/blogFooter";
 import Post_template from "../../components/post-template";
 import Sidebar from "../../components/sidebar";
 import { client } from "../../lib/conn";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FirstBlog from "../../components/FirstBlog";
 import { BsChevronDown } from "react-icons/bs";
+import { useInView } from "react-hook-inview"; 
 
 
-export default function Blog({ blogs, tags, sideBarSticky }) {
+export default function Blog({ blogs, tags }) {
   
   const [blogsData, setBlogsData] = useState(blogs);
   const [serachInput, setSearchInput] = useState();
+  const [scrollTop, setScrollTop] = useState(0);
+  const [ssticky, setSSticky] = useState(false);
+  const [sideBarSticky, setSideBarSticky] = useState(true);
+  const [ref, inView] = useInView();
 
+  
   const filterData = blogsData.filter((item) =>
     item.title.toLowerCase().includes(serachInput)
   );
@@ -24,9 +30,27 @@ export default function Blog({ blogs, tags, sideBarSticky }) {
     setELimit(eLimit + 5);
   };
   // const goBack = () => {
-  //   setSLimit(eLimit-3);
-  //   setELimit(sLimit + 3);
-  // };
+    //   setSLimit(eLimit-3);
+    //   setELimit(sLimit + 3);
+    // };
+
+ 
+
+  useEffect(() => {
+    inView ? setSideBarSticky(false) : setSideBarSticky(true)
+  })
+
+  useEffect(() => {
+    function onScroll() {
+      let currentPosition = window.pageYOffset;
+      setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
+    }
+    scrollTop >= '440' ? setSSticky(true) : setSSticky(false);
+    window.addEventListener('scroll', onScroll);
+    return () => window.removeEventListener('scroll', onScroll);
+    
+  }, [scrollTop]);
+  
 
   return (
     <>
@@ -109,6 +133,7 @@ export default function Blog({ blogs, tags, sideBarSticky }) {
                 latestBlogs={blogs}
                 setSearchInput={setSearchInput}
                 serachInput={serachInput}
+                ssticky={ssticky}
                 sideBarSticky={sideBarSticky}
               />
             </div>
@@ -116,7 +141,9 @@ export default function Blog({ blogs, tags, sideBarSticky }) {
           </div>
         </div>
       </section>
+      <div ref={ref}>
       <BlogFooter />
+      </div>
     </>
   );
 }
