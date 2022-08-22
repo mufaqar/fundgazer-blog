@@ -64,7 +64,7 @@ export default function Tag({ blogs, tags, tagblog }) {
               <div>
                 {serachInput ? (
                   filterData.length < 1 ? (
-                    <span className="mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">
+                    <span className="mt-3 mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">
                       Result Not Found
                     </span>
                   ) : (

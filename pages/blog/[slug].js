@@ -13,6 +13,7 @@ import { useEffect } from "react";
 import { useInView } from "react-hook-inview"; // use current active screen Area
 import AuthorProfile from "../../components/authorProfile";
 import PortableText from "react-portable-text";
+import { useRouter } from "next/router";
 
 export default function Single({ blog, latestBlogs, tags, allBlogs }) {
   // console.log("tags in function", tagblog);
@@ -20,6 +21,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
+  const router = useRouter();
 
   useEffect(() => {
     if (inView) {
@@ -28,6 +30,20 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       inView2 ? "" : setSocialSticky(true);
     }
   }, [inView, inView2]);
+
+  const handleClick = (event) => {
+    const tag = event.target.getAttribute("tag-name");
+    sendProps(tag);
+  };
+
+  function sendProps(tag) {
+    router.push({
+      pathname: "/blog/tag",
+      query: {
+        tag,
+      },
+    });
+  }
 
   return (
     <>
@@ -51,10 +67,10 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 </h2>
                 <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansReqular">
                   {blog.tags.slice(0, 2).map((tag, index) => (
-                    <li key={index} className="hover:underline">
-                      <Link href="#">
-                        <a>#{tag.tag}</a>
-                      </Link>
+                    <li key={index} >
+                        <button onClick={handleClick} tag-name={tag.tag} className="hover:underline">
+                          #{tag.tag}
+                        </button>
                     </li>
                   ))}
                 </ul>
@@ -153,11 +169,11 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 <ul className="flex flex-wrap gap-3 mb-5">
                   {blog.tags.map((tag, index) => (
                     <li className="py-2" key={index}>
-                      <Link href="#">
-                        <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-[#6F49DD] hover:text-white">
+                      <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-transparent">
+                        <button onClick={handleClick} tag-name={tag.tag}>
                           #{tag.tag}
-                        </a>
-                      </Link>
+                        </button>
+                      </a>
                     </li>
                   ))}
                 </ul>
@@ -196,7 +212,13 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
 
             {/* Sidebar Column Start*/}
             <div className="hidden w-full md:w-3/12 md:block">
-              <Sidebar tags={tags} latestBlogs={latestBlogs} authorName={blog.author.author.name} ProfileURL={blog.author.author.authorprofile.asset.url} linkedinURL={blog.author.author.linkedinurl}/>
+              <Sidebar
+                tags={tags}
+                latestBlogs={latestBlogs}
+                authorName={blog.author.author.name}
+                ProfileURL={blog.author.author.authorprofile.asset.url}
+                linkedinURL={blog.author.author.linkedinurl}
+              />
             </div>
             {/* Sidebar Column End*/}
           </div>
@@ -204,8 +226,10 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       </section>
       <div ref={ref}></div>
       <div ref={ref2}>
-        <RelatedPosts allBlogs={allBlogs} tag={blog.tags[0].tag}/>
-        <div className="container mx-auto"><Comment_Section blog={blog} /></div>
+        <RelatedPosts allBlogs={allBlogs} tag={blog.tags[0].tag} />
+        <div className="container mx-auto">
+          <Comment_Section blog={blog} />
+        </div>
         <BlogFooter />
       </div>
     </>
@@ -283,9 +307,7 @@ export const getServerSideProps = async (pageContext) => {
       blog,
       latestBlogs,
       tags,
-      allBlogs 
+      allBlogs,
     }, // will be passed to the page component as props
   };
 };
-
-

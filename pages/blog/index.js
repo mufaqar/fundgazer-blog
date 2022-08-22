@@ -6,12 +6,13 @@ import { client } from "../../lib/conn";
 import { useState } from "react";
 import FirstBlog from "../../components/FirstBlog";
 
+
 export default function Blog({ blogs, tags }) {
-  // console.log("blogs****", blogs);
+
   const [blogsData, setBlogsData] = useState(blogs);
   const [serachInput, setSearchInput] = useState();
   const filterData = blogsData.filter((item) => item.title.toLowerCase().includes(serachInput));
-
+  
 
   return (
     <>
@@ -45,7 +46,7 @@ export default function Blog({ blogs, tags }) {
                 </div>
               </section>
               <div>
-                {serachInput ? filterData.length < 1 ? <span className="mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">Result Not Found</span> : '' : ''}
+                {serachInput ? filterData.length < 1 ? <span className="mt-3 mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">Result Not Found</span> : '' : ''}
 
                 {
                   serachInput ? filterData.map((blog, index) => {

@@ -1,28 +1,46 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 export default function Post_template({ blog }) {
-  // console.log('data>>>>>>>>in post temp', blog)
+
+  const router = useRouter();
+
+
+  const handleClick = (event) => {
+    const tag = event.target.getAttribute("tag-name");
+    sendProps(tag);
+  };
+
+  function sendProps(tag) {
+    router.push({
+      pathname: "/blog/tag",
+      query: {
+        tag,
+      },
+    });
+  }
+  
   return (
     <>
-      <div
-        className="flex flex-row gap-5 px-5 py-3 mt-5 border-b md:px-0"
-      >
+      <div className="flex flex-row gap-5 px-5 py-3 mt-5 border-b md:px-0">
         <div className="flex flex-col justify-between w-9/12 md:p-0">
           <div>
             <Link href={`/blog/${blog.slug.current}`}>
-              
-                <h3 className="mb-3 text-base font-bold transition-all duration-300 ease-in-out md:text-3xl text-skin-dark font-productSansBold hover:underline">
-                  {blog.title}
-                </h3>
-             
+              <h3 className="mb-3 text-base font-bold transition-all duration-300 ease-in-out md:text-3xl text-skin-dark font-productSansBold hover:underline">
+                {blog.title}
+              </h3>
             </Link>
             <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansReqular">
               {blog.tags.slice(0, 2).map((tag, index) => (
-                <li key={index} className="hover:underline">
-                  <Link href="#">
-                    <a>#{tag.tag}</a>
-                  </Link>
+                <li key={index}>
+                  <button
+                    onClick={handleClick}
+                    tag-name={tag.tag}
+                    className="hover:underline"
+                  >
+                    #{tag.tag}
+                  </button>
                 </li>
               ))}
             </ul>

@@ -1,10 +1,9 @@
-import Link from "next/link";
+
 import React from "react";
 import { useState } from "react";
 import { BsDiscord } from "react-icons/bs";
 import { FaTelegramPlane } from "react-icons/fa";
 import { useRouter } from "next/router";
-import { useSelector, useDispatch } from 'react-redux'
 
 
 const JoinOurCommunity = () => {
@@ -37,7 +36,6 @@ export default function PopularTag({ tags }) {
   const handleClick = (event) => {
     const tag = event.target.getAttribute("tag-name");
     sendProps(tag);
-    console.log('tag...',tag)
   };
 
   function sendProps(tag){
