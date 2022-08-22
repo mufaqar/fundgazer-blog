@@ -19,7 +19,7 @@ export default function Blog({ blogs, tags }) {
 
   const loadMore = () => {
     // setSLimit(eLimit);
-    setELimit(eLimit + 4);
+    setELimit(eLimit + 5);
   };
   // const goBack = () => {
   //   setSLimit(eLimit-3);
@@ -52,16 +52,10 @@ export default function Blog({ blogs, tags }) {
                 </div>
               </section>
               <div>
-                {serachInput ? (
-                  filterData.length < 1 ? (
-                    <span className="mt-3 mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">
-                      Result Not Found
-                    </span>
-                  ) : (
-                    ""
-                  )
-                ) : (
-                  ""
+                {serachInput && filterData.length < 1 && (
+                  <span className="mt-3 mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">
+                    Result Not Found
+                  </span>
                 )}
 
                 {serachInput
@@ -69,17 +63,15 @@ export default function Blog({ blogs, tags }) {
                       return <Post_template blog={blog} key={index} />;
                     })
                   : blogs.slice(0, eLimit).map((blog, index) => {
-                      if (index != 0) {
-                        return (
-                          <>
-                            <Post_template blog={blog} />
-                          </>
-                        );
-                      }
+                      return (
+                        <>
+                          <Post_template blog={blog} key={index}/>
+                        </>
+                      );
                     })}
               </div>
               {/* <div className={`flex mt-10 ${sLimit === 0 ? 'justify-end' : 'justify-between'}`}> */}
-                {/* <div
+              {/* <div
                   onClick={goBack}
                   className={`items-center gap-2 text-base italic font-normal cursor-pointer font-interRegular md:text-lg text-skin-primary ${
                     sLimit === 0 ? "hidden" : "flex"
@@ -91,17 +83,17 @@ export default function Blog({ blogs, tags }) {
                   Previous Posts
                 </div> */}
 
-                <div
-                  onClick={loadMore}
-                  className={`items-center gap-2 justify-end text-base italic font-normal cursor-pointer font-interRegular md:text-lg text-skin-primary ${
-                    eLimit > length ? "hidden" : "flex"
-                  }`}
-                >
-                  See More Posts
-                  <span>
-                    <BsChevronDown strokeWidth={2} />
-                  </span>
-                </div>
+              <div
+                onClick={loadMore}
+                className={`items-center gap-2 mt-10 justify-end text-base italic font-normal cursor-pointer font-interRegular md:text-lg text-skin-primary ${
+                  eLimit > length ? "hidden" : "flex"
+                }`}
+              >
+                See More Posts
+                <span>
+                  <BsChevronDown strokeWidth={2} />
+                </span>
+              </div>
               {/* </div> */}
               {/* All Posts END*/}
             </div>

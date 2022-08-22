@@ -5,11 +5,14 @@ import Sidebar from "../../components/sidebar";
 import { client } from "../../lib/conn";
 import { useState, useEffect } from "react";
 import FirstBlog from "../../components/FirstBlog";
+import { BsChevronDown } from "react-icons/bs";
 
 export default function Tag({ blogs, tags, tagblog }) {
-  // console.log("blogs****", blogs);
+  
   const [blogsData, setBlogsData] = useState(blogs);
   const [serachInput, setSearchInput] = useState();
+  const [eLimit, setELimit] = useState(8);
+  var length = blogs.length;
   // const [tagData, setTagData] = useState();
   const filterData = blogsData.filter((item) =>
     item.title.toLowerCase().includes(serachInput)
@@ -29,9 +32,12 @@ export default function Tag({ blogs, tags, tagblog }) {
   //   tagblog.map((tag) => ( tag.tag === props.tag && setTagData(tag.posts)))
   // },[tagData]);
 
+  const loadMore = () => {
+    // setSLimit(eLimit);
+    setELimit(eLimit + 5);
+  };
 
 
-  console.log('tagblog', tagblog)
 
   return (
     <>
@@ -41,13 +47,9 @@ export default function Tag({ blogs, tags, tagblog }) {
             {/* Posts Column Start*/}
             <div className="w-full lg:pr-10 md:w-9/12">
               {/* Main Post Start*/}
-              {
-                blogs.map((blog, index) => (
-                  <>
-                    { index === 0 ? <FirstBlog data={blog} key={index} /> : "" } 
-                  </>
-                ))
-              }
+              {blogs.map((blog, index) => (
+                <>{index === 0 ? <FirstBlog data={blog} key={index} /> : ""}</>
+              ))}
 
               {/* Main Post END*/}
 
@@ -62,37 +64,42 @@ export default function Tag({ blogs, tags, tagblog }) {
                 </div>
               </section>
               <div>
-                {serachInput ? (
-                  filterData.length < 1 ? (
-                    <span className="mt-3 mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">
-                      Result Not Found
-                    </span>
-                  ) : (
-                    ""
-                  )
-                ) : (
-                  ""
+                {serachInput && filterData.length < 1 && (
+                  <span className="mt-3 mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">
+                    Result Not Found
+                  </span>
                 )}
 
                 {serachInput
                   ? filterData.map((blog, index) => {
-                    return (
-                      <div
-                        key={index}
-                        className="flex flex-row gap-5 px-5 md:px-0"
-                      >
-                        <Post_template blog={blog} />
-                      </div>
-                    );
-                  })
+                      return (
+                        <div
+                          key={index}
+                          className="flex flex-row gap-5 px-5 md:px-0"
+                        >
+                          <Post_template blog={blog} />
+                        </div>
+                      );
+                    })
                   : tagblog.map((tag) => (
-                    <>
-                      {tag.tag === props.tag && tag.posts.map((item, index) => (<Post_template blog={item} key={index} />))}
-                    </>
-                  ))
-
-
-                }
+                      <>
+                        {tag.tag === props.tag &&
+                          tag.posts.slice(0, eLimit).map((item, index) => (
+                            <Post_template blog={item} key={index} />
+                          ))}
+                      </>
+                    ))}
+                <div
+                  onClick={loadMore}
+                  className={`items-center gap-2 justify-end text-base italic font-normal cursor-pointer mt-10 font-interRegular md:text-lg text-skin-primary ${
+                    eLimit > length ? "hidden" : "flex"
+                  }`}
+                >
+                  See More Posts
+                  <span>
+                    <BsChevronDown strokeWidth={2} />
+                  </span>
+                </div>
               </div>
               {/* All Posts END*/}
             </div>
