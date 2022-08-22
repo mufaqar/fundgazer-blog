@@ -5,11 +5,13 @@ import { client } from "../../lib/conn";
 import { useState } from "react";
 import FirstBlog from "../../components/FirstBlog";
 import { BsChevronDown } from "react-icons/bs";
-import { FaChevronLeft } from "react-icons/fa";
 
-export default function Blog({ blogs, tags }) {
+
+export default function Blog({ blogs, tags, sideBarSticky }) {
+  
   const [blogsData, setBlogsData] = useState(blogs);
   const [serachInput, setSearchInput] = useState();
+
   const filterData = blogsData.filter((item) =>
     item.title.toLowerCase().includes(serachInput)
   );
@@ -32,7 +34,7 @@ export default function Blog({ blogs, tags }) {
         <div className="container mx-auto md:pb-10">
           <div className="flex flex-col gap-10 md:flex-row">
             {/* Posts Column Start*/}
-            <div className="w-full lg:pr-10 md:w-9/12">
+            <div className="w-full mt-24 md:mt-0 lg:pr-10 md:w-9/12">
               {/* Main Post Start*/}
               {blogs.map((blog, index) => {
                 if (index === 0) {
@@ -45,7 +47,7 @@ export default function Blog({ blogs, tags }) {
               <section>
                 <div className="container flex items-center mx-auto">
                   <div className="p-2 pl-0">
-                    <h1 className="md:text-6xl text-3xl font-bold text-[#E86A34] font-productSansBold">
+                    <h1 className="md:text-6xl text-3xl ml-5 lg:ml-0 font-bold text-[#E86A34] font-productSansBold">
                       Blogs
                     </h1>
                   </div>
@@ -107,6 +109,7 @@ export default function Blog({ blogs, tags }) {
                 latestBlogs={blogs}
                 setSearchInput={setSearchInput}
                 serachInput={serachInput}
+                sideBarSticky={sideBarSticky}
               />
             </div>
             {/* Sidebar Column End*/}

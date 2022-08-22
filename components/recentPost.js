@@ -6,13 +6,13 @@ export default function RecentPost({ latestBlogs }) {
 
   return (
     <>
-      <div className={`p-5 md:px-0`}>
+      <div className={`p-5 md:px-0 w-[350px]`}>
         <h6 className="mb-5 text-xl font-bold text-skin-dark font-productSansBold">
           Recent Blogs
         </h6>
-        <ul className="gap-3 mb-5">
+        <ul className="gap-3 mb-4">
           {latestBlogs.slice(0, 4).map((blog, index) => (
-            <li key={index} className="flex flex-col gap-2 py-2 mb-5">
+            <li key={index} className="flex flex-col gap-2 py-2 mb-2">
               <Link href="#">
                 <a className="text-xs font-normal text-skin-muted font-interRegular">
                 {blog.releaseDate}

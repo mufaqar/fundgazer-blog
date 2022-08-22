@@ -19,17 +19,21 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
   // console.log("tags in function", tagblog);
 
   const [socialSticky, setSocialSticky] = useState(true);
+  const [sideBarSticky, setSideBarSticky] = useState(false);
+  console.log("🚀 ~ file: [slug].js ~ line 23 ~ Single ~ sideBarSticky", sideBarSticky)
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
+  const [sRef, inView3] = useInView();
 
   useEffect(() => {
     if (inView) {
       setSocialSticky(false);
+      setSideBarSticky(true);
     } else {
       inView2 ? "" : setSocialSticky(true);
     }
-  }, [inView, inView2]);
+  }, [inView, inView2, inView3]);
 
   const handleClick = (event) => {
     const tag = event.target.getAttribute("tag-name");
@@ -94,7 +98,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 </span>
               </div>
               <div>
-                <div className="p-5 mb-5 border border-gray-200 md:border-0">
+                <div className="fixed bottom-0 left-0 right-0 z-50 w-full p-5 bg-white border border-gray-200 md:static md:border-0">
                   <ul
                     className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
                       socialSticky ? "md:fixed" : "md:block"
@@ -211,7 +215,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
               </div>
             </div>
             {/* Posts Column END*/}
-
+            <div ref={sRef}></div>       
             {/* Sidebar Column Start*/}
             <div className="hidden w-full md:w-3/12 md:block">
               <Sidebar

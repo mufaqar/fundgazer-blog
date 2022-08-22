@@ -78,3 +78,6 @@
 html {
   scroll-behavior: smooth;
 }
+._hidden{
+  display: none !important;
+}
