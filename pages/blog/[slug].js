@@ -45,6 +45,8 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
     });
   }
 
+
+
   return (
     <>
       <section>

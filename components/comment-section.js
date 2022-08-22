@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 export default function Comment_Section({ blog }) {
   const [submited, setSubmited] = useState(false);
   const [limit, setlimit] = useState(4);
-
+ 
   const {
     register,
     handleSubmit,
@@ -31,6 +31,8 @@ export default function Comment_Section({ blog }) {
         setSubmited(false);
       });
   };
+
+ 
 
   const SubmitedMessage = () => {
     return (
@@ -152,12 +154,13 @@ export default function Comment_Section({ blog }) {
                     <li className="capitalize">{singleC.name}</li>
                     <li>{singleC._createdAt}</li>
                   </ul>
+                  
                 </div>
               ))}
               <ul>
                 <li>
                   
-                  <div onClick={loadMore} className="flex items-center justify-end gap-2 text-base italic font-normal cursor-pointer font-interRegular md:text-lg text-skin-primary">
+                  <div onClick={loadMore} className={` items-center justify-end gap-2 text-base italic font-normal cursor-pointer font-interRegular md:text-lg text-skin-primary ${limit > 4 ? 'hidden' : 'flex'  }`}>
                     See More Comments
                     <span>
                       <BsChevronDown strokeWidth={2} />
