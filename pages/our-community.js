@@ -15,7 +15,7 @@ export default function OurCommunity() {
     <>
       {/* Banner Section Start*/}
       <section className="lg:h-[60vh] flex">
-        <div className="container grid items-center grid-cols-1 gap-8 pb-0 pb-8 mx-auto mt-24 lg:pt-0 md:grid-cols-2">
+        <div className="container grid items-center grid-cols-1 gap-8 pb-8 mx-auto mt-24 lg:pt-0 md:grid-cols-2">
           <div className="p-4">
             <h1 className="text-4xl font-normal md:text-6xl font-interRegular">
               <span className="font-bold text-skin-primary font-interBold">
