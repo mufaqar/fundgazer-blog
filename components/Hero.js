@@ -74,7 +74,7 @@ export default function Posts() {
             </Link>
           </div>
           <div className="float-right col-span-2 overflow-x-hidden md:p-4 landingVideo">
-            <div className="mr-12 md:block md:mr-0 md:ml-0 -ml-52">
+            <div className="mr-24 md:block md:mr-0 md:ml-0 -ml-28">
               <video
                 width="1000"
                 height="800"
@@ -86,8 +86,10 @@ export default function Posts() {
                 <source src="video/video.mp4" type="video/mp4" />
               </video>
             </div>
+          </div>
 
-            <div className="ml-12 -mt-12 md:hidden -mr-44">
+          <div className="float-right col-span-2 -mt-12 overflow-x-hidden md:hidden md:p-4 landingVideo">
+            <div className="ml-24 -mt-12 md:hidden -mr-28">
               <video
                 width="1000"
                 height="800"
@@ -119,7 +121,7 @@ export default function Posts() {
 
       {/* Jion Us Section Start*/}
       <section className="bg-skin-primary cta" id="cta">
-        <div className="container grid items-center lg:h-[100vh] grid-cols-1 gap-8 py-12 lg:py-20 mx-auto md:grid-cols-2">
+        <div className="container grid items-center lg:h-[70vh] grid-cols-1 gap-8 py-12 lg:py-20 mx-auto md:grid-cols-2">
           <div className="order-last p-4 mt-10 md:order-first md:mt-0">
             <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-[#D1C6FF] font-interRegular">
               <span className="font-bold text-skin-light">Join </span> Waitlist

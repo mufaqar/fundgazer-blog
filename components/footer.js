@@ -4,7 +4,7 @@ import { GrLinkedinOption } from 'react-icons/gr';
 
 export default function Footer() {
   return (
-    <footer>
+    <footer className='h-[25vh]'>
       <section className="bg-skin-bgFooter">
         <div className="container grid items-center grid-cols-1 py-8 mx-auto md:grid-cols-2">
           <div className="p-5">

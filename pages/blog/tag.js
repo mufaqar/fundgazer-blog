@@ -35,37 +35,32 @@ export default function Tag({ blogs, tags, tagblog }) {
 
   return (
     <>
-      <section>
-        <div className="container flex  items-center mx-auto mt-24">
-          <div className="p-4">
-            <h1 className="md:text-5xl text-3xl font-bold text-[#E86A34] font-productSansBold">
-              {props.tag}
-            </h1>
-          </div>
-        </div>
-      </section>
-      <section className="mb-12 md:mt-10">
-        <div className="container md:pb-10 mx-auto">
+      <section className="mb-12 md:mt-32">
+        <div className="container mx-auto md:pb-10">
           <div className="flex flex-col gap-10 md:flex-row">
             {/* Posts Column Start*/}
             <div className="w-full lg:pr-10 md:w-9/12">
               {/* Main Post Start*/}
-              {serachInput
-                ? filterData.map((blog, index) => {
-                    if (index === 0) {
-                      return <FirstBlog data={blog} key={index} />;
-                    }
-                  }) 
-                  : tagblog.map((tag, index) => (
-                      <>
-                        {tag.tag === props.tag ?  tag.posts.map((item, index)=> ( index === 0 ? <FirstBlog data={item} key={index} /> : "" )): ""}
-                      </>
-                  ))
+              {
+                blogs.map((blog, index) => (
+                  <>
+                    { index === 0 ? <FirstBlog data={blog} key={index} /> : "" } 
+                  </>
+                ))
               }
 
               {/* Main Post END*/}
 
               {/* All Posts Start*/}
+              <section>
+                <div className="container flex items-center mx-auto">
+                  <div className="p-2 pl-0">
+                    <h1 className="md:text-5xl text-3xl font-bold text-[#E86A34] font-productSansBold">
+                      {props.tag}
+                    </h1>
+                  </div>
+                </div>
+              </section>
               <div>
                 {serachInput ? (
                   filterData.length < 1 ? (
@@ -81,25 +76,22 @@ export default function Tag({ blogs, tags, tagblog }) {
 
                 {serachInput
                   ? filterData.map((blog, index) => {
-                      if (index === 0) {
-                      } else {
-                        return (
-                          <div
-                            key={index}
-                            className="flex flex-row gap-5 px-5 py-3 mt-5 md:px-0"
-                          >
-                            <Post_template blog={blog} />
-                          </div>
-                        );
-                      }
-                    })
+                    return (
+                      <div
+                        key={index}
+                        className="flex flex-row gap-5 px-5 md:px-0"
+                      >
+                        <Post_template blog={blog} />
+                      </div>
+                    );
+                  })
                   : tagblog.map((tag) => (
-                      <>
-                        {tag.tag === props.tag && tag.posts.map((item, index) => ( index != 0 && <Post_template blog={item} key={index}/> ))}
-                      </>
-                  )) 
-                  
-                  
+                    <>
+                      {tag.tag === props.tag && tag.posts.map((item, index) => (<Post_template blog={item} key={index} />))}
+                    </>
+                  ))
+
+
                 }
               </div>
               {/* All Posts END*/}
@@ -107,7 +99,7 @@ export default function Tag({ blogs, tags, tagblog }) {
             {/* Posts Column END*/}
 
             {/* Sidebar Column Start*/}
-            <div className="w-full md:w-3/12 hidden md:block">
+            <div className="hidden w-full md:w-3/12 md:block">
               <Sidebar
                 tags={tags}
                 latestBlogs={blogs}

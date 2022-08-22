@@ -14,8 +14,8 @@ export default function OurCommunity() {
   return (
     <>
       {/* Banner Section Start*/}
-      <section>
-        <div className="container grid items-center grid-cols-1 gap-8 pt-40 pb-20 mx-auto lg:pb-32 lg:pt-52 md:grid-cols-2">
+      <section className="lg:h-[60vh] flex">
+        <div className="container grid items-center grid-cols-1 gap-8 pb-0 pb-8 mx-auto mt-24 lg:pt-0 md:grid-cols-2">
           <div className="p-4">
             <h1 className="text-4xl font-normal md:text-6xl font-interRegular">
               <span className="font-bold text-skin-primary font-interBold">
@@ -47,7 +47,7 @@ export default function OurCommunity() {
       {/* Banner Section End*/}
 
       {/* Resources Section Start*/}
-      <section className={`bg-[#E9E1FF] ${route.pathname === '/our-community' ? 'block' : 'hidden' }`}>
+      <section className={`bg-[#E9E1FF] flex items-center lg:h-[40vh] ${route.pathname === '/our-community' ? 'block' : 'hidden' }`}>
         <div className="container grid grid-cols-1 gap-2 py-12 mx-auto md:py-20 md:grid-cols-4">
           <div className="p-4 transition-all duration-300 ease-in-out transform cursor-pointer hover:-translate-y-2">
             <h5 className="flex items-center mb-3 space-x-2 text-xl font-bold font-interBold md:text-2xl">
