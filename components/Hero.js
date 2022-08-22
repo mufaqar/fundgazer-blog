@@ -48,7 +48,7 @@ export default function Posts() {
     <>
       {/* Banner Section Start*/}
       <section>
-        <div className="container grid items-center lg:h-[800px] grid-cols-1 gap-4 py-10 pt-0 mx-auto lg:grid-cols-3 mt-20">
+        <div className="container grid items-center h-screen lg:h-[800px] grid-cols-1 gap-4 py-10 pt-0 mx-auto lg:grid-cols-3 mt-20">
           <div
             ref={ref}
             className="flex flex-col justify-between h-full p-4 pt-10 pb-0 md:py-20 lg:pb-24"
