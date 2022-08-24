@@ -124,6 +124,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                       <a
                         href={`https://www.facebook.com/sharer/sharer.php?u=https://www.fundgazer.com/blog/${blog.slug.current}`}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <BsFacebook />
                       </a>
@@ -132,6 +133,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                       <a
                         href={`https://twitter.com/intent/tweet?text=https://www.fundgazer.com/blog/${blog.slug.current}`}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <BsTwitter />
                       </a>
@@ -140,6 +142,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                       <a
                         href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.fundgazer.com/blog/${blog.slug.current}title=${blog.title}&summary=&source=`}
                         target="_blank"
+                        rel="noreferrer"
                       >
                         <FaLinkedinIn />
                       </a>
