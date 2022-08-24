@@ -18,8 +18,8 @@ export default function OurCommunity() {
           <div className="p-4">
             <h1 className="text-4xl font-normal md:text-6xl font-interRegular">
               <span className="font-bold text-skin-primary font-interBold">
-                Join{' '}
-              </span>{' '}
+                Join
+              </span>
               Our Community
             </h1>
             <p className="mt-3 text-base font-medium md:text-xl font-interRegular">
