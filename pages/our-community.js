@@ -7,13 +7,11 @@ import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-
 export default function OurCommunity() {
   const route = useRouter();
 
   return (
     <>
-      
       {/* Banner Section Start*/}
       <section className="lg:h-[60vh] flex">
         <div className="container grid items-center grid-cols-1 gap-8 pb-8 mx-auto mt-24 lg:pt-0 md:grid-cols-2">
@@ -45,6 +43,7 @@ export default function OurCommunity() {
             <a
               href="https://discord.gg/4TZTWM4AmU"
               target="_blank"
+              rel="noreferrer"
               className="flex items-center py-3 space-x-3 text-lg font-semibold w-full rounded-md font-interRegular bg-skin-dark text-skin-light hover:opacity-75 md:text-2xl px-7 justify-center  md:max-w-[200px] transition ease-in-out delay-75  hover:scale-110 hover:bg-skin-primary duration-200"
             >
               <BsDiscord /> <span>Discord</span>
@@ -52,6 +51,7 @@ export default function OurCommunity() {
             <a
               href="https://t.me/fundgazer"
               target="_blank"
+              rel="noreferrer"
               className="flex items-center py-3 space-x-3 text-lg font-semibold w-full rounded-md font-interRegular bg-skin-buttonAccent hover:bg-skin-buttonMuted text-skin-light md:text-2xl px-7 justify-center md:max-w-[200px] transition ease-in-out delay-75  hover:scale-110 duration-200"
             >
               <FaTelegramPlane /> <span>Telegram</span>
