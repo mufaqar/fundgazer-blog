@@ -46,7 +46,7 @@ export default function Tag({ blogs, tags, tagblog }) {
 
   useEffect(() => {
     inView ? setSideBarSticky(false) : setSideBarSticky(true)
-  })
+  },[inView])
 
   useEffect(() => {
     function onScroll() {
