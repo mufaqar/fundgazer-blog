@@ -18,12 +18,12 @@ import Head from 'next/head';
 import SEO from '@bradgarropy/next-seo';
 
 export default function Single({ blog, latestBlogs, tags, allBlogs }) {
-  // console.log("tags in function", tagblog);
-
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
+
+  console.log('tags in function', router);
 
   useEffect(() => {
     if (inView) {
@@ -121,34 +121,33 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                       Share
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
-                      <Link
-                        href={`https://www.facebook.com/sharer/sharer.php?u=${blog.slug}`}
+                      <a
+                        href={`https://www.facebook.com/sharer/sharer.php?u=https://www.fundgazer.com/blog/${blog.slug.current}`}
+                        target="_blank"
                       >
-                        <a>
-                          <BsFacebook />
-                        </a>
-                      </Link>
+                        <BsFacebook />
+                      </a>
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
-                      <Link href="#">
-                        <a>
-                          <BsTwitter />
-                        </a>
-                      </Link>
+                      <a
+                        href={`https://twitter.com/intent/tweet?text=https://www.fundgazer.com/blog/${blog.slug.current}`}
+                        target="_blank"
+                      >
+                        <BsTwitter />
+                      </a>
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
-                      <Link href="#">
-                        <a>
-                          <FaLinkedinIn />
-                        </a>
-                      </Link>
+                      <a
+                        href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.fundgazer.com/blog/${blog.slug.current}title=${blog.title}&summary=&source=`}
+                        target="_blank"
+                      >
+                        <FaLinkedinIn />
+                      </a>
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
-                      <Link href="#">
-                        <a>
-                          <BsWhatsapp />
-                        </a>
-                      </Link>
+                      <a href="#" target="_blank">
+                        <BsWhatsapp />
+                      </a>
                     </li>
                   </ul>
                 </div>
