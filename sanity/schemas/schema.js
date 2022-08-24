@@ -8,7 +8,6 @@ import blog from './blog';
 import author from './author';
 import tags from './tags';
 import comment from './comment';
-import blogseo from './blogseo';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
