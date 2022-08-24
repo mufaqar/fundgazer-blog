@@ -18,12 +18,20 @@ const JoinOurCommunity = () => {
       <div
         className={`flex-wrap justify-center gap-4 md:px-0 lg:flex-nowrap flex`}
       >
-        <button className="flex items-center justify-center w-full py-4 space-x-3 text-[15px] tracking-wide rounded-md font-interRegular bg-skin-secondry text-skin-light hover:opacity-75 px-7 transition ease-in-out delay-75  hover:scale-110 hover:bg-skin-primary duration-200">
+        <a 
+          href="https://discord.gg/4TZTWM4AmU"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-center w-full py-4 space-x-3 text-[15px] tracking-wide rounded-md font-interRegular bg-skin-secondry text-skin-light hover:opacity-75 px-7 transition ease-in-out delay-75  hover:scale-110 hover:bg-skin-primary duration-200">
           <BsDiscord size={24} /> <span>Discord</span>
-        </button>
-        <button className="flex items-center justify-center w-full py-4 space-x-3 text-[15px] tracking-wide rounded-md font-interRegular bg-skin-buttonAccent text-skin-light px-7 transition ease-in-out delay-75  hover:scale-110 hover:bg-skin-primary duration-200">
+        </a>
+        <a
+          href="https://t.me/fundgazer"
+          target="_blank"
+          rel="noreferrer"
+          className="flex items-center justify-center w-full py-4 space-x-3 text-[15px] tracking-wide rounded-md font-interRegular bg-skin-buttonAccent text-skin-light px-7 transition ease-in-out delay-75  hover:scale-110 hover:bg-skin-primary duration-200">
           <FaTelegramPlane size={24} /> <span>Telegram</span>
-        </button>
+        </a>
       </div>
     </>
   );
