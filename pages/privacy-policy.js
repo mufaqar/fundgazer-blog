@@ -1,9 +1,14 @@
 import Link from 'next/link';
 import InnerPAgeBanner from '../components/innerPAgeBanner';
+import Head from 'next/head'
 
 export default function PrivacyPolicy() {
   return (
     <>
+      <Head>
+        <title>Privacy Policy - Fundgazer</title>
+      </Head>
+      
       <InnerPAgeBanner />
 
       {/* Content Section End*/}
@@ -11,7 +16,7 @@ export default function PrivacyPolicy() {
         <div className="container md:w-[1020px] mx-auto py-20">
           <div className="p-4">
             <h3 className="md:text-5xl text-3xl font-interBold font-bold text-skin-primary mb-10">
-              Ptivacy Policy
+              Privacy Policy
             </h3>
 
             <p className="md:text-xl text-base font-interRegular font-normal text-skin-muted mb-5 italic">

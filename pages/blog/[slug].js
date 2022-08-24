@@ -14,6 +14,8 @@ import { useInView } from "react-hook-inview"; // use current active screen Area
 import AuthorProfile from "../../components/authorProfile";
 import PortableText from "react-portable-text";
 import { useRouter } from "next/router";
+import Head from 'next/head'
+import SEO from "@bradgarropy/next-seo"
 
 export default function Single({ blog, latestBlogs, tags, allBlogs }) {
   // console.log("tags in function", tagblog);
@@ -22,24 +24,8 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
-  // const [scrollTop, setScrollTop] = useState(0);
-  // const [ssticky, setSSticky] = useState(false);
-  // const [sideBarSticky, setSideBarSticky] = useState(true);
-  // const [reflatest, inView3] = useInView();
 
-  // useEffect(() => {
-  //   inView2 ? setSideBarSticky(false) : setSideBarSticky(true);
-  // });
 
-  // useEffect(() => {
-  //   function onScroll() {
-  //     let currentPosition = window.pageYOffset;
-  //     setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
-  //   }
-  //   scrollTop >= "440" ? setSSticky(true) : setSSticky(false);
-  //   window.addEventListener("scroll", onScroll);
-  //   return () => window.removeEventListener("scroll", onScroll);
-  // }, [scrollTop]);
 
   useEffect(() => {
     if (inView) {
@@ -65,6 +51,21 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
 
   return (
     <>
+      <Head>
+        <title>{blog.title}</title>
+        <meta property="og:url" content={router.basePath}></meta>
+      </Head>
+      <SEO 
+        title={blog.title} 
+        description={blog.excerpt} 
+        keywords={[
+          blog.tags.map((tag, index) => {
+            return(
+              tag.tag 
+            )
+          })
+        ]} 
+      />
       <section>
         <div className="container pb-10 mx-auto pt-28 ">
           <div className="flex flex-col gap-16 md:flex-row">

@@ -1,9 +1,14 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import Head from 'next/head'
 
 export default function About() {
   return (
     <>
+     <Head>
+        <title>About Us - Fundgazer</title>
+        
+      </Head>
       <section>
         <div className='container flex flex-col gap-24 px-4 py-20 mx-auto mt-20 md:flex-row'>
           <div className='w-full p-4 md:w-1/3'>

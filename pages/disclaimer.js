@@ -1,8 +1,13 @@
 import InnerPAgeBanner from '../components/innerPAgeBanner';
+import Head from 'next/head'
 
 export default function Disclaimer() {
   return (
     <>
+      <Head>
+        <title>Disclaimer - Fundgazer</title>
+        
+      </Head>
       <InnerPAgeBanner />
 
       {/* Content Section End*/}

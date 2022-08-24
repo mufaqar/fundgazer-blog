@@ -3,9 +3,10 @@ import '../styles/index.css';
 import { useEffect, useState } from "react";
 import Footer from '../components/footer';
 import { useInView } from "react-hook-inview"; // use current active screen Area
-
+import SEO from "@bradgarropy/next-seo"
 
 function MyApp({ Component, pageProps }) {
+
 
   const [scrollTop, setScrollTop] = useState(0);
   const [headerClr, setHeaderClr] = useState(false);
@@ -24,17 +25,22 @@ function MyApp({ Component, pageProps }) {
     return () => window.removeEventListener('scroll', onScroll);
     
   }, [scrollTop]);
+
   
   
 
   return (
     <>
+      <SEO title="Fundgazer Blog" description="From building your diversified long-term portfolio and tracking your assets to finding investment ideas, we got you covered." keywords={['latest Blog', 'fundgazer', 'fundgazer news']} />
       <Header headerClr={headerClr} scrollTop={scrollTop}/>
       <Component {...pageProps}  />
-      
       <Footer />
     </>
   );
 }
 
 export default MyApp;
+
+
+
+
