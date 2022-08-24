@@ -9,14 +9,6 @@ import author from './author';
 import tags from './tags';
 import comment from './comment';
 
-<<<<<<< HEAD
-import blog from './blog'
-import author from './author'
-import tags from './tags'
-import comment from './comment'
-
-=======
->>>>>>> a3c33f324c6f18b6dc47b612b82c17dae45c009b
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -30,6 +22,5 @@ export default createSchema({
     author,
     tags,
     comment,
-
   ]),
 });
