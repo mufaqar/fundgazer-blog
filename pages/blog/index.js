@@ -153,7 +153,7 @@ export default function Blog({ blogs, tags }) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const blogs = await client.fetch(`*[_type == "blog"]{
     title,
     tags[]->{
