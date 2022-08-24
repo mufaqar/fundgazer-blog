@@ -9,9 +9,9 @@ node_modules
 /coverage
 
 # next.js
-/.next/
+.next
 /out/
-
+.next/cache
 
 # production
 /build
