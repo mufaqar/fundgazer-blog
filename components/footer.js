@@ -71,7 +71,10 @@ export default function Footer() {
                 </Link>
               </li>
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
-                <Link href="#">
+                <Link
+                  href="https://www.instagram.com/fundgazer_hq"
+                  target="_blank"
+                >
                   <a className="text-3xl ">
                     <FaInstagram size={24} />
                   </a>
