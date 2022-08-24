@@ -4,10 +4,11 @@ import Image from 'next/image';
 import Logo from '../public/images/logo.png';
 import whiteLogo from '../public/images/white-logo.png';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 import Head from 'next/head';
 import { BiSearch } from "react-icons/bi";
 import Search from '../components/search'
+import SEO from "@bradgarropy/next-seo"
+
 
 function MobileNav({ open, setOpen }) {
   return (
@@ -48,6 +49,7 @@ function MobileNav({ open, setOpen }) {
 }
 
 export default function Header({headerClr}) {
+  
   const [open, setOpen] = useState(false);
   const router = useRouter();
 
@@ -64,7 +66,10 @@ export default function Header({headerClr}) {
       <Head>
         <title>FUNDGAZER - BLOG</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta property="og:site_name" content="Fundgazer"></meta>
+        <meta property="og:type" content="website"></meta>
       </Head>
+      <SEO title="Fundgazer Blog" description="From building your diversified long-term portfolio and tracking your assets to finding investment ideas, we got you covered." keywords={['latest Blog', 'fundgazer', 'fundgazer news']} />
       <nav
         className={`flex filter px-5 transition-all duration-100 py-4 h-20 items-center shadow-sm fixed top-0 right-0 left-0 z-50 ${router.pathname === '/' ?  headerClr ? 'bg-[#6F49DD]' : 'bg-[#FAF9FD]' : 'bg-[#FAF9FD]'}  
         }`}
@@ -149,3 +154,5 @@ export default function Header({headerClr}) {
     </>
   );
 }
+
+

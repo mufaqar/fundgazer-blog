@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 import FirstBlog from "../../components/FirstBlog";
 import { BsChevronDown } from "react-icons/bs";
 import { useInView } from "react-hook-inview"; 
+import Head from 'next/head'
 
 
 export default function Blog({ blogs, tags }) {
@@ -54,6 +55,10 @@ export default function Blog({ blogs, tags }) {
 
   return (
     <>
+      <Head>
+        <title>Blogs - Fundgazer</title>
+       
+      </Head>
       <section className="mb-12 md:mt-28">
         <div className="container mx-auto md:pb-10">
           <div className="flex flex-col gap-10 md:flex-row">

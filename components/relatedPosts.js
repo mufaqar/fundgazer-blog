@@ -3,8 +3,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 export default function RelatedPosts({ allBlogs, tag }) {
-  console.log('tagallBlogs', allBlogs);
-  console.log('tag', tag);
+
   let propsTag = tag;
   var tagData = [];
 

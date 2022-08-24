@@ -7,11 +7,13 @@ import { FaAngleRight } from 'react-icons/fa';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
+
 export default function OurCommunity() {
   const route = useRouter();
 
   return (
     <>
+      
       {/* Banner Section Start*/}
       <section className="lg:h-[60vh] flex">
         <div className="container grid items-center grid-cols-1 gap-8 pb-8 mx-auto mt-24 lg:pt-0 md:grid-cols-2">
