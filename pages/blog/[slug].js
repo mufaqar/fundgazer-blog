@@ -1,48 +1,46 @@
-import React from "react";
-import { client } from "../../lib/conn";
-import Image from "next/image";
-import Link from "next/link";
-import Sidebar from "../../components/sidebar";
-import BlogFooter from "../../components/blogFooter";
-import { FaLinkedinIn, FaRegThumbsDown, FaRegThumbsUp } from "react-icons/fa";
-import RelatedPosts from "../../components/relatedPosts";
-import Comment_Section from "../../components/comment-section";
-import { BsFacebook, BsTwitter, BsWhatsapp } from "react-icons/bs";
-import { useState } from "react";
-import { useEffect } from "react";
-import { useInView } from "react-hook-inview"; // use current active screen Area
-import AuthorProfile from "../../components/authorProfile";
-import PortableText from "react-portable-text";
-import { useRouter } from "next/router";
-import Head from 'next/head'
-import SEO from "@bradgarropy/next-seo"
+import React from 'react';
+import { client } from '../../lib/conn';
+import Image from 'next/image';
+import Link from 'next/link';
+import Sidebar from '../../components/sidebar';
+import BlogFooter from '../../components/blogFooter';
+import { FaLinkedinIn, FaRegThumbsDown, FaRegThumbsUp } from 'react-icons/fa';
+import RelatedPosts from '../../components/relatedPosts';
+import Comment_Section from '../../components/comment-section';
+import { BsFacebook, BsTwitter, BsWhatsapp } from 'react-icons/bs';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import { useInView } from 'react-hook-inview'; // use current active screen Area
+import AuthorProfile from '../../components/authorProfile';
+import PortableText from 'react-portable-text';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
+import SEO from '@bradgarropy/next-seo';
 
 export default function Single({ blog, latestBlogs, tags, allBlogs }) {
-  // console.log("tags in function", tagblog);
-
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
 
-
+  console.log('tags in function', router);
 
   useEffect(() => {
     if (inView) {
       setSocialSticky(false);
     } else {
-      inView2 ? "" : setSocialSticky(true);
+      inView2 ? '' : setSocialSticky(true);
     }
   }, [inView, inView2]);
 
   const handleClick = (event) => {
-    const tag = event.target.getAttribute("tag-name");
+    const tag = event.target.getAttribute('tag-name');
     sendProps(tag);
   };
 
   function sendProps(tag) {
     router.push({
-      pathname: "/blog/tag",
+      pathname: '/blog/tag',
       query: {
         tag,
       },
@@ -55,16 +53,14 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
         <title>{blog.title}</title>
         <meta property="og:url" content={router.basePath}></meta>
       </Head>
-      <SEO 
-        title={blog.title} 
-        description={blog.excerpt} 
+      <SEO
+        title={blog.title}
+        description={blog.excerpt}
         keywords={[
           blog.tags.map((tag, index) => {
-            return(
-              tag.tag 
-            )
-          })
-        ]} 
+            return tag.tag;
+          }),
+        ]}
       />
       <section>
         <div className="container pb-10 mx-auto pt-28 ">
@@ -111,46 +107,50 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                   ></Image>
                 </figure>
                 <span className="text-sm italic font-normal font-interRegular text-skin-muted">
-                  {!blog.featureImage.caption ? "" : blog.featureImage.caption}
+                  {!blog.featureImage.caption ? '' : blog.featureImage.caption}
                 </span>
               </div>
               <div>
                 <div className="fixed bottom-0 left-0 right-0 z-50 w-full p-5 bg-white border border-gray-200 md:static md:border-0">
                   <ul
                     className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
-                      socialSticky ? "md:fixed" : "md:block"
+                      socialSticky ? 'md:fixed' : 'md:block'
                     }`}
                   >
                     <li className="text-sm font-bold font-productSansBold md:text-xl text-skin-dark">
                       Share
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
-                      <Link href="#">
-                        <a>
-                          <BsFacebook />
-                        </a>
-                      </Link>
+                      <a
+                        href={`https://www.facebook.com/sharer/sharer.php?u=https://www.fundgazer.com/blog/${blog.slug.current}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <BsFacebook />
+                      </a>
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
-                      <Link href="#">
-                        <a>
-                          <BsTwitter />
-                        </a>
-                      </Link>
+                      <a
+                        href={`https://twitter.com/intent/tweet?text=https://www.fundgazer.com/blog/${blog.slug.current}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <BsTwitter />
+                      </a>
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
-                      <Link href="#">
-                        <a>
-                          <FaLinkedinIn />
-                        </a>
-                      </Link>
+                      <a
+                        href={`https://www.linkedin.com/shareArticle?mini=true&url=https://www.fundgazer.com/blog/${blog.slug.current}title=${blog.title}&summary=&source=`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
+                        <FaLinkedinIn />
+                      </a>
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
-                      <Link href="#">
-                        <a>
-                          <BsWhatsapp />
-                        </a>
-                      </Link>
+                      <a href="#" target="_blank">
+                        <BsWhatsapp />
+                      </a>
                     </li>
                   </ul>
                 </div>
@@ -222,7 +222,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                           <span className="text-2xl rotate-180">
                             <FaRegThumbsDown />
                           </span>
-                          <span className="font-bold">Dislike</span>{" "}
+                          <span className="font-bold">Dislike</span>{' '}
                           {blog.dislikes}
                         </p>
                       </a>
@@ -241,7 +241,6 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 authorName={blog.author.author.name}
                 ProfileURL={blog.author.author.authorprofile.asset.url}
                 linkedinURL={blog.author.author.linkedinurl}
-
               />
             </div>
             {/* Sidebar Column End*/}
@@ -250,14 +249,12 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       </section>
       <div ref={ref}></div>
       <div ref={ref2}>
-       
         <RelatedPosts allBlogs={allBlogs} tag={blog.tags[0].tag} />
-          <div className="container mx-auto">
-            <Comment_Section blog={blog} />
-          </div>
+        <div className="container mx-auto">
+          <Comment_Section blog={blog} />
+        </div>
 
-          <BlogFooter />
-       
+        <BlogFooter />
       </div>
     </>
   );
