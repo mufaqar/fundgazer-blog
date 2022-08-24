@@ -4,7 +4,7 @@ import { GrLinkedinOption } from 'react-icons/gr';
 
 export default function Footer() {
   return (
-    <footer className='h-[25vh]'>
+    <footer className="h-[25vh]">
       <section className="bg-skin-bgFooter">
         <div className="container grid items-center grid-cols-1 py-8 mx-auto md:grid-cols-2">
           <div className="p-5">
@@ -44,21 +44,27 @@ export default function Footer() {
             </ul>
             <ul className="flex justify-center space-x-3 md:justify-end">
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
-                <Link href="#">
+                <Link
+                  href="https://www.facebook.com/Fundgazer1.0"
+                  target="_blank"
+                >
                   <a className="text-3xl ">
                     <FaFacebook size={24} />
                   </a>
                 </Link>
               </li>
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
-                <Link href="#">
+                <Link href="https://twitter.com/Fundgazer_hq" target="_blank">
                   <a className="text-3xl ">
                     <FaTwitter size={24} />
                   </a>
                 </Link>
               </li>
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
-                <Link href="#">
+                <Link
+                  href="https://www.linkedin.com/company/fundgazer/"
+                  target="_blank"
+                >
                   <a className="text-3xl ">
                     <GrLinkedinOption size={24} />
                   </a>
@@ -82,7 +88,7 @@ export default function Footer() {
           </div>
         </div>
       </section>
-      
+
       <section className="bg-skin-dark">
         <div className="container py-6 mx-auto lg:py-3">
           <div>

@@ -1,13 +1,15 @@
 // First, we must import the schema creator
-import createSchema from 'part:@sanity/base/schema-creator'
+import createSchema from 'part:@sanity/base/schema-creator';
 
 // Then import schema types from any plugins that might expose them
-import schemaTypes from 'all:part:@sanity/base/schema-type'
+import schemaTypes from 'all:part:@sanity/base/schema-type';
 
-import blog from './blog'
-import author from './author'
-import tags from './tags'
-import comment from './comment'
+import blog from './blog';
+import author from './author';
+import tags from './tags';
+import comment from './comment';
+import blogseo from './blogseo';
+
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
   // We name our schema
@@ -22,5 +24,4 @@ export default createSchema({
     tags,
     comment,
   ]),
-})
- 
+});
