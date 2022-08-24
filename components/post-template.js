@@ -27,7 +27,7 @@ export default function Post_template({ blog }) {
         <div className="flex flex-col justify-between w-9/12 md:p-0">
           <div>
             <Link href={`/blog/${blog.slug.current}`}>
-              <h3 className="mb-3 text-base font-bold transition-all duration-300 ease-in-out md:text-3xl text-skin-dark font-productSansBold hover:underline">
+              <h3 className="mb-3 text-base font-bold cursor-pointer transition-all duration-300 ease-in-out md:text-3xl text-skin-dark font-productSansBold hover:underline">
                 {blog.title}
               </h3>
             </Link>

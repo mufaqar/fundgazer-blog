@@ -5,7 +5,6 @@ import Search from "./search";
 
 
 export default function Sidebar({tags, ssticky, sideBarSticky, latestBlogs, authorName, ProfileURL, linkedinURL, setSearchInput, serachInput}) { 
-console.log("🚀 ~ file: sidebar.js ~ line 8 ~ Sidebar ~ sideBarSticky", sideBarSticky)
 
   return (
     <aside className="relative ">
