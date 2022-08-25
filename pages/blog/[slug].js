@@ -18,12 +18,13 @@ import Head from 'next/head';
 import SEO from '@bradgarropy/next-seo';
 
 export default function Single({ blog, latestBlogs, tags, allBlogs }) {
+  console.log("🚀 ~ file: [slug].js ~ line 21 ~ Single ~ blog", blog)
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
 
-  console.log('tags in function', router);
+
 
   useEffect(() => {
     if (inView) {
@@ -54,12 +55,15 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
         <meta property="og:url" content={router.basePath}></meta>
       </Head>
       <SEO
-        title={blog.title}
-        description={blog.excerpt}
-        keywords={[
-          blog.tags.map((tag, index) => {
+        title={blog.metatitle ? blog.metatitle : blog.title}
+        description={ blog.metadescription ? blog.metadescription : blog.excerpt }
+        keywords={[ 
+          blog.metatags ? 
+          blog.metatags.map((tag) => {
             return tag.tag;
-          }),
+          }) :  blog.tags.map((tag) => {
+            return tag.tag;
+          })
         ]}
       />
       <section>
@@ -274,6 +278,11 @@ export const getServerSideProps = async (pageContext) => {
     content,
     dislikes,
     slug,
+    metatitle,
+    metadescription,
+    metatags[]->{
+      tag
+    },
     releaseDate,
     featureImage{
       asset->{
@@ -302,6 +311,7 @@ export const getServerSideProps = async (pageContext) => {
     likes,
     excerpt,
     dislikes,
+    
     slug,
     releaseDate,
     featureImage{
