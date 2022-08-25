@@ -22,7 +22,7 @@ export default function Posts() {
       setIsVarified(true);
     } else {
       setIsVarified(false);
-      alert('varify you are not robot');
+      alert('Please varify you are not robot.!');
     }
   };
 
@@ -179,7 +179,7 @@ export default function Posts() {
               <div className="captch mt-2">
                 <ReCAPTCHA
                   ref={captcha}
-                  sitekey="6Le0SaghAAAAANgovKwGtRqHEXu9n0p1_lTRCtuF"
+                  sitekey="6Lc_b6ghAAAAAO4qDTfLsI44NR5guKc56BzSGkSY"
                   onChange={handleOnChange}
                 />
               </div>
