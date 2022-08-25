@@ -1,51 +1,47 @@
-import Link from "next/link";
-import { BsChevronDown } from "react-icons/bs";
-import { useEffect, useState } from "react";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-hook-inview"; // use current active screen Area
-import OurCommunity from "../pages/our-community";
-import {useRef} from 'react';
-import ReCAPTCHA from "react-google-recaptcha";
+import Link from 'next/link';
+import { BsChevronDown } from 'react-icons/bs';
+import { useEffect, useState } from 'react';
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-hook-inview'; // use current active screen Area
+import OurCommunity from '../pages/our-community';
+import { useRef } from 'react';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 export default function Posts() {
   const [ref, inView] = useInView();
   const animationText = useAnimation();
   const tempanim = useRef(); // use to remove React Hook useEffect has a missing dependency:
   const [isVarified, setIsVarified] = useState(false);
-  console.log("🚀 ~ file: Hero.js ~ line 15 ~ Posts ~ isVarified", isVarified)
+  //console.log("🚀 ~ file: Hero.js ~ line 15 ~ Posts ~ isVarified", isVarified)
 
   const captcha = useRef(null);
 
-  const handleOnChange=()=> {
-     if(captcha.current.getValue()) {
-      console.log('captcha value')
-      setIsVarified(true)
-     }else{
-      setIsVarified(false)
-      alert('varify you are not robot')
-     }
-  }
+  const handleOnChange = () => {
+    if (captcha.current.getValue()) {
+      console.log('captcha value');
+      setIsVarified(true);
+    } else {
+      setIsVarified(false);
+      alert('varify you are not robot');
+    }
+  };
 
-  
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    if(captcha.current.getValue()) {
-        console.log('submit')
-     }else{
-      alert('varify you are not robot')
-     }
-  }
-  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (captcha.current.getValue()) {
+      console.log('submit');
+    } else {
+      alert('varify you are not robot');
+    }
+  };
 
-
-
-  function animationfun(){
+  function animationfun() {
     if (inView) {
       animationText.start({
         opacity: 1,
         scale: 1,
         transition: {
-          type: "spring",
+          type: 'spring',
           duration: 2,
           bounce: 0.3,
         },
@@ -58,15 +54,11 @@ export default function Posts() {
     }
   }
 
-  tempanim.current = animationfun  // use to remove React Hook useEffect has a missing dependency:
+  tempanim.current = animationfun; // use to remove React Hook useEffect has a missing dependency:
 
   useEffect(() => {
-    tempanim.current()   // use to remove React Hook useEffect has a missing dependency:
+    tempanim.current(); // use to remove React Hook useEffect has a missing dependency:
   }, [inView]);
-
-
-
-
 
   return (
     <>
@@ -79,7 +71,9 @@ export default function Posts() {
           >
             <motion.div className="z-10" animate={animationText}>
               <h1 className="text-[32px] leading-9 md:text-6xl font-thin font-interRegular">
-                The <span className="font-bold text-skin-primary">Future </span>of <span className="md:whitespace-nowrap">
+                The <span className="font-bold text-skin-primary">Future </span>
+                of{' '}
+                <span className="md:whitespace-nowrap">
                   Personal Investment.
                 </span>
               </h1>
@@ -125,9 +119,7 @@ export default function Posts() {
                 <source src="video/video.mp4" type="video/mp4" />
               </video>
             </div>
-            
-            
-          
+
             <div className="block mx-4 md:hidden">
               <Link href="#">
                 <a className="flex items-center mt-20 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium group">
@@ -155,7 +147,10 @@ export default function Posts() {
               you.
             </p>
             <div className="mt-8">
-              <form onSubmit={handleSubmit} className="space-x-0 space-y-2 md:flex md:space-x-2 md:space-y-0">
+              <form
+                onSubmit={handleSubmit}
+                className="space-x-0 space-y-2 md:flex md:space-x-2 md:space-y-0"
+              >
                 <input
                   type="email"
                   id="email"
@@ -169,15 +164,13 @@ export default function Posts() {
                 >
                   I am not a robot
                 </button> */}
-               
-                
+
                 <button
                   type="submit"
                   className="flex items-center cursor-pointer px-12 py-3 text-[20px] w-full justify-center md:w-auto font-medium rounded-md font-interMedium bg-skin-dark text-skin-light hover:opacity-75 transition ease-in-out delay-75  hover:scale-110  duration-200"
                 >
                   Join
-                  </button>
-                  
+                </button>
               </form>
               {/* <button type="submit" className="text-[#D1C6FF] hidden md:flex font-interRegular border border-[#D1C6FF] bg-transparent hover:bg-skin-buttonAccent hover:border-transparent text-base font-normal items-center py-3 px-12 rounded-md mt-5"
               >
@@ -186,7 +179,7 @@ export default function Posts() {
               <div className="captch mt-2">
                 <ReCAPTCHA
                   ref={captcha}
-                  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                  sitekey="6Le0SaghAAAAANgovKwGtRqHEXu9n0p1_lTRCtuF"
                   onChange={handleOnChange}
                 />
               </div>
@@ -207,7 +200,7 @@ export default function Posts() {
       </section>
       {/* Jion Us Section End*/}
       <div className="md:hidden">
-        <OurCommunity/>
+        <OurCommunity />
       </div>
     </>
   );
