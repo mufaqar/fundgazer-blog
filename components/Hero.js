@@ -5,11 +5,38 @@ import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-hook-inview"; // use current active screen Area
 import OurCommunity from "../pages/our-community";
 import {useRef} from 'react';
+import ReCAPTCHA from "react-google-recaptcha";
 
 export default function Posts() {
   const [ref, inView] = useInView();
   const animationText = useAnimation();
   const tempanim = useRef(); // use to remove React Hook useEffect has a missing dependency:
+  const [isVarified, setIsVarified] = useState(false);
+  console.log("🚀 ~ file: Hero.js ~ line 15 ~ Posts ~ isVarified", isVarified)
+
+  const captcha = useRef(null);
+
+  const handleOnChange=()=> {
+     if(captcha.current.getValue()) {
+      console.log('captcha value')
+      setIsVarified(true)
+     }else{
+      setIsVarified(false)
+      alert('varify you are not robot')
+     }
+  }
+
+  
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    if(captcha.current.getValue()) {
+        console.log('submit')
+     }else{
+      alert('varify you are not robot')
+     }
+  }
+  
+
 
 
   function animationfun(){
@@ -37,8 +64,6 @@ export default function Posts() {
     tempanim.current()   // use to remove React Hook useEffect has a missing dependency:
   }, [inView]);
 
-
-  
 
 
 
@@ -130,7 +155,7 @@ export default function Posts() {
               you.
             </p>
             <div className="mt-8">
-              <form className="space-x-0 space-y-2 md:flex md:space-x-2 md:space-y-0">
+              <form onSubmit={handleSubmit} className="space-x-0 space-y-2 md:flex md:space-x-2 md:space-y-0">
                 <input
                   type="email"
                   id="email"
@@ -138,25 +163,33 @@ export default function Posts() {
                   name="email"
                   className="font-interRegular bg-skin-light text-skin-muted text-2xl font-normal outline-[#6F49DD] focus:outline-[#6F49DD] py-3 px-4 rounded-md md:max-w-[395px] w-full"
                 />
-                <button
+                {/* <button
                   type="submit"
                   className="text-[#D1C6FF] font-interRegular border border-[#D1C6FF] bg-transparent md:hidden hover:bg-skin-buttonAccent hover:border-transparent text-base font-normal flex items-center py-3 px-12 rounded-md captcha"
                 >
                   I am not a robot
-                </button>
+                </button> */}
+               
+                
                 <button
                   type="submit"
-                  className="flex items-center px-12 py-3 text-[20px] w-full justify-center md:w-auto font-medium rounded-md font-interMedium bg-skin-dark text-skin-light hover:opacity-75 transition ease-in-out delay-75  hover:scale-110  duration-200"
+                  className="flex items-center cursor-pointer px-12 py-3 text-[20px] w-full justify-center md:w-auto font-medium rounded-md font-interMedium bg-skin-dark text-skin-light hover:opacity-75 transition ease-in-out delay-75  hover:scale-110  duration-200"
                 >
                   Join
-                </button>
+                  </button>
+                  
               </form>
-              <button
-                type="submit"
-                className="text-[#D1C6FF] hidden md:flex font-interRegular border border-[#D1C6FF] bg-transparent hover:bg-skin-buttonAccent hover:border-transparent text-base font-normal items-center py-3 px-12 rounded-md mt-5"
+              {/* <button type="submit" className="text-[#D1C6FF] hidden md:flex font-interRegular border border-[#D1C6FF] bg-transparent hover:bg-skin-buttonAccent hover:border-transparent text-base font-normal items-center py-3 px-12 rounded-md mt-5"
               >
                 I am not a robot
-              </button>
+              </button> */}
+              <div className="captch mt-2">
+                <ReCAPTCHA
+                  ref={captcha}
+                  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                  onChange={handleOnChange}
+                />
+              </div>
             </div>
           </div>
           <div className="p-4 ">
