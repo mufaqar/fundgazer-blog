@@ -22,7 +22,6 @@ export default function Posts() {
       setIsVarified(true);
     } else {
       setIsVarified(false);
-      alert('Please varify you are not robot.!');
     }
   };
 
@@ -31,7 +30,7 @@ export default function Posts() {
     if (captcha.current.getValue()) {
       console.log('submit');
     } else {
-      alert('varify you are not robot');
+      alert('Please varify you are not robot.!');
     }
   };
 
