@@ -81,3 +81,7 @@ html {
 ._hidden{
   display: none !important;
 }
+
+.rc-anchor-light.rc-anchor-normal{
+  background: transparent !important;
+}

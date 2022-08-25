@@ -20,6 +20,29 @@ export default {
       },
     },
     {
+      name: "metatitle",
+      type: "string",
+      title: "Meta Title",
+    },
+    {
+      name: "metadescription",
+      type: "text",
+      title: "Meta Description",
+    },
+    {
+      title: 'Meta Tags',
+      name: 'metatags',
+      type: 'array',
+      of: [
+        {
+          type: 'reference',
+          to: [
+            { type: 'tags' },
+          ]
+        }
+      ]
+    },
+    {
       title: "Feature Image",
       name: "featureImage",
       type: "image",
@@ -77,7 +100,7 @@ export default {
         {
           type: 'reference',
           to: [
-            {type: 'tags'},
+            { type: 'tags' },
           ]
         }
       ]
@@ -117,7 +140,11 @@ export default {
               }
             }
           ]
-        }
+        },
+
+
+
+
       ]
     },
   ],
