@@ -32,7 +32,7 @@ export default function Posts() {
     if(captcha.current.getValue()) {
         console.log('submit')
      }else{
-      alert('varify you are not robot')
+      alert('Please varify you are not robot.!')
      }
   }
   
@@ -186,7 +186,7 @@ export default function Posts() {
               <div className="captch mt-2">
                 <ReCAPTCHA
                   ref={captcha}
-                  sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                  sitekey="6Lc_b6ghAAAAAO4qDTfLsI44NR5guKc56BzSGkSY"
                   onChange={handleOnChange}
                 />
               </div>
