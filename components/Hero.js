@@ -22,7 +22,7 @@ export default function Posts() {
       setIsVarified(true)
      }else{
       setIsVarified(false)
-      alert('varify you are not robot')
+      alert('Please varify you are not robot.!')
      }
   }
 
