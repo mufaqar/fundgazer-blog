@@ -50,7 +50,7 @@ function MobileNav({ open, setOpen }) {
 export default function Header({ headerClr }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-
+  console.log(router)
   const SearchBlock = () => {
     return <Search />;
   };
@@ -172,11 +172,7 @@ export default function Header({ headerClr }) {
               >
                 <a
                   className={`${
-                    router.pathname === '/'
-                      ? headerClr
-                        ? 'hover:text-black'
-                        : 'hover:text-[#6F49DD]'
-                      : 'hover:text-[#6F49DD]'
+                    router.pathname === "/our-community" ? headerClr ? 'hover:text-black ' : 'hover:text-[#6F49DD] text-[#6F49DD]' : 'hover:text-[#6F49DD]'
                   } `}
                   onClick={() => setOpen(false)}
                 >
@@ -189,10 +185,10 @@ export default function Header({ headerClr }) {
               >
                 <a
                   className={`${
-                    router.pathname === '/'
+                    router.pathname === "/blog"
                       ? headerClr
                         ? 'hover:text-black'
-                        : 'hover:text-[#6F49DD]'
+                        : 'hover:text-[#6F49DD] text-[#6F49DD]'
                       : 'hover:text-[#6F49DD]'
                   } `}
                   onClick={() => setOpen(false)}

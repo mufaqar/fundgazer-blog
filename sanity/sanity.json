@@ -1,11 +1,11 @@
 {
   "root": true,
-  "project": {
-    "name": "fundgazer-backend"
-  },
   "api": {
     "projectId": "3jk4lurs",
     "dataset": "production"
+  },
+  "project": {
+    "name": "fundgazer-backend"
   },
   "plugins": [
     "@sanity/base",
@@ -26,7 +26,5 @@
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
     }
-
-    
   ]
 }
