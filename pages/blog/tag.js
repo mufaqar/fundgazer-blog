@@ -66,7 +66,7 @@ export default function Tag({ blogs, tags, tagblog }) {
         <title>{props.tag} - Fundgazer</title>
       </Head>
       <section className="mb-12 md:mt-32">
-        <div className="container mx-auto md:pb-10">
+        <div className="mx-auto custom_container md:pb-10">
           <div className="flex flex-col gap-10 md:flex-row">
             {/* Posts Column Start*/}
             <div className="w-full lg:pr-10 md:w-9/12">

@@ -6,7 +6,7 @@ export default function RecentPost({ latestBlogs }) {
 
   return (
     <>
-      <div className={`p-5 md:px-0 w-[350px]`}>
+      <div className={`p-5 md:px-0 w-[310px]`}>
         <h6 className="mb-5 text-xl font-bold text-skin-dark font-productSansBold">
           Recent Blogs
         </h6>

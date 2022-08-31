@@ -10,6 +10,8 @@ import Search from '../components/search';
 import SEO from '@bradgarropy/next-seo';
 
 function MobileNav({ open, setOpen }) {
+  
+  
   return (
     <div
       className={`absolute top-0 left-0 h-screen w-screen bg-[#FAF9FD] transform ${
@@ -47,14 +49,11 @@ function MobileNav({ open, setOpen }) {
   );
 }
 
-export default function Header({ headerClr }) {
+export default function Header({ headerClr, serachInput, setSearchInput }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
-  console.log(router)
-  const SearchBlock = () => {
-    return <Search />;
-  };
-
+  const [handleMobileSearch, setHandleMobileSearch] = useState(false)
+  
   return (
     <>
       <Head>
@@ -123,8 +122,9 @@ export default function Header({ headerClr }) {
               {/* search icon */}
               <BiSearch
                 className={`text-3xl ${
-                  headerClr ? 'text-white' : 'text-black'
-                } `}
+                  headerClr ? router.pathname === '/' ? 'text-white' : 'text-black' : 'text-black'
+                } ${handleMobileSearch ? 'text-[#6F49DD]' : ''}`}
+                onClick={()=>setHandleMobileSearch(!handleMobileSearch)}
               />
             </div>
             <div
@@ -136,21 +136,21 @@ export default function Header({ headerClr }) {
               {/* hamburger button */}
               <span
                 className={`h-1 w-full ${
-                  headerClr ? 'bg-white' : 'bg-black'
+                  headerClr ? router.pathname === '/' ? 'bg-white' : 'bg-black' : 'bg-black'
                 }  rounded-lg transform transition duration-300 ease-in-out ${
                   open ? 'rotate-45 translate-y-3.5' : ''
                 }`}
               />
               <span
                 className={`h-1 w-full ${
-                  headerClr ? 'bg-white' : 'bg-black'
+                  headerClr ? router.pathname === '/' ? 'bg-white' : 'bg-black' : 'bg-black'
                 } rounded-lg transition-all duration-300 ease-in-out ${
                   open ? 'w-0' : 'w-full'
                 }`}
               />
               <span
                 className={`h-1 w-full ${
-                  headerClr ? 'bg-white' : 'bg-black'
+                  headerClr ? router.pathname === '/' ? 'bg-white' : 'bg-black' : 'bg-black'
                 } rounded-lg transform transition duration-300 ease-in-out ${
                   open ? '-rotate-45 -translate-y-3.5' : ''
                 }`}
@@ -172,7 +172,7 @@ export default function Header({ headerClr }) {
               >
                 <a
                   className={`${
-                    router.pathname === "/our-community" ? headerClr ? 'hover:text-black ' : 'hover:text-[#6F49DD] text-[#6F49DD]' : 'hover:text-[#6F49DD]'
+                    router.pathname === "/our-community" ? headerClr ? 'hover:text-black ' : 'hover:text-[#6F49DD] text-[#6F49DD]' : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
                   } `}
                   onClick={() => setOpen(false)}
                 >
@@ -189,7 +189,7 @@ export default function Header({ headerClr }) {
                       ? headerClr
                         ? 'hover:text-black'
                         : 'hover:text-[#6F49DD] text-[#6F49DD]'
-                      : 'hover:text-[#6F49DD]'
+                      : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
                   } `}
                   onClick={() => setOpen(false)}
                 >
@@ -199,8 +199,14 @@ export default function Header({ headerClr }) {
             </div>
           </div>
         </div>
-        {/* <SearchBlock/>  */}
       </nav>
+
+      <section className={`relative md:hidden top-20 ${handleMobileSearch ? 'block' : 'hidden'}`}>
+        <Search 
+          setSearchInput={setSearchInput}
+          serachInput={serachInput}
+        />
+      </section>
     </>
   );
 }

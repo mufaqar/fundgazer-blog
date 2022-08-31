@@ -17,7 +17,7 @@ export default function RelatedPosts({ allBlogs, tag }) {
 
   return (
     <section className="bg-[#F8F8F8]">
-      <div className="container px-5 py-10 mx-auto">
+      <div className="px-5 py-10 mx-auto custom_container">
         <h6 className="mb-5 text-2xl font-bold font-productSansBold text-skin-dark">
           Related Blogs
         </h6>
@@ -30,7 +30,7 @@ export default function RelatedPosts({ allBlogs, tag }) {
             >
               <Link href={`/blog/${item.slug.current}`}>
                 <a>
-                  <figure className="h-[94px] relative md:w-[402px] w-[93px] md:h-[226px]">  
+                  <figure className="h-[94px] relative md:w-[370px] w-[93px] md:h-[226px]">  
                     <Image
                       src={item.featureImage.asset.url}
                       alt="relatedBlog"

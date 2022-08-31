@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
   const [headerClr, setHeaderClr] = useState(false);
   // const [sideBarSticky, setSideBarSticky] = useState(true);
   // const [ref, inView] = useInView();
-  
+  const [serachInput, setSearchInput] = useState();
   
   useEffect(() => {
     function onScroll() {
@@ -32,8 +32,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <SEO title="Fundgazer Blog" description="From building your diversified long-term portfolio and tracking your assets to finding investment ideas, we got you covered." keywords={['latest Blog', 'fundgazer', 'fundgazer news']} />
-      <Header headerClr={headerClr} scrollTop={scrollTop}/>
-      <Component {...pageProps}  />
+      <Header headerClr={headerClr} scrollTop={scrollTop} serachInput={serachInput} setSearchInput={setSearchInput}/>
+      <Component {...pageProps}  serachInput={serachInput} setSearchInput={setSearchInput}/>
       <Footer />
     </>
   );

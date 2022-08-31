@@ -9,10 +9,9 @@ import { useInView } from "react-hook-inview";
 import Head from 'next/head'
 
 
-export default function Blog({ blogs, tags }) {
+export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
   
   const [blogsData, setBlogsData] = useState(blogs);
-  const [serachInput, setSearchInput] = useState();
   const [scrollTop, setScrollTop] = useState(0);
   const [ssticky, setSSticky] = useState(false);
   const [sideBarSticky, setSideBarSticky] = useState(true);
@@ -60,10 +59,10 @@ export default function Blog({ blogs, tags }) {
        
       </Head>
       <section className="mb-12 md:mt-28">
-        <div className="container mx-auto md:pb-10">
+        <div className="mx-auto custom_container md:pb-10">
           <div className="flex flex-col gap-10 md:flex-row">
             {/* Posts Column Start*/}
-            <div className="w-full mt-24 md:mt-0 lg:pr-10 md:w-9/12">
+            <div className="w-full mt-24 md:mt-0 lg:pr-12 md:w-9/12">
               {/* Main Post Start*/}
               {blogs.map((blog, index) => {
                 if (index === 0) {

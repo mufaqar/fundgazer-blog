@@ -91,7 +91,7 @@ export default function Posts() {
             </Link>
           </div>
           <div className="float-right col-span-2 overflow-x-hidden md:p-4 landingVideo">
-            <div className="mr-24 md:block md:mr-0 md:ml-0 -ml-28">
+            <div className="mr-24 -ml-48 md:block md:mr-0 md:ml-0">
               <video
                 width="1000"
                 height="800"
@@ -106,7 +106,7 @@ export default function Posts() {
           </div>
 
           <div className="float-right col-span-2 -mt-12 overflow-x-hidden md:hidden md:p-4 landingVideo">
-            <div className="ml-24 -mt-12 md:hidden -mr-28">
+            <div className="ml-24 -mt-12 -mr-48 md:hidden">
               <video
                 width="1000"
                 height="800"

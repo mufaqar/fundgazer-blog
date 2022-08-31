@@ -137,7 +137,7 @@ export default function OurCommunity() {
         </div>
       </section>
 
-      <section className="bg-skin-primary cta md:hidden" id="cta">
+      <section className={`bg-skin-primary cta md:hidden ${route.pathname === '/' ? 'hidden' : 'block'}`} id="cta">
         <div className="container grid items-center lg:h-[70vh] grid-cols-1 gap-8 py-12 lg:py-20 mx-auto lg:grid-cols-2">
           <div className="order-last p-4 mt-10 md:order-first md:mt-0">
             <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-[#D1C6FF] font-interRegular">
