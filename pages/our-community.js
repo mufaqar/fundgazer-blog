@@ -35,8 +35,8 @@ export default function OurCommunity() {
         <div className="container grid items-center grid-cols-1 gap-8 pb-8 mx-auto mt-24 lg:pt-0 md:grid-cols-2">
           <div className="p-4">
             <h1 className="text-4xl font-normal md:text-6xl font-interRegular">
-              <span className="font-bold text-skin-primary font-interBold">
-                Join
+              <span className="font-bold text-skin-primary font-interBold ">
+                Join 
               </span>
               Our Community
             </h1>
@@ -44,14 +44,14 @@ export default function OurCommunity() {
               We are all about giving personal investors the tools and resources
               they need, to make informed decisions.
             </p>
-            <Link href="#">
+            <Link href="/our-community">
               <a
                 className={`flex md:hidden w-full justify-end items-center mt-6 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium ${
                   route.pathname === '/our-community' ? 'hidden' : 'block'
                 } `}
               >
                 <span className="">Explore</span>
-                <span className="text-skin-primary text-[2rem]">
+                <span className="text-skin-primary text-[2rem] bounce_right">
                   <FaAngleRight strokeWidth={2} />
                 </span>
               </a>

@@ -71,7 +71,7 @@ export default function Posts() {
             <motion.div className="z-10" animate={animationText}>
               <h1 className="text-[32px] leading-9 md:text-6xl font-thin font-interRegular">
                 The <span className="font-bold text-skin-primary">Future </span>
-                of{' '}
+                of
                 <span className="md:whitespace-nowrap">
                   Personal Investment.
                 </span>
@@ -120,7 +120,7 @@ export default function Posts() {
             </div>
 
             <div className="block mx-4 md:hidden">
-              <Link href="#">
+              <Link href="#cta">
                 <a className="flex items-center mt-20 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium group">
                   <span className="text-skin-primary animate-bounce">
                     <BsChevronDown strokeWidth={2} />
