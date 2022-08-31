@@ -67,9 +67,9 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       />
       <section>
         <div className="pb-10 mx-auto custom_container pt-28 ">
-          <div className="flex flex-col gap-16 px-6 md:px-0 md:flex-row">
+          <div className="flex flex-col gap-16 px-6  lg:flex-row md:px-6">
             {/* Posts Column Start*/}
-            <div className="relative w-full lg:pr-3 md:w-9/12 rpadding">
+            <div className="relative w-full lg:pr-3 lg:w-9/12 rpadding">
               <div className="mb-7">
                 <ul className="mb-5">
                   <li>
@@ -114,10 +114,10 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 </span>
               </div>
               <div>
-                <div className="fixed bottom-0 left-0 right-0 z-50 w-full p-5 bg-white border border-gray-200 md:static md:border-0">
+                <div className="fixed bottom-0 left-0 right-0 z-50 w-full p-5 bg-white border border-gray-200 lg:static md:border-0">
                   <ul
                     className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
-                      socialSticky ? 'md:fixed' : 'md:block'
+                      socialSticky ? 'lg:fixed' : 'lg:block'
                     }`}
                   >
                     <li className="text-sm font-bold font-productSansBold md:text-xl text-skin-dark">
@@ -209,7 +209,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
             {/* Posts Column END*/}
 
             {/* Sidebar Column Start*/}
-            <div className="hidden w-full md:w-3/12 md:block">
+            <div className="hidden w-full lg:w-3/12 md:block">
               <div className="sticky top-20">
                 <Sidebar
                   tags={tags}
@@ -230,7 +230,6 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
         <div className="container mx-auto">
           <Comment_Section blog={blog} />
         </div>
-
         <BlogFooter />
       </div>
     </>
