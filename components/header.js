@@ -201,7 +201,7 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
         </div>
       </nav>
 
-      <section className={`relative md:hidden top-20 ${handleMobileSearch ? 'block' : 'hidden'}`}>
+      <section className={`fixed bg-white z-10 w-full md:hidden top-20 ${handleMobileSearch ? 'block' : 'hidden'}`}>
         <Search 
           setSearchInput={setSearchInput}
           serachInput={serachInput}
