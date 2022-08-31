@@ -17,7 +17,7 @@ export default function RelatedPosts({ allBlogs, tag }) {
 
   return (
     <section className="bg-[#F8F8F8]">
-      <div className="px-5 py-10 mx-auto custom_container">
+      <div className="px-5 py-10 mx-auto md:px-0 custom_container">
         <h6 className="mb-5 text-2xl font-bold font-productSansBold text-skin-dark">
           Related Blogs
         </h6>
