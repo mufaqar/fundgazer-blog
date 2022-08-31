@@ -6,18 +6,15 @@ import { client } from "../../lib/conn";
 import { useState, useEffect } from "react";
 import FirstBlog from "../../components/FirstBlog";
 import { BsChevronDown } from "react-icons/bs";
-import { useInView } from "react-hook-inview"; 
+import { useInView } from "react-hook-inview";
 import Head from 'next/head'
 
 export default function Tag({ blogs, tags, tagblog }) {
-  
+
   const [blogsData, setBlogsData] = useState(blogs);
   const [serachInput, setSearchInput] = useState();
   const [eLimit, setELimit] = useState(8);
   var length = blogs.length;
-  const [scrollTop, setScrollTop] = useState(0);
-  const [ssticky, setSSticky] = useState(false);
-  const [sideBarSticky, setSideBarSticky] = useState(true);
   const [ref, inView] = useInView();
 
   // const [tagData, setTagData] = useState();
@@ -35,29 +32,12 @@ export default function Tag({ blogs, tags, tagblog }) {
     tag,
   };
 
-  // useEffect(() => {
-  //   tagblog.map((tag) => ( tag.tag === props.tag && setTagData(tag.posts)))
-  // },[tagData]);
 
   const loadMore = () => {
-    // setSLimit(eLimit);
     setELimit(eLimit + 5);
   };
 
-  useEffect(() => {
-    inView ? setSideBarSticky(false) : setSideBarSticky(true)
-  },[inView])
 
-  useEffect(() => {
-    function onScroll() {
-      let currentPosition = window.pageYOffset;
-      setScrollTop(currentPosition <= 0 ? 0 : currentPosition);
-    }
-    scrollTop >= '440' ? setSSticky(true) : setSSticky(false);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-    
-  }, [scrollTop]);
 
 
   return (
@@ -96,28 +76,27 @@ export default function Tag({ blogs, tags, tagblog }) {
 
                 {serachInput
                   ? filterData.map((blog, index) => {
-                      return (
-                        <div
-                          key={index}
-                          className="flex flex-row gap-5 px-5 md:px-0"
-                        >
-                          <Post_template blog={blog} />
-                        </div>
-                      );
-                    })
+                    return (
+                      <div
+                        key={index}
+                        className="flex flex-row gap-5 px-5 md:px-0"
+                      >
+                        <Post_template blog={blog} />
+                      </div>
+                    );
+                  })
                   : tagblog.map((tag) => (
-                      <>
-                        {tag.tag === props.tag &&
-                          tag.posts.slice(0, eLimit).map((item, index) => (
-                            <Post_template blog={item} key={index} />
-                          ))}
-                      </>
-                    ))}
+                    <>
+                      {tag.tag === props.tag &&
+                        tag.posts.slice(0, eLimit).map((item, index) => (
+                          <Post_template blog={item} key={index} />
+                        ))}
+                    </>
+                  ))}
                 <div
                   onClick={loadMore}
-                  className={`items-center gap-2 justify-end text-base italic font-normal cursor-pointer mt-10 font-interRegular md:text-lg text-skin-primary ${
-                    eLimit > length ? "hidden" : "flex"
-                  }`}
+                  className={`items-center gap-2 justify-end text-base italic font-normal cursor-pointer mt-10 font-interRegular md:text-lg text-skin-primary ${eLimit > length ? "hidden" : "flex"
+                    }`}
                 >
                   See More Posts
                   <span>
@@ -131,21 +110,21 @@ export default function Tag({ blogs, tags, tagblog }) {
 
             {/* Sidebar Column Start*/}
             <div className="hidden w-full md:w-3/12 md:block">
-              <Sidebar
-                tags={tags}
-                latestBlogs={blogs}
-                setSearchInput={setSearchInput}
-                serachInput={serachInput}
-                ssticky={ssticky}
-                sideBarSticky={sideBarSticky}
-              />
+              <div className="sticky top-20">
+                <Sidebar
+                  tags={tags}
+                  latestBlogs={blogs}
+                  setSearchInput={setSearchInput}
+                  serachInput={serachInput}
+                />
+              </div>
             </div>
             {/* Sidebar Column End*/}
           </div>
         </div>
       </section>
       <div ref={ref}>
-      <BlogFooter />
+        <BlogFooter />
       </div>
     </>
   );

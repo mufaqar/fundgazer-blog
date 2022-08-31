@@ -56,14 +56,14 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       </Head>
       <SEO
         title={blog.metatitle ? blog.metatitle : blog.title}
-        description={ blog.metadescription ? blog.metadescription : blog.excerpt }
-        keywords={[ 
-          blog.metatags ? 
-          blog.metatags.map((tag) => {
-            return tag.tag;
-          }) :  blog.tags.map((tag) => {
-            return tag.tag;
-          })
+        description={blog.metadescription ? blog.metadescription : blog.excerpt}
+        keywords={[
+          blog.metatags ?
+            blog.metatags.map((tag) => {
+              return tag.tag;
+            }) : blog.tags.map((tag) => {
+              return tag.tag;
+            })
         ]}
       />
       <section>
@@ -117,9 +117,8 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
               <div>
                 <div className="fixed bottom-0 left-0 right-0 z-50 w-full p-5 bg-white border border-gray-200 md:static md:border-0">
                   <ul
-                    className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
-                      socialSticky ? 'md:fixed' : 'md:block'
-                    }`}
+                    className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${socialSticky ? 'md:fixed' : 'md:block'
+                      }`}
                   >
                     <li className="text-sm font-bold font-productSansBold md:text-xl text-skin-dark">
                       Share
@@ -239,13 +238,15 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
 
             {/* Sidebar Column Start*/}
             <div className="hidden w-full md:w-3/12 md:block">
-              <Sidebar
-                tags={tags}
-                latestBlogs={latestBlogs}
-                authorName={blog.author.author.name}
-                ProfileURL={blog.author.author.authorprofile.asset.url}
-                linkedinURL={blog.author.author.linkedinurl}
-              />
+              <div className="sticky top-20">
+                <Sidebar
+                  tags={tags}
+                  latestBlogs={latestBlogs}
+                  authorName={blog.author.author.name}
+                  ProfileURL={blog.author.author.authorprofile.asset.url}
+                  linkedinURL={blog.author.author.linkedinurl}
+                />
+              </div>
             </div>
             {/* Sidebar Column End*/}
           </div>
