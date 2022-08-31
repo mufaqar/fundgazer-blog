@@ -18,13 +18,11 @@ import Head from 'next/head';
 import SEO from '@bradgarropy/next-seo';
 
 export default function Single({ blog, latestBlogs, tags, allBlogs }) {
-  console.log("🚀 ~ file: [slug].js ~ line 21 ~ Single ~ blog", blog)
+  console.log('🚀 ~ file: [slug].js ~ line 21 ~ Single ~ blog', blog);
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
-
-
 
   useEffect(() => {
     if (inView) {
@@ -58,12 +56,13 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
         title={blog.metatitle ? blog.metatitle : blog.title}
         description={blog.metadescription ? blog.metadescription : blog.excerpt}
         keywords={[
-          blog.metatags ?
-            blog.metatags.map((tag) => {
-              return tag.tag;
-            }) : blog.tags.map((tag) => {
-              return tag.tag;
-            })
+          blog.metatags
+            ? blog.metatags.map((tag) => {
+                return tag.tag;
+              })
+            : blog.tags.map((tag) => {
+                return tag.tag;
+              }),
         ]}
       />
       <section>
@@ -117,8 +116,9 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
               <div>
                 <div className="fixed bottom-0 left-0 right-0 z-50 w-full p-5 bg-white border border-gray-200 md:static md:border-0">
                   <ul
-                    className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${socialSticky ? 'md:fixed' : 'md:block'
-                      }`}
+                    className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
+                      socialSticky ? 'md:fixed' : 'md:block'
+                    }`}
                   >
                     <li className="text-sm font-bold font-productSansBold md:text-xl text-skin-dark">
                       Share
@@ -204,35 +204,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                   ))}
                 </ul>
               </div>
-              <div>
-                <ul className="flex items-center justify-between gap-10 md:justify-start">
-                  <li>
-                    <Link href="#">
-                      <a>
-                        <p className="flex gap-2 text-sm font-normal text-skin-primary font-interRegular md:text-lg items-bottom">
-                          <span className="text-2xl">
-                            <FaRegThumbsUp />
-                          </span>
-                          <span className="font-bold">Like</span> {blog.likes}
-                        </p>
-                      </a>
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="#">
-                      <a>
-                        <p className="text-[#E86A34] font-interRegular font-normal md:text-lg text-sm flex gap-2 items-bottom">
-                          <span className="text-2xl rotate-180">
-                            <FaRegThumbsDown />
-                          </span>
-                          <span className="font-bold">Dislike</span>{' '}
-                          {blog.dislikes}
-                        </p>
-                      </a>
-                    </Link>
-                  </li>
-                </ul>
-              </div>
+              <div></div>
             </div>
             {/* Posts Column END*/}
 
