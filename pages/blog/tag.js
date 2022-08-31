@@ -47,9 +47,9 @@ export default function Tag({ blogs, tags, tagblog }) {
       </Head>
       <section className="mb-12 md:mt-32">
         <div className="mx-auto custom_container md:pb-10">
-          <div className="flex flex-col gap-10 md:flex-row">
+          <div className="flex flex-col gap-10 lg:flex-row md:px-4">
             {/* Posts Column Start*/}
-            <div className="w-full lg:pr-10 md:w-9/12">
+            <div className="w-full lg:pr-10 lg:w-9/12">
               {/* Main Post Start*/}
               {blogs.map((blog, index) => (
                 <>{index === 0 ? <FirstBlog data={blog} key={index} /> : ""}</>
@@ -109,7 +109,7 @@ export default function Tag({ blogs, tags, tagblog }) {
             {/* Posts Column END*/}
 
             {/* Sidebar Column Start*/}
-            <div className="hidden w-full md:w-3/12 md:block">
+            <div className="hidden w-full lg:w-3/12 md:block">
               <div className="sticky top-20">
                 <Sidebar
                   tags={tags}

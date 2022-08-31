@@ -23,7 +23,6 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
-
   useEffect(() => {
     if (inView) {
       setSocialSticky(false);
@@ -67,7 +66,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       />
       <section>
         <div className="pb-10 mx-auto custom_container pt-28 ">
-          <div className="flex flex-col gap-16 px-6  lg:flex-row md:px-6">
+          <div className="flex flex-col gap-16 px-6 lg:flex-row md:px-6">
             {/* Posts Column Start*/}
             <div className="relative w-full lg:pr-3 lg:w-9/12 rpadding">
               <div className="mb-7">
@@ -116,8 +115,8 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
               <div>
                 <div className="fixed bottom-0 left-0 right-0 z-50 w-full p-5 bg-white border border-gray-200 lg:static md:border-0">
                   <ul
-                    className={`md:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
-                      socialSticky ? 'lg:fixed' : 'lg:block'
+                    className={`lg:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
+                      socialSticky ? 'lg:fixed' : 'hidden lg:block '
                     }`}
                   >
                     <li className="text-sm font-bold font-productSansBold md:text-xl text-skin-dark">
@@ -227,7 +226,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
       <div ref={ref}></div>
       <div ref={ref2}>
         <RelatedPosts allBlogs={allBlogs} tag={blog.tags[0].tag} />
-        <div className="container mx-auto">
+        <div className="mx-auto custom_container lg:w-9/12">
           <Comment_Section blog={blog} />
         </div>
         <BlogFooter />

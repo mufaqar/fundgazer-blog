@@ -7,6 +7,7 @@ import FirstBlog from '../../components/FirstBlog';
 import { BsChevronDown } from 'react-icons/bs';
 import { useInView } from 'react-hook-inview';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 
 export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
   const [blogsData, setBlogsData] = useState(blogs);
@@ -17,10 +18,24 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
   );
   const [eLimit, setELimit] = useState(8);
   var length = blogs.length;
+  const router  = useRouter();
 
   const loadMore = () => {
     setELimit(eLimit + 5);
   };
+
+  const handleClick = (event) => {
+    const tag = event.target.getAttribute("tag-name");
+    sendProps(tag);
+  };
+  function sendProps(tag){
+    router.push({
+      pathname : "/blog/tag",
+      query : {
+        tag 
+      }
+    })
+  }
 
   return (
     <>
@@ -42,9 +57,25 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
 
               {/* All Posts Start*/}
               <section>
-                <div className="container flex items-center mx-auto">
-                  <div className="p-2 pl-0">
-                    <h1 className="md:text-6xl text-3xl ml-5 lg:ml-0 font-bold text-[#E86A34] font-productSansBold">
+                <div className="flex items-center">
+                  <div className="px-4 pt-0 md:px-0 ">
+                    <ul className="flex flex-wrap gap-2 mb-5 tags lg:hidden lg:px-0">
+                      {tags.slice(0, 15).map((tag, index) => (
+                        <li className="py-2" key={index}>
+
+                          <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-transparent">
+                            <button
+                              onClick={handleClick}
+                              tag-name={tag.tag}
+                            >
+                              #{tag.tag}
+                            </button>
+                          </a>
+
+                        </li>
+                      ))}
+                    </ul>
+                    <h1 className="md:text-6xl text-3xl lg:ml-0 font-bold text-[#E86A34] font-productSansBold">
                       Blogs
                     </h1>
                   </div>
@@ -59,22 +90,21 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
 
                 {serachInput
                   ? filterData.map((blog, index) => {
-                      return <Post_template blog={blog} key={index} />;
-                    })
+                    return <Post_template blog={blog} key={index} />;
+                  })
                   : blogs.slice(0, eLimit).map((blog, index) => {
-                      return (
-                        <>
-                          <Post_template blog={blog} key={index} />
-                        </>
-                      );
-                    })}
+                    return (
+                      <>
+                        <Post_template blog={blog} key={index} />
+                      </>
+                    );
+                  })}
               </div>
 
               <div
                 onClick={loadMore}
-                className={`items-center gap-2 mt-10 justify-end text-base italic font-normal cursor-pointer font-interRegular md:text-lg text-skin-primary ${
-                  eLimit > length ? 'hidden' : 'flex'
-                }`}
+                className={`items-center gap-2 mt-10 justify-end text-base italic font-normal cursor-pointer font-interRegular md:text-lg text-skin-primary ${eLimit > length ? 'hidden' : 'flex'
+                  }`}
               >
                 See More Posts
                 <span>

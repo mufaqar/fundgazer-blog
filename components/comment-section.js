@@ -35,7 +35,7 @@ export default function Comment_Section({ blog }) {
 
   const SubmitedMessage = () => {
     return (
-      <div className="p-8 mb-3 border border-gray-200">
+      <div className="px-8 mb-3 border border-gray-200">
         <h1 className="text-2xl font-semibold  text-[#E86A34]">
           Thank You For You'r Submiting Your Comment !
         </h1>
@@ -50,11 +50,11 @@ export default function Comment_Section({ blog }) {
     <>
       <section>
         <div className="py-20">
-          <div className="w-full p-5 md:w-9/12">
+          <div className="w-full px-4 md:px-0 md:w-9/12">
             {submited ? (
               <SubmitedMessage />
             ) : (
-              <div className="p-5 mb-10 border border-gray-200 md:p-7">
+              <div className="px-5 mb-10 border border-gray-200 md:p-7">
                 <h6 className="mb-5 text-base font-bold md:text-xl font-productSansBold text-skin-dark">
                   Add New Comment
                 </h6>
@@ -109,8 +109,8 @@ export default function Comment_Section({ blog }) {
                       type="text"
                       id="comment"
                       name="comment"
-                      cols="30"
-                      rows="10"
+                      cols="10"
+                      rows="3"
                       className="mt-2 w-full border border-gray-200 focus:border-[#6F49DD] outline-none px-3 rounded py-2"
                     ></textarea>
                   </div>
