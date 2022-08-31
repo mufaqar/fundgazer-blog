@@ -35,7 +35,7 @@ export default function Footer() {
           <div className="flex flex-col p-5">
             <ul className="flex justify-center mb-2 md:justify-end">
               <li>
-                <a href="mailto:support@fundgazer.com">
+                <a href="mailto:support@fundgazer.com" rel="noreferrer">
                   <span className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
                     support@fundgazer.com
                   </span>
@@ -44,14 +44,22 @@ export default function Footer() {
             </ul>
             <ul className="flex justify-center space-x-3 md:justify-end">
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
-                <a href="https://www.facebook.com/Fundgazer1.0" target="_blank">
+                <a
+                  href="https://www.facebook.com/Fundgazer1.0"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="text-3xl ">
                     <FaFacebook size={24} />
                   </span>
                 </a>
               </li>
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
-                <a href="https://twitter.com/Fundgazer_hq" target="_blank">
+                <a
+                  href="https://twitter.com/Fundgazer_hq"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <span className="text-3xl ">
                     <FaTwitter size={24} />
                   </span>
@@ -61,6 +69,7 @@ export default function Footer() {
                 <a
                   href="https://www.linkedin.com/company/fundgazer/"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <span className="text-3xl ">
                     <GrLinkedinOption size={24} />
@@ -71,6 +80,7 @@ export default function Footer() {
                 <a
                   href="https://www.instagram.com/fundgazer_hq"
                   target="_blank"
+                  rel="noreferrer"
                 >
                   <span className="text-3xl ">
                     <FaInstagram size={24} />
@@ -78,7 +88,7 @@ export default function Footer() {
                 </a>
               </li>
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
-                <a href="#">
+                <a href="#" rel="noreferrer">
                   <span className="text-3xl ">
                     <FaMediumM size={24} />
                   </span>
