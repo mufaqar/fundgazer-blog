@@ -22,7 +22,7 @@ export default function RelatedPosts({ allBlogs, tag }) {
           Related Blogs
         </h6>
 
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid md:gap-5 lg:gap-10 md:grid-cols-3">
           {tagData.slice(0, 3).map((item, index) => (
             <div
               key={index}
@@ -30,12 +30,13 @@ export default function RelatedPosts({ allBlogs, tag }) {
             >
               <Link href={`/blog/${item.slug.current}`}>
                 <a>
-                  <figure className="h-[94px] relative md:w-[370px] w-[93px] md:h-[226px]">  
+                  <figure className="related_blog">  
                     <Image
                       src={item.featureImage.asset.url}
                       alt="relatedBlog"
-                      layout="fill"
-                      className="object-cover"
+                     width={500}
+                     height={300}
+                      className="object-cover w-full h-full"
                     ></Image>
                   </figure>
                 </a>

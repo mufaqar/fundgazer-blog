@@ -16,13 +16,28 @@ import PortableText from 'react-portable-text';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import SEO from '@bradgarropy/next-seo';
+import JoinOurCommunity from '../../components/joinOurCommunity';
+import { UpdownButton } from '@lyket/react';
 
-export default function Single({ blog, latestBlogs, tags, allBlogs }) {
-  console.log('🚀 ~ file: [slug].js ~ line 21 ~ Single ~ blog', blog);
+
+export default function Single({ blog, latestBlogs, tags, allBlogs, title, content }) {
+  console.log('🚀 ~ file: [slug].js ~ line 21 ~ Single ~ blog', blog._id);
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
+  const [likes, setlikes] = useState(blog?.likes);
+
+  // const addLike = async() =>{
+  //   const res = await fetch("/api/likes", {
+  //     method: "POST",
+  //     body: JSON.stringify({ _id: blog._id }),
+  //   }).catch((error) => console.log(error));
+
+  //   const data = await res.json();
+  //   setlikes(data.likes);
+  // }
+
   useEffect(() => {
     if (inView) {
       setSocialSticky(false);
@@ -57,13 +72,17 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
         keywords={[
           blog.metatags
             ? blog.metatags.map((tag) => {
-                return tag.tag;
-              })
+              return tag.tag;
+            })
             : blog.tags.map((tag) => {
-                return tag.tag;
-              }),
+              return tag.tag;
+            }),
         ]}
       />
+
+
+
+
       <section>
         <div className="pb-10 mx-auto custom_container pt-28 ">
           <div className="flex flex-col gap-16 px-6 lg:flex-row md:px-6">
@@ -82,6 +101,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 <h2 className="mb-5 text-3xl font-bold md:text-4xl font-productSansBold text-skin-dark">
                   {blog.title}
                 </h2>
+
                 <ul className="flex mb-3 space-x-3 text-base font-normal md:text-xl text-skin-primary font-productSansReqular">
                   {blog.tags.slice(0, 2).map((tag, index) => (
                     <li key={index}>
@@ -113,13 +133,11 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                 </span>
               </div>
               <div>
-                <div className="fixed bottom-0 left-0 right-0 z-50 w-full p-5 bg-white border border-gray-200 lg:static md:border-0">
+                <div className={`fixed left-0 right-0 z-50 flex justify-center w-full  bg-white border border-gray-200 bottom-16 md:block lg:static md:border-0 ${socialSticky && 'p-5'}`}>
                   <ul
-                    className={`lg:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
-                      socialSticky ? 'lg:fixed' : 'hidden lg:block '
-                    }`}
+                    className={`lg:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${socialSticky ? 'lg:fixed' : 'hidden lg:block '} `}
                   >
-                    <li className="text-sm font-bold font-productSansBold md:text-xl text-skin-dark">
+                    <li className="hidden text-sm font-bold font-productSansBold md:text-xl text-skin-dark md:block">
                       Share
                     </li>
                     <li className="text-2xl bg-[#E86A34] text-skin-light p-2 rounded-full">
@@ -203,8 +221,19 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
                   ))}
                 </ul>
               </div>
-              <div></div>
+              <div className='text-2xl'>
+                {title}
+                <UpdownButton
+                  id={blog._id}
+                  namespace="blog"
+                />
+                {content}
+              </div>
             </div>
+
+
+
+
             {/* Posts Column END*/}
 
             {/* Sidebar Column Start*/}
@@ -231,13 +260,35 @@ export default function Single({ blog, latestBlogs, tags, allBlogs }) {
         </div>
         <BlogFooter />
       </div>
+      <div className='fixed bottom-0 left-0 right-0 z-50 bg-white shadow-lg md:hidden'>
+        <JoinOurCommunity />
+      </div>
     </>
   );
 }
 
-export const getServerSideProps = async (pageContext) => {
-  const pageSlug = pageContext.query.slug;
-  const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
+
+
+
+export async function getStaticPaths() {
+  const paths = await client.fetch(`
+  *[_type == "blog" && defined(slug.current)]{
+       "params": {
+         "slug" : slug.current
+       }
+     }
+  `);
+  return {
+    paths,
+    fallback: true,
+  }
+}
+
+
+export const getStaticProps = async ({ params }) => {
+  // const pageSlug = pageContext.query.slug;
+  const { slug } = params;
+  const query = ` *[ _type == "blog" && slug.current == $slug ][0]{
     title,
     _id,
     tags[]->{
@@ -297,7 +348,7 @@ export const getServerSideProps = async (pageContext) => {
     }
   }`);
 
-  const blog = await client.fetch(query, { pageSlug });
+  const blog = await client.fetch(query, { slug });
 
   const latestBlogs = await client.fetch(`*[_type == "blog"]{
     title,

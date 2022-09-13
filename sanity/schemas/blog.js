@@ -141,11 +141,10 @@ export default {
             }
           ]
         },
-
-
-
-
       ]
     },
   ],
+  initialValue: {
+    likes : 0,
+  }
 };

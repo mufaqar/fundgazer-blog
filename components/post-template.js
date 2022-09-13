@@ -21,13 +21,17 @@ export default function Post_template({ blog }) {
     });
   }
   
+  function truncate(str, no_words) {
+    return str.split(" ").splice(0,no_words).join(" ");
+  }
+  
   return (
     <>
       <div className="flex flex-row gap-5 px-5 py-3 mt-5 border-b md:px-0">
         <div className="flex flex-col justify-between w-9/12 md:p-0">
           <div>
             <Link href={`/blog/${blog.slug.current}`}>
-              <h3 className="mb-3 text-base font-bold cursor-pointer transition-all duration-300 ease-in-out md:text-3xl text-skin-dark font-productSansBold hover:underline">
+              <h3 className="mb-3 text-base font-bold transition-all duration-300 ease-in-out cursor-pointer md:text-3xl text-skin-dark font-productSansBold hover:underline">
                 {blog.title}
               </h3>
             </Link>
@@ -45,7 +49,8 @@ export default function Post_template({ blog }) {
               ))}
             </ul>
             <p className="hidden mb-3 text-xl font-normal text-skin-muted font-gildaDisplay md:block">
-              {blog.excerpt}
+              { truncate(blog.excerpt, 32) }
+              <span> ...</span>
             </p>
           </div>
           <ul className="flex gap-3 text-[15px] font-normal font-interRegular text-skin-muted mt-6">

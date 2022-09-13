@@ -85,9 +85,13 @@ html {
 .rc-anchor-light.rc-anchor-normal{
   background: transparent !important;
 }
-.custom_container{
+/* .custom_container{
   max-width: 1200px;
   width: 100%;
+} */
+.container, .custom_container{
+  max-width: 90% !important;
+  width: 100% !important;
 }
 
 .bounce_right {
@@ -109,4 +113,16 @@ html {
   100% {
      transform: translateX(0);
   }
+}
+
+
+@media (max-width: 768px){
+  .related_blog>span{
+    width: 150px !important;
+  }
+  .container, .custom_container{
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
 }

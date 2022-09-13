@@ -19,6 +19,7 @@
   },
   "dependencies": {
     "@bradgarropy/next-seo": "^1.2.0",
+    "@lyket/react": "^1.4.8",
     "@reduxjs/toolkit": "^1.8.4",
     "@sanity/image-url": "^1.0.1",
     "framer-motion": "^7.0.0",

@@ -59,7 +59,7 @@ export default function Tag({ blogs, tags, tagblog }) {
 
               {/* All Posts Start*/}
               <section>
-                <div className="container flex items-center px-4 mx-auto md:px-0">
+                <div className="flex items-center px-4">
 
                   <h1 className="md:text-5xl text-3xl font-bold text-[#E86A34] font-productSansBold">
                     {props.tag}
@@ -130,7 +130,7 @@ export default function Tag({ blogs, tags, tagblog }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const blogs = await client.fetch(`*[_type == "blog"]{
     title,
     tags[]->{

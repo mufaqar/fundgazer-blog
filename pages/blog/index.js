@@ -8,6 +8,8 @@ import { BsChevronDown } from 'react-icons/bs';
 import { useInView } from 'react-hook-inview';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
+import JoinOurCommunity from '../../components/joinOurCommunity'
+
 
 export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
   const [blogsData, setBlogsData] = useState(blogs);
@@ -135,11 +137,14 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
       <div ref={ref}>
         <BlogFooter />
       </div>
+      <div className='fixed bottom-0 left-0 right-0 bg-white shadow-lg md:hidden'>
+        <JoinOurCommunity/>
+      </div>
     </>
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const blogs = await client.fetch(`*[_type == "blog"]{
     title,
     tags[]->{

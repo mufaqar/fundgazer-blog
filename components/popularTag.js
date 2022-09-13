@@ -40,6 +40,7 @@ const JoinOurCommunity = () => {
 export default function PopularTag({ tags }) {
 
   const router = useRouter();
+  const [tagLength, setTagLength] = useState(12)
   
   const handleClick = (event) => {
     const tag = event.target.getAttribute("tag-name");
@@ -58,12 +59,15 @@ export default function PopularTag({ tags }) {
   return (
     <>
       <div className="p-5 border-b md:px-0">
-        <h6 className="mb-4 text-xl font-bold text-skin-dark font-productSansBold">
+        <div className="flex items-center justify-between mb-4 ">
+        <h6 className="text-xl font-bold text-skin-dark font-productSansBold">
           Popular Tags
         </h6>
+        <p className={`hover:underline hover:text-[#6F47DD] ${tags.length < tagLength ? 'hidden' : 'block'}`} onClick={()=>setTagLength(tagLength+10)}>Load More</p>
+        </div>
 
         <ul className="flex flex-wrap gap-2 mb-5 tags">
-          {tags.slice(0, 15).map((tag, index) => (
+          {tags.slice(0, tagLength).map((tag, index) => (
             <li className="py-2" key={index}>
               
                 <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-transparent">

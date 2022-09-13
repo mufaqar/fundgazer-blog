@@ -11,7 +11,7 @@ export default function Sidebar({tags, latestBlogs, authorName, ProfileURL, link
       <Search setSearchInput={setSearchInput} serachInput={serachInput}/>
       <AuthorProfile authorName={authorName} ProfileURL={ProfileURL} linkedinURL={linkedinURL}/>
       <PopularTag tags={tags}/>
-      <RecentPost latestBlogs={latestBlogs}/>
+      {/* <RecentPost latestBlogs={latestBlogs}/> */}
 
     </aside>
   );
