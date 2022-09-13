@@ -174,6 +174,26 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
                           {children}
                         </h6>
                       ),
+                      h2: ({ children }) => (
+                        <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
+                          {children}
+                        </h6>
+                      ),
+                      h3: ({ children }) => (
+                        <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
+                          {children}
+                        </h6>
+                      ),
+                      h4: ({ children }) => (
+                        <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
+                          {children}
+                        </h6>
+                      ),
+                      h5: ({ children }) => (
+                        <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
+                          {children}
+                        </h6>
+                      ),
                       ul: ({ children }) => (
                         <ul className="space-y-2 list-disc list-inside">
                           {children}
