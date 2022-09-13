@@ -20,6 +20,78 @@ import JoinOurCommunity from '../../components/joinOurCommunity';
 import { UpdownButton } from '@lyket/react';
 
 
+
+// Queray 
+const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
+  title,
+  _id,
+  tags[]->{
+      tag
+  },
+  likes,
+  'comment' :*[_type == 'comment' && blog._ref == ^._id && approved == true],
+  excerpt,
+  content,
+  dislikes,
+  slug,
+  metatitle,
+  metadescription,
+  metatags[]->{
+    tag
+  },
+  releaseDate,
+  featureImage{
+    asset->{
+      url
+    },
+    caption
+  },
+  author{
+    author->{
+    name,
+    linkedinurl,
+     authorprofile{
+      asset->{
+        url
+      }
+     }
+    }
+  }
+}`;
+
+const AllBlogs = `*[_type == "blog"]{
+  title,
+  tags[]->{
+    tag
+  },
+  likes,
+  excerpt,
+  dislikes,
+  
+  slug,
+  releaseDate,
+  featureImage{
+    asset->{
+      url
+    }
+  },
+  author{
+    author->{
+      name
+    }
+  }
+}`;
+
+const LatestBlogs = `*[_type == "blog"]{
+  title,
+  slug,
+  releaseDate,
+}`;
+
+
+
+
+
 export default function Single({ blog, latestBlogs, tags, allBlogs, title, content }) {
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
@@ -278,73 +350,12 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
 
 export const getServerSideProps = async (pageContext) => {
   const pageSlug = pageContext.query.slug;
-  const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
-    title,
-    _id,
-    tags[]->{
-        tag
-    },
-    likes,
-    'comment' :*[_type == 'comment' && blog._ref == ^._id && approved == true],
-    excerpt,
-    content,
-    dislikes,
-    slug,
-    metatitle,
-    metadescription,
-    metatags[]->{
-      tag
-    },
-    releaseDate,
-    featureImage{
-      asset->{
-        url
-      },
-      caption
-    },
-    author{
-      author->{
-      name,
-      linkedinurl,
-       authorprofile{
-        asset->{
-          url
-        }
-       }
-      }
-    }
-  }`;
-
-  const allBlogs = await client.fetch(`*[_type == "blog"]{
-    title,
-    tags[]->{
-      tag
-    },
-    likes,
-    excerpt,
-    dislikes,
-    
-    slug,
-    releaseDate,
-    featureImage{
-      asset->{
-        url
-      }
-    },
-    author{
-      author->{
-        name
-      }
-    }
-  }`);
+  
+  const allBlogs = await client.fetch(AllBlogs);
 
   const blog = await client.fetch(query, { pageSlug });
 
-  const latestBlogs = await client.fetch(`*[_type == "blog"]{
-    title,
-    slug,
-    releaseDate,
-  }`);
+  const latestBlogs = await client.fetch(LatestBlogs);
 
   const tags = await client.fetch(`*[_type == "tags"]`);
 
