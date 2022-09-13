@@ -22,7 +22,7 @@ import { UpdownButton } from '@lyket/react';
 
 
 // Queray 
-const query = ` *[ _type == "blog" && slug.current == $slug ][0]{
+const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
   title,
   _id,
   tags[]->{
@@ -87,6 +87,7 @@ const LatestBlogs = `*[_type == "blog"]{
   slug,
   releaseDate,
 }`;
+
 
 
 
@@ -346,26 +347,11 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
 }
 
 
-
-export async function getStaticPaths() {
-  const paths = await client.fetch(`
-  *[_type == "blog" && defined(slug.current)]{
-       "params": {
-         "slug" : slug.current
-       }
-     }
-  `);
-  return {
-    paths,
-    fallback: true,
-  }
-}
-
-export async function getStaticProps({ params }) {
-  const { slug } = params;
+export const getServerSideProps = async (pageContext) => {
+  const pageSlug = pageContext.query.slug;
   
   const allBlogs = await client.fetch(AllBlogs);
-  const blog = await client.fetch(query, { slug });
+  const blog = await client.fetch(query, { pageSlug });
   const latestBlogs = await client.fetch(LatestBlogs);
   const tags = await client.fetch(`*[_type == "tags"]`);
 
@@ -378,8 +364,3 @@ export async function getStaticProps({ params }) {
     }, // will be passed to the page component as props
   };
 };
-
-
-  
-
-
