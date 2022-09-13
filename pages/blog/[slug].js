@@ -21,22 +21,10 @@ import { UpdownButton } from '@lyket/react';
 
 
 export default function Single({ blog, latestBlogs, tags, allBlogs, title, content }) {
-  console.log('🚀 ~ file: [slug].js ~ line 21 ~ Single ~ blog', blog._id);
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const router = useRouter();
-  const [likes, setlikes] = useState(blog?.likes);
-
-  // const addLike = async() =>{
-  //   const res = await fetch("/api/likes", {
-  //     method: "POST",
-  //     body: JSON.stringify({ _id: blog._id }),
-  //   }).catch((error) => console.log(error));
-
-  //   const data = await res.json();
-  //   setlikes(data.likes);
-  // }
 
   useEffect(() => {
     if (inView) {
