@@ -276,27 +276,9 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
 }
 
 
-
-
-export async function getStaticPaths() {
-  const paths = await client.fetch(`
-  *[_type == "blog" && defined(slug.current)]{
-       "params": {
-         "slug" : slug.current
-       }
-     }
-  `);
-  return {
-    paths,
-    fallback: true,
-  }
-}
-
-
-export const getStaticProps = async ({ params }) => {
-  // const pageSlug = pageContext.query.slug;
-  const { slug } = params;
-  const query = ` *[ _type == "blog" && slug.current == $slug ][0]{
+export const getServerSideProps = async (pageContext) => {
+  const pageSlug = pageContext.query.slug;
+  const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
     title,
     _id,
     tags[]->{
@@ -356,7 +338,7 @@ export const getStaticProps = async ({ params }) => {
     }
   }`);
 
-  const blog = await client.fetch(query, { slug });
+  const blog = await client.fetch(query, { pageSlug });
 
   const latestBlogs = await client.fetch(`*[_type == "blog"]{
     title,
