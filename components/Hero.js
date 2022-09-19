@@ -6,6 +6,7 @@ import { useInView } from 'react-hook-inview'; // use current active screen Area
 import OurCommunity from '../pages/our-community';
 import { useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
+import LiveResult from './liveResult';
 
 export default function Posts() {
   const [ref, inView] = useInView();
@@ -71,10 +72,7 @@ export default function Posts() {
             <motion.div className="z-10" animate={animationText}>
               <h1 className="text-[32px] leading-9 md:text-6xl font-thin font-interRegular">
                 The <span className="font-bold text-skin-primary">Future </span>
-                of
-                <span className="md:whitespace-nowrap">
-                  Personal Investment.
-                </span>
+                of <span className="md:whitespace-nowrap"> Personal Investment. </span>
               </h1>
               <p className="mt-3 text-[15px] md:text-xl font-medium font-interRegular">
                 From building your diversified long-term portfolio and tracking
@@ -91,12 +89,12 @@ export default function Posts() {
             </Link>
           </div>
           <div className="float-right col-span-2 overflow-x-hidden md:p-4 landingVideo">
-            <div className="mr-24 -ml-48 md:block md:mr-0 md:ml-0">
+            <div className="mt-10 md:mt-0 md:block md:mr-0 md:ml-0">
               <video
                 width="1000"
                 height="800"
                 autoPlay="autoplay"
-                className=""
+                className="float-right"
                 loop
                 muted
               >
@@ -106,7 +104,7 @@ export default function Posts() {
           </div>
 
           <div className="float-right col-span-2 -mt-12 overflow-x-hidden md:hidden md:p-4 landingVideo">
-            <div className="ml-24 -mt-12 -mr-48 md:hidden">
+            {/* <div className="ml-24 -mt-12 -mr-48 md:hidden">
               <video
                 width="1000"
                 height="800"
@@ -117,7 +115,7 @@ export default function Posts() {
               >
                 <source src="video/video.mp4" type="video/mp4" />
               </video>
-            </div>
+            </div> */}
 
             <div className="block mx-4 md:hidden">
               <Link href="#cta">
@@ -133,6 +131,11 @@ export default function Posts() {
         </div>
       </section>
       {/* Banner Section End*/}
+
+      {/* Live result  */}
+      <div className='hidden lg:block'>
+        <LiveResult/>
+      </div>
 
       {/* Jion Us Section Start*/}
       <section className="bg-skin-primary cta" id="cta">
@@ -197,6 +200,7 @@ export default function Posts() {
           </div>
         </div>
       </section>
+      
       {/* Jion Us Section End*/}
       <div className="md:hidden">
         <OurCommunity />

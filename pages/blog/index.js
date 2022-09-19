@@ -48,7 +48,7 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
         <div className="mx-auto custom_container md:pb-10">
           <div className="relative flex flex-col gap-10 lg:flex-row md:px-6">
             {/* Posts Column Start*/}
-            <div className="w-full mt-24 md:mt-0 lg:pr-12 lg:w-9/12">
+            <div className="w-full mt-24 md:mt-0 lg:pr-28 xl:pr-36 2xl:pr-48 lg:w-9/12">
               {/* Main Post Start*/}
               {blogs.map((blog, index) => {
                 if (index === 0) {

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+:root{
+  font-size: 90%;
+}
+
 @layer base {
   :root {
     --color-primary: #6f49dd;
@@ -99,6 +104,13 @@ html {
   animation: bounceInLeft 3s;
   animation-iteration-count: infinite;
 }
+._logo1{
+  padding-right: 2rem !important;
+}
+._logo2{
+  padding-left: 2rem !important;
+}
+
 
 @keyframes bounceInLeft {
   0% {

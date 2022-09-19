@@ -49,7 +49,7 @@ export default function Tag({ blogs, tags, tagblog }) {
         <div className="mx-auto custom_container md:pb-10">
           <div className="flex flex-col gap-10 lg:flex-row md:px-4">
             {/* Posts Column Start*/}
-            <div className="w-full lg:pr-10 lg:w-9/12">
+            <div className="w-full lg:pr-28 xl:pr-36 2xl:pr-48 lg:w-9/12">
               {/* Main Post Start*/}
               {blogs.map((blog, index) => (
                 <>{index === 0 ? <FirstBlog data={blog} key={index} /> : ""}</>
