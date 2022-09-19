@@ -59,7 +59,7 @@ export default function Tag({ blogs, tags, tagblog }) {
 
               {/* All Posts Start*/}
               <section>
-                <div className="flex items-center px-4">
+                <div className="flex items-center px-4 lg:pl-0">
 
                   <h1 className="md:text-5xl text-3xl font-bold text-[#E86A34] font-productSansBold">
                     {props.tag}
