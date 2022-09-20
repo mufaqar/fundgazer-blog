@@ -8,6 +8,7 @@ import blog from './blog';
 import author from './author';
 import tags from './tags';
 import comment from './comment';
+import team from './team';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
@@ -22,5 +23,6 @@ export default createSchema({
     author,
     tags,
     comment,
+    team,
   ]),
 });
