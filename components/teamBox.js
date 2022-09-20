@@ -8,8 +8,8 @@ export default function TeamBox(props) {
                             before:absolute before:w-full before:h-full before:-z-10 before:bg-gradient-to-b before:from-[#6F49DD] before:to-[#E7E2F3]
                             before:top-3 before:left-3 before:rounded-2xl flex items-end justify-center pb-8 px-4">
                 <div className="text-center">
-                    <p className="text-[#2B195A] md:text-[32px] text-base font-normal mb-5">{props.name}</p>
-                    <p className="text-skin-primary md:text-xl text-xs font-bold">{props.position}</p>
+                    <p className="text-[#2B195A] md:text-[32px] text-base font-normal mb-5 leading-8">{props.name}</p>
+                    <p className="text-xs font-bold text-skin-primary md:text-xl">{props.position}</p>
                 </div>
             </div></a>
             </Link>

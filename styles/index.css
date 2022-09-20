@@ -130,14 +130,16 @@ html {
   }
 }
 
-/* the slides */
+/* / the slides / */
 .slick-slide {
-  margin: 0 26px;
+  margin: 0 15px;
 }
-/* the parent */
+
+/* / the parent / */
 .slick-list {
-  margin: 0 -26px;
+  margin: 0 -20px;
 }
+
 .slick-track {
   display: flex;
   padding-top: 20px;
@@ -154,6 +156,7 @@ html {
   font-size: 30px;
   font-weight: bold;
 }
+
 .slick-prev {
   left: 10px;
 }
@@ -161,12 +164,24 @@ html {
 .slick-next {
   right: 10px;
 }
+
 .slick-prev:before {
   content: '\003C';
 }
+
 .slick-next:before {
   content: '\003E';
 }
+.parallax {
+  background-image: url("/images/aboutimg.png");
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: left;
+  background-position-y: 130px;
+  background-attachment: fixed;
+  background-position-x: 220px;
+}
+
 
 @media (max-width: 768px) {
   .related_blog > span {
@@ -176,5 +191,12 @@ html {
   .custom_container {
     max-width: 100% !important;
     width: 100% !important;
+  }
+  .parallax {
+    background-size: 80%;
+    background-position: center;
+    background-position-y: 130px;
+    background-attachment: fixed;
+    background-position-x: 90px;
   }
 }

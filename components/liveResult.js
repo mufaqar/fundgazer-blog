@@ -30,7 +30,7 @@ export default function LiveResult() {
                 <div className='absolute -top-20 right-56'>
                     <Image src={Rectangle} alt=""/>
                 </div>
-                <div className='absolute -top-10 left-36'>
+                <div className='absolute -top-10 left-48'>
                     <Image src={Rectangle} alt=""/>
                 </div>
 
