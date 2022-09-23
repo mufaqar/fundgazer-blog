@@ -7,7 +7,7 @@ import OurCommunity from '../pages/our-community';
 import { useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import LiveResult from './liveResult';
-import { sendMail } from "../pages/services/sendMail";
+import { sendMail } from "../services/sendMail";
 
 
 export default function Posts() {
