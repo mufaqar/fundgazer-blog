@@ -22,12 +22,12 @@
     "@sanity/desk-tool": "^2.30.5",
     "@sanity/eslint-config-studio": "^2.0.0",
     "@sanity/vision": "^2.30.5",
+    "axios": "^0.27.2",
     "eslint": "^8.6.0",
     "prop-types": "^15.7",
     "react": "^17.0",
     "react-dom": "^17.0",
     "sanity-plugin-seo-tools": "^3.0.0",
     "styled-components": "^5.2.0"
-  },
-  "devDependencies": {}
+  }
 }

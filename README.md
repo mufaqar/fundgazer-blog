@@ -8,3 +8,8 @@
 <!-- site key =  6LdIKKUhAAAAAHqlA9d_-7oo_rnqBiZMCeE8plai
 
 site securit = 6LdIKKUhAAAAADterqrk1DlUkAmkidDJdV0b_oni -->
+
+
+<!-- "dev": "next dev",
+    "build": "next build",
+    "start": "next start", -->
