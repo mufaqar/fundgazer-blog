@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { FiArrowRight } from 'react-icons/fi';
 import ImageOne from '../public/images/1st_live.png'
 import ImageTwo from '../public/images/2nd_live.png'
-import LiveImage from '../public/images/DISCORD_LIVE 1.png'
+import LiveImage from '../public/images/DISCORD_LIVE.png'
 import Rectangle from '../public/images/Rectangle.png'
 import Link from 'next/link';
 import { BsDiscord } from "react-icons/bs";
