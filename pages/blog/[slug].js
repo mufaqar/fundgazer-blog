@@ -144,7 +144,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
 
       <section>
         <div className="pb-10 mx-auto custom_container pt-28 ">
-          <div className="flex flex-col gap-16 px-6 lg:flex-row md:px-6">
+          <div className="flex flex-col gap-16 px-6 lg:flex-row md:px-0">
             {/* Posts Column Start*/}
             <div className="relative w-full lg:pr-28 xl:pr-36 2xl:pr-48 lg:w-9/12 rpadding">
               <div className="mb-7">

@@ -50,7 +50,7 @@ export default function Comment_Section({ blog }) {
     <>
       <section>
         <div className="py-20">
-          <div className="w-full px-4 md:px-0 md:w-9/12">
+          <div className="w-full px-4 md:px-0 md:w-8/12">
             {submited ? (
               <SubmitedMessage />
             ) : (
