@@ -144,7 +144,7 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const blogs = await client.fetch(`*[_type == "blog"]{
     title,
     tags[]->{
