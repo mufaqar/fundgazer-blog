@@ -33,14 +33,7 @@ export default {
       title: 'Meta Tags',
       name: 'metatags',
       type: 'array',
-      of: [
-        {
-          type: 'reference',
-          to: [
-            { type: 'tags' },
-          ]
-        }
-      ]
+      of: [{type: 'string'}]
     },
     {
       title: "Feature Image",
@@ -106,16 +99,6 @@ export default {
       ]
     },
     {
-      name: "likes",
-      type: "string",
-      title: "Likes",
-    },
-    {
-      name: "dislikes",
-      type: "string",
-      title: "Dis Likes",
-    },
-    {
       name: 'content',
       title: 'Content',
       type: 'array',
@@ -143,6 +126,7 @@ export default {
         },
       ]
     },
+  
   ],
   initialValue: {
     likes : 0,

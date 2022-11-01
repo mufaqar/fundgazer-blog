@@ -36,9 +36,7 @@ const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
   slug,
   metatitle,
   metadescription,
-  metatags[]->{
-    tag
-  },
+  metatags[],
   releaseDate,
   featureImage{
     asset->{
@@ -92,6 +90,7 @@ const LatestBlogs = `*[_type == "blog"]{
 
 
 export default function Single({ blog, latestBlogs, tags, allBlogs, title, content }) {
+  console.log("🚀 ~ file: [slug].js ~ line 95 ~ Single ~ blog", blog)
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
@@ -123,26 +122,17 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
     <>
       <Head>
         <title>{blog.title}</title>
-        <meta property="og:url" content={router.basePath}></meta>
+        <meta name="keywords" content={blog.metatags ? blog.metatags.map((metaTag)=> {return metaTag}) : blog.tags.map((tag) => { return tag.tag; })} />
       </Head>
       <SEO
         title={blog.metatitle ? blog.metatitle : blog.title}
         description={blog.metadescription ? blog.metadescription : blog.excerpt}
-        keywords={[
-          blog.metatags
-            ? blog.metatags.map((tag) => {
-              return tag.tag;
-            })
-            : blog.tags.map((tag) => {
-              return tag.tag;
-            }),
-        ]}
       />
 
 
 
-
       <section>
+      
         <div className="pb-10 mx-auto custom_container pt-28 ">
           <div className="flex flex-col gap-16 px-6 lg:flex-row md:px-0">
             {/* Posts Column Start*/}
@@ -309,10 +299,6 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
                 {content}
               </div>
             </div>
-
-
-
-
             {/* Posts Column END*/}
 
             {/* Sidebar Column Start*/}
@@ -328,6 +314,7 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
               </div>
             </div>
             {/* Sidebar Column End*/}
+           
           </div>
         </div>
       </section>

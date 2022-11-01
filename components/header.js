@@ -7,7 +7,9 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { BiSearch } from 'react-icons/bi';
 import Search from '../components/search';
-import SEO from '@bradgarropy/next-seo';
+
+
+
 
 function MobileNav({ open, setOpen }) {
   
@@ -62,11 +64,7 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
         <meta property="og:site_name" content="Fundgazer"></meta>
         <meta property="og:type" content="website"></meta>
       </Head>
-      <SEO
-        title="Fundgazer Blog"
-        description="From building your diversified long-term portfolio and tracking your assets to finding investment ideas, we got you covered."
-        keywords={['latest Blog', 'fundgazer', 'fundgazer news']}
-      />
+      
       <nav
         className={`flex filter px-5 transition-all duration-100 py-4 h-20 items-center shadow-sm fixed top-0 right-0 left-0 z-50 ${
           router.pathname === '/'
@@ -207,6 +205,7 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
           serachInput={serachInput}
         />
       </section>
+      
     </>
   );
 }

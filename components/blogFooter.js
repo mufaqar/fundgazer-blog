@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { useInView } from 'react-hook-inview'; // use current active screen Area
+import JoinForm from './joinForm';
 
 export default function BlogFooter() {
     const [ref, inView] = useInView();
@@ -36,17 +37,8 @@ export default function BlogFooter() {
                         <p className='mt-3 text-lg font-normal md:text-xl text-skin-light font-interRegular'>From building your diversified long-term portfolio and tracking you.</p>
                     </div>
                     <div className="p-5">
-                        <div className='mt-8'>
-                            <form className='space-x-0 space-y-2 md:flex md:space-x-2 md:space-y-0' onSubmit={handleSubmit} >
-                                <input type="email" id="email" placeholder='Enter Email' name="email" className='font-interRegular bg-skin-light text-skin-muted md:text-2xl text-base font-normal outline-[#6F49DD] focus:outline-[#6F49DD] py-3 px-4 rounded-md md:w-3/4 w-full' />
-                                <button type="submit" className='w-full py-3 text-lg font-semibold rounded-md font-interMedium bg-skin-dark text-skin-light hover:opacity-75 md:text-2xl md:w-1/4'>Join</button>
-                            </form>
-                            <ReCAPTCHA
-                                ref={captcha}
-                                sitekey="6Lc_b6ghAAAAAO4qDTfLsI44NR5guKc56BzSGkSY"
-                                onChange={handleOnChange}
-                                className="mt-3"
-                            />
+                        <div className='flex flex-col items-end mt-8'>
+                            <JoinForm/>
                         </div>
                     </div>
                 </div>

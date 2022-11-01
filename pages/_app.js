@@ -5,6 +5,8 @@ import Footer from '../components/footer';
 import { useInView } from "react-hook-inview"; // use current active screen Area
 import SEO from "@bradgarropy/next-seo"
 import { Provider } from '@lyket/react';
+import NextNProgress from 'nextjs-progressbar';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
 
@@ -32,6 +34,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <NextNProgress color="#E86A34"/>
       <Provider apiKey="pt_8a818b87fc27d460b5a9cb67994db7" theme={{
         colors: {
           background: "#F8F8F8",
@@ -39,7 +42,10 @@ function MyApp({ Component, pageProps }) {
           primary: "rgba(255, 224, 138, 0.4)"
         }
       }}>
-        <SEO title="Fundgazer Blog" description="From building your diversified long-term portfolio and tracking your assets to finding investment ideas, we got you covered." keywords={['latest Blog', 'fundgazer', 'fundgazer news']} />
+        <Head>
+          <meta property="og:url" content={`https://fundgazer.com/`}></meta>
+        </Head>
+        <SEO title="Fundgazer Blog" description="From building your diversified long-term portfolio and tracking your assets to finding investment ideas, we got you covered." />
         <Header headerClr={headerClr} scrollTop={scrollTop} serachInput={serachInput} setSearchInput={setSearchInput} />
         <Component {...pageProps} serachInput={serachInput} setSearchInput={setSearchInput} />
         <Footer />
