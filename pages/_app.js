@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }) {
         <Head>
           <meta property="og:url" content={`https://fundgazer.com/`}></meta>
         </Head>
-        <SEO title="Fundgazer Blog" description="From building your diversified long-term portfolio and tracking your assets to finding investment ideas, we got you covered." />
+        
         <Header headerClr={headerClr} scrollTop={scrollTop} serachInput={serachInput} setSearchInput={setSearchInput} />
         <Component {...pageProps} serachInput={serachInput} setSearchInput={setSearchInput} />
         <Footer />
