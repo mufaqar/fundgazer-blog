@@ -42,7 +42,7 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
   return (
     <>
       <Head>
-        <title>Blogs - Fundgazer</title>
+        <title>Blogs</title>
       </Head>
       <section className="mb-12 md:mt-28">
         <div className="mx-auto custom_container md:pb-10">

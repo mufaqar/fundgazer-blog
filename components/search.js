@@ -4,7 +4,6 @@ import { useRouter } from 'next/router';
 export default function Search({setSearchInput, serachInput}) {
   
   const router = useRouter();
-  console.log('router.pathname', router.pathname.includes('/blog/'));
 
   const handleChange = (e) => {
     setSearchInput(e.target.value);
