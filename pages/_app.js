@@ -49,7 +49,7 @@ function MyApp({ Component, pageProps }) {
         <Header headerClr={headerClr} scrollTop={scrollTop} serachInput={serachInput} setSearchInput={setSearchInput} />
         <Component {...pageProps} serachInput={serachInput} setSearchInput={setSearchInput} />
         <Footer />
-      </Provider>
+      </Provider> 
     </>
   );
 }
