@@ -15,39 +15,7 @@ export default function Posts() {
   const [ref, inView] = useInView();
   const animationText = useAnimation();
   const tempanim = useRef(); // use to remove React Hook useEffect has a missing dependency:
-  // const [isVarified, setIsVarified] = useState(false);
-  // //console.log("🚀 ~ file: Hero.js ~ line 15 ~ Posts ~ isVarified", isVarified)
-  // const [getMailValue, setGetMailValue] = useState();
 
-  // const handleChange = event => {
-  //   setGetMailValue(event.target.value);
-  // };
-
-
-  // const captcha = useRef(null);
-
-  // const handleOnChange = () => {
-  //   if (captcha.current.getValue()) {
-  //     console.log('captcha value');
-  //     setIsVarified(true);
-  //   } else {
-  //     setIsVarified(false);
-  //   }
-  // };
-
-  // async function handleSubmit(e) {
-  //   e.preventDefault();
-  //   if (captcha.current.getValue()) {
-  //     console.log(getMailValue);
-  //     console.log('submit');
-  //     let response = await sendMail(getMailValue);
-  //     console.log(response);
-  //     setGetMailValue('')
-  //     alert('Submited')
-  //   } else {
-  //     alert('Please varify you are not robot.!');
-  //   }
-  // };
 
   function animationfun() {
     if (inView) {
