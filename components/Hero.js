@@ -52,10 +52,9 @@ export default function Posts() {
             <motion.div className="z-10" animate={animationText}>
               <h1 className="text-[32px] leading-9 md:text-6xl font-thin font-interRegular">
                 The <span className="font-bold text-skin-primary">Future </span>
-                of{' '}
+                of
                 <span className="md:whitespace-nowrap">
-                  {' '}
-                  Personal Investment. 1122
+                  Personal Investment.
                 </span>
               </h1>
               <p className="mt-3 text-[15px] md:text-xl font-medium font-interRegular">
