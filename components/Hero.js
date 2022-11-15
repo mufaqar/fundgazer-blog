@@ -7,15 +7,13 @@ import OurCommunity from '../pages/our-community';
 import { useRef } from 'react';
 import ReCAPTCHA from 'react-google-recaptcha';
 import LiveResult from './liveResult';
-import { sendMail } from "../services/sendMail";
+import { sendMail } from '../services/sendMail';
 import JoinForm from './joinForm';
-
 
 export default function Posts() {
   const [ref, inView] = useInView();
   const animationText = useAnimation();
   const tempanim = useRef(); // use to remove React Hook useEffect has a missing dependency:
-
 
   function animationfun() {
     if (inView) {
@@ -54,7 +52,11 @@ export default function Posts() {
             <motion.div className="z-10" animate={animationText}>
               <h1 className="text-[32px] leading-9 md:text-6xl font-thin font-interRegular">
                 The <span className="font-bold text-skin-primary">Future </span>
-                of <span className="md:whitespace-nowrap"> Personal Investment. </span>
+                of{' '}
+                <span className="md:whitespace-nowrap">
+                  {' '}
+                  Personal Investment. 1122
+                </span>
               </h1>
               <p className="mt-3 text-[15px] md:text-xl font-medium font-interRegular">
                 From building your diversified long-term portfolio and tracking
@@ -115,7 +117,7 @@ export default function Posts() {
       {/* Banner Section End*/}
 
       {/* Live result  */}
-      <div className='hidden lg:block'>
+      <div className="hidden lg:block">
         <LiveResult />
       </div>
 
