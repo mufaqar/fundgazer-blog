@@ -23,7 +23,7 @@
     "@lyket/react": "^1.4.8",
     "@reduxjs/toolkit": "^1.8.4",
     "@sanity/image-url": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^1.4.0",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
