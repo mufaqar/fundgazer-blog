@@ -10,25 +10,25 @@ export default function Footer() {
           <div className="p-5">
             <ul className="flex flex-row justify-between gap-5 md:flex-col">
               <li>
-                <Link href="/about">
+                {/* <Link href="/about"> */}
                   <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
                     About Us
                   </a>
-                </Link>
+                {/* </Link> */}
               </li>
               <li>
-                <Link href="/disclaimer">
+                {/* <Link href="/disclaimer"> */}
                   <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
                     Disclaimer
                   </a>
-                </Link>
+                {/* </Link> */}
               </li>
               <li>
-                <Link href="privacy-policy">
+                {/* <Link href="privacy-policy"> */}
                   <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
                     Privacy Policy
                   </a>
-                </Link>
+                {/* </Link> */}
               </li>
             </ul>
           </div>
@@ -45,7 +45,7 @@ export default function Footer() {
             <ul className="flex justify-center space-x-3 md:justify-end">
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
                 <a
-                  href="https://www.facebook.com/Fundgazer1.0"
+                  // href="https://www.facebook.com/Fundgazer1.0"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -56,7 +56,7 @@ export default function Footer() {
               </li>
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
                 <a
-                  href="https://twitter.com/Fundgazer_hq"
+                  // href="https://twitter.com/Fundgazer_hq"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -67,7 +67,7 @@ export default function Footer() {
               </li>
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
                 <a
-                  href="https://www.linkedin.com/company/fundgazer/"
+                  // href="https://www.linkedin.com/company/fundgazer/"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -78,7 +78,7 @@ export default function Footer() {
               </li>
               <li className="p-[6px] bg-white text-[#2B195A] hover:text-skin-light rounded-lg transition ease-in-out delay-75 hover:-translate-y-1 hover:scale-110 hover:bg-skin-primary duration-200">
                 <a
-                  href="https://www.instagram.com/fundgazer_hq"
+                  // href="https://www.instagram.com/fundgazer_hq"
                   target="_blank"
                   rel="noreferrer"
                 >

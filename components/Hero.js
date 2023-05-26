@@ -116,9 +116,9 @@ export default function Posts() {
       {/* Banner Section End*/}
 
       {/* Live result  */}
-      <div className="hidden lg:block">
+      {/* <div className="hidden lg:block">
         <LiveResult />
-      </div>
+      </div> */}
 
       {/* Jion Us Section Start*/}
       <section className="bg-skin-primary cta" id="cta">
@@ -141,10 +141,10 @@ export default function Posts() {
               <br />
               <span className="font-bold text-skin-light"> Fundgazer? </span>
             </h1>
-            <iframe
+            {/* <iframe
               className="w-full rounded-lg aspect-video"
               src="https://www.youtube.com/embed/tgbNymZ7vqY"
-            ></iframe>
+            ></iframe> */}
           </div>
         </div>
       </section>

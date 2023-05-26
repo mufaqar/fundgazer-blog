@@ -23,8 +23,8 @@ function MobileNav({ open, setOpen }) {
       <div className="flex items-center justify-center filter bg-[#FAF9FD] h-20">
         {/*logo container*/}
       </div>
-      <div className={`flex space-y-2 flex-col ml-4 ${open ? 'mt-8' : 'mt-0'}`}>
-        <Link
+      {/* <div className={`flex space-y-2 flex-col ml-4 ${open ? 'mt-8' : 'mt-0'}`}> */}
+        {/* <Link
           className="my-4 text-xl font-bold "
           href="/our-community"
           onClick={() =>
@@ -34,8 +34,8 @@ function MobileNav({ open, setOpen }) {
           }
         >
           Join Our Community
-        </Link>
-        <Link
+        </Link> */}
+        {/* <Link
           className="my-4 text-xl font-bold"
           href="/blog"
           onClick={() =>
@@ -45,9 +45,9 @@ function MobileNav({ open, setOpen }) {
           }
         >
           Blogs
-        </Link>
+        </Link> */}
       </div>
-    </div>
+    // </div>
   );
 }
 
@@ -164,7 +164,7 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
                   : 'text-black'
               }`}
             >
-              <Link
+              {/* <Link
                 href="/our-community"
                 className={`mx-4 font-interBold tracking-wider `}
               >
@@ -176,8 +176,8 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
                 >
                   Join Our Community
                 </a>
-              </Link>
-              <Link
+              </Link> */}
+              {/* <Link
                 href="/blog"
                 className={`mx-4 font-interBold tracking-wider  `}
               >
@@ -193,7 +193,7 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
                 >
                   Blogs
                 </a>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
