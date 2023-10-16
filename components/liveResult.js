@@ -43,8 +43,8 @@ export default function LiveResult() {
 
         <div className='bg-[#F8F8F8] py-4 -mt-8 -z-10'>
             <div className='w-[1200px] mx-auto'>
-                <Link href="">
-                    <a className='flex items-center text-lg font-bold hover:text-[#6F49DD]'>See Now <FiArrowRight className='ml-2'/></a>
+                <Link href="" className='flex items-center text-lg font-bold hover:text-[#6F49DD]'>
+                    See Now <FiArrowRight className='ml-2'/>
                 </Link>
             </div>
         </div>

@@ -62,13 +62,14 @@ export default function Posts() {
                 your assets to finding investment ideas, we got you covered.
               </p>
             </motion.div>
-            <Link href="#cta">
-              <a className="items-center hidden mt-20 space-x-2 text-3xl font-semibold md:flex lg:mt-0 font-interMedium group">
-                <span className="text-skin-primary animate-bounce">
-                  <BsChevronDown strokeWidth={2} />
-                </span>
-                <span className="">Join Waitlist </span>
-              </a>
+            <Link
+              href="#cta"
+              className="items-center hidden mt-20 space-x-2 text-3xl font-semibold md:flex lg:mt-0 font-interMedium group"
+            >
+              <span className="text-skin-primary animate-bounce">
+                <BsChevronDown strokeWidth={2} />
+              </span>
+              <span className="">Join Waitlist </span>
             </Link>
           </div>
           <div className="float-right col-span-2 overflow-x-hidden md:p-4 landingVideo">
@@ -101,13 +102,14 @@ export default function Posts() {
             </div> */}
 
             <div className="block mx-4 md:hidden">
-              <Link href="#cta">
-                <a className="flex items-center mt-20 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium group">
-                  <span className="text-skin-primary animate-bounce">
-                    <BsChevronDown strokeWidth={2} />
-                  </span>
-                  <span className="">Join Waitlist </span>
-                </a>
+              <Link
+                href="#cta"
+                className="flex items-center mt-20 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium group"
+              >
+                <span className="text-skin-primary animate-bounce">
+                  <BsChevronDown strokeWidth={2} />
+                </span>
+                <span className="">Join Waitlist </span>
               </Link>
             </div>
           </div>
