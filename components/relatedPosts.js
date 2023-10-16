@@ -29,7 +29,7 @@ export default function RelatedPosts({ allBlogs, tag }) {
               className="flex flex-row-reverse items-center gap-4 py-3 border-b border-gray-200 md:flex-col md:border-b-0 md:py-0"
             >
               <Link href={`/blog/${item.slug.current}`}>
-                <a>
+                
                   <figure className="related_blog">  
                     <Image
                       src={item.featureImage.asset.url}
@@ -39,14 +39,14 @@ export default function RelatedPosts({ allBlogs, tag }) {
                       className="object-cover w-full h-full"
                     ></Image>
                   </figure>
-                </a>
+              
               </Link>
               <Link href={`/blog/${item.slug.current}`}>
-                <a>
+              
                   <h5 className="text-lg font-normal font-productSansReqular md:text-2xl text-skin-dark">
                     {item.title}
                   </h5>
-                </a>
+             
               </Link>
             </div>
           ))}

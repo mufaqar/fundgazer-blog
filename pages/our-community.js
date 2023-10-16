@@ -44,17 +44,15 @@ export default function OurCommunity() {
               We are all about giving personal investors the tools and resources
               they need, to make informed decisions.
             </p>
-            <Link href="/our-community">
-              <a
-                className={`flex md:hidden w-full justify-end items-center mt-6 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium ${
+            <Link href="/our-community" className={`flex md:hidden w-full justify-end items-center mt-6 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium ${
                   route.pathname === '/our-community' ? 'hidden' : 'block'
-                } `}
-              >
+                } `}>
+              
                 <span className="">Explore</span>
                 <span className="text-skin-primary text-[2rem] bounce_right">
                   <FaAngleRight strokeWidth={2} />
                 </span>
-              </a>
+           
             </Link>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-5 p-4 md:justify-end lg:flex-nowrap">

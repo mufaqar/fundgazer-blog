@@ -511,8 +511,8 @@ export default function PrivacyPolicy() {
               </p>
               <p className="mb-5 text-base italic font-normal md:text-xl font-interRegular text-skin-muted">
                 <span>Via email:</span>
-                <Link href="mailto:support@fundgazer.com">
-                  <a className="text-skin-primary"> support@fundgazer.com</a>
+                <Link href="mailto:support@fundgazer.com" className="text-skin-primary">
+                 support@fundgazer.com
                 </Link>
               </p>
             </div>

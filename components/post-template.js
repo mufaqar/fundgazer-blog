@@ -68,7 +68,7 @@ export default function Post_template({ blog }) {
         </div>
         <div className="w-3/12">
           <Link href={`/blog/${blog.slug.current}`}>
-            <a>
+            
               <figure className="md:max-h-[202px] h-[94px] md:max-w-[235px] md:w-full md:h-full relative ml-auto rounded-lg overflow-hidden">
                 <Image
                   src={blog.featureImage.asset.url}
@@ -77,7 +77,7 @@ export default function Post_template({ blog }) {
                   className="object-cover transition-all duration-300 ease-in-out rounded-lg hover:scale-105"
                 ></Image>
               </figure>
-            </a>
+            
           </Link>
         </div>
       </div>
