@@ -144,6 +144,7 @@ html {
   display: flex;
   padding-top: 20px;
   padding-bottom: 50px;
+  align-items: center;
 }
 
 .slick-prev,

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BsChevronDown } from 'react-icons/bs';
+import { BsCameraVideo } from 'react-icons/bs';
 import { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-hook-inview'; // use current active screen Area
@@ -9,6 +9,9 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import LiveResult from './liveResult';
 import { sendMail } from '../services/sendMail';
 import JoinForm from './joinForm';
+import Image from 'next/image';
+import Counter_Sec from './counter';
+import Partners from './partners';
 
 export default function Posts() {
   const [ref, inView] = useInView();
@@ -61,16 +64,22 @@ export default function Posts() {
                 From building your diversified long-term portfolio and tracking
                 your assets to finding investment ideas, we got you covered.
               </p>
+              <Link href="#" className='text-2xl font-bold inline-flex gap-2 items-center border-2 border-[#6f49dd] py-5 px-14 rounded-full hover:animate-bounce mt-10'>
+                <BsCameraVideo strokeWidth={1.1} size={30} className='text-skin-primary' /> Watch Demo
+              </Link>
             </motion.div>
-            <Link
-              href="#cta"
-              className="items-center hidden mt-20 space-x-2 text-3xl font-semibold md:flex lg:mt-0 font-interMedium group"
-            >
-              <span className="text-skin-primary animate-bounce">
-                <BsChevronDown strokeWidth={2} />
-              </span>
-              <span className="">Join Waitlist </span>
-            </Link>
+            <div>
+              <h4 className='text-xl font-semibold'>
+                Download the app
+              </h4>
+              <Link href="#" className="inline-flex my-5 hover:animate-bounce" >
+                <Image src="/images/google-play.png" alt="/images/google-play.png" width={242} height={70} />
+              </Link>
+              <Link href="#" className="inline-flex hover:animate-bounce" >
+                <Image src="/images/app-store.png" alt="/images/app-store.png" width={242} height={70} />
+              </Link>
+            </div>
+
           </div>
           <div className="float-right col-span-2 overflow-x-hidden md:p-4 landingVideo">
             <div className="mt-10 md:mt-0 md:block md:mr-0 md:ml-0">
@@ -107,7 +116,7 @@ export default function Posts() {
                 className="flex items-center mt-20 space-x-2 text-[20px] font-semibold lg:mt-0 font-interMedium group"
               >
                 <span className="text-skin-primary animate-bounce">
-                  <BsChevronDown strokeWidth={2} />
+                  <BsCameraVideo strokeWidth={2} />
                 </span>
                 <span className="">Join Waitlist </span>
               </Link>
@@ -115,7 +124,9 @@ export default function Posts() {
           </div>
         </div>
       </section>
-      {/* Banner Section End*/}
+
+      <Counter_Sec />
+      <Partners />
 
       {/* Live result  */}
       {/* <div className="hidden lg:block">
