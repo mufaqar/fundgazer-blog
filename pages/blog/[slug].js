@@ -19,9 +19,7 @@ import SEO from '@bradgarropy/next-seo';
 import JoinOurCommunity from '../../components/joinOurCommunity';
 import { UpdownButton } from '@lyket/react';
 
-
-
-// Queray 
+// Queray
 const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
   title,
   _id,
@@ -86,11 +84,15 @@ const LatestBlogs = `*[_type == "blog"]{
   releaseDate,
 }`;
 
-
-
-
-export default function Single({ blog, latestBlogs, tags, allBlogs, title, content }) {
-  console.log("🚀 ~ file: [slug].js ~ line 95 ~ Single ~ blog", blog)
+export default function Single({
+  blog,
+  latestBlogs,
+  tags,
+  allBlogs,
+  title,
+  content,
+}) {
+  console.log('🚀 ~ file: [slug].js ~ line 95 ~ Single ~ blog', blog);
   const [socialSticky, setSocialSticky] = useState(true);
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
@@ -122,17 +124,25 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
     <>
       <Head>
         <title>{blog.title}</title>
-        <meta name="keywords" content={blog.metatags ? blog.metatags.map((metaTag)=> {return metaTag}) : blog.tags.map((tag) => { return tag.tag; })} />
+        <meta
+          name="keywords"
+          content={
+            blog.metatags
+              ? blog.metatags.map((metaTag) => {
+                  return metaTag;
+                })
+              : blog.tags.map((tag) => {
+                  return tag.tag;
+                })
+          }
+        />
       </Head>
       <SEO
         title={blog.metatitle ? blog.metatitle : blog.title}
         description={blog.metadescription ? blog.metadescription : blog.excerpt}
       />
 
-
-
       <section>
-      
         <div className="pb-10 mx-auto custom_container pt-28 ">
           <div className="flex flex-col gap-16 px-6 lg:flex-row md:px-0">
             {/* Posts Column Start*/}
@@ -140,10 +150,11 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
               <div className="mb-7">
                 <ul className="mb-5">
                   <li>
-                    <Link href="#" className="text-sm font-normal font-interRegular text-skin-muted">
-                  
-                        {blog.releaseDate}
-                     
+                    <Link
+                      href="#"
+                      className="text-sm font-normal font-interRegular text-skin-muted"
+                    >
+                      {blog.releaseDate}
                     </Link>
                   </li>
                 </ul>
@@ -182,9 +193,15 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
                 </span>
               </div>
               <div>
-                <div className={`fixed left-0 right-0 z-50 flex justify-center w-full  bg-white border border-gray-200 bottom-16 md:block lg:static md:border-0 ${socialSticky && 'p-5'}`}>
+                <div
+                  className={`fixed left-0 right-0 z-50 flex justify-center w-full  bg-white border border-gray-200 bottom-16 md:block lg:static md:border-0 ${
+                    socialSticky && 'p-5'
+                  }`}
+                >
                   <ul
-                    className={`lg:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${socialSticky ? 'lg:fixed' : 'hidden lg:block '} `}
+                    className={`lg:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
+                      socialSticky ? 'lg:fixed' : 'hidden lg:block '
+                    } `}
                   >
                     <li className="hidden text-sm font-bold font-productSansBold md:text-xl text-skin-dark md:block">
                       Share
@@ -290,12 +307,9 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
                   ))}
                 </ul>
               </div>
-              <div className='text-2xl'>
+              <div className="text-2xl">
                 {title}
-                <UpdownButton
-                  id={blog._id}
-                  namespace="blog"
-                />
+                <UpdownButton id={blog._id} namespace="blog" />
                 {content}
               </div>
             </div>
@@ -314,7 +328,6 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
               </div>
             </div>
             {/* Sidebar Column End*/}
-           
           </div>
         </div>
       </section>
@@ -326,17 +339,16 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
         </div>
         <BlogFooter />
       </div>
-      <div className='fixed bottom-0 left-0 right-0 z-50 bg-white shadow-lg md:hidden'>
+      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white shadow-lg md:hidden">
         <JoinOurCommunity />
       </div>
     </>
   );
 }
 
-
 export const getServerSideProps = async (pageContext) => {
   const pageSlug = pageContext.query.slug;
-  
+
   const allBlogs = await client.fetch(AllBlogs);
   const blog = await client.fetch(query, { pageSlug });
   const latestBlogs = await client.fetch(LatestBlogs);
