@@ -140,10 +140,10 @@ export default function Single({ blog, latestBlogs, tags, allBlogs, title, conte
               <div className="mb-7">
                 <ul className="mb-5">
                   <li>
-                    <Link href="#">
-                      <a className="text-sm font-normal font-interRegular text-skin-muted">
+                    <Link href="#" className="text-sm font-normal font-interRegular text-skin-muted">
+                  
                         {blog.releaseDate}
-                      </a>
+                     
                     </Link>
                   </li>
                 </ul>

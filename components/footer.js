@@ -10,25 +10,28 @@ export default function Footer() {
           <div className="p-5">
             <ul className="flex flex-row justify-between gap-5 md:flex-col">
               <li>
-                {/* <Link href="/about"> */}
-                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
-                    About Us
-                  </a>
-                {/* </Link> */}
+                <Link
+                  href="/about"
+                  className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline"
+                >
+                  About Us
+                </Link>
               </li>
               <li>
-                {/* <Link href="/disclaimer"> */}
-                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
-                    Disclaimer
-                  </a>
-                {/* </Link> */}
+                <Link
+                  href="/disclaimer"
+                  className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline"
+                >
+                  Disclaimer
+                </Link>
               </li>
               <li>
-                {/* <Link href="privacy-policy"> */}
-                  <a className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline">
-                    Privacy Policy
-                  </a>
-                {/* </Link> */}
+                <Link
+                  href="privacy-policy"
+                  className="text-base font-normal md:text-lg text-skin-light font-interRegular hover:underline"
+                >
+                  Privacy Policy
+                </Link>
               </li>
             </ul>
           </div>

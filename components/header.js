@@ -78,8 +78,8 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
         <div className="container flex items-center justify-between mx-auto">
           <MobileNav open={open} setOpen={setOpen} />
           <div className="flex items-center w-2/3 lg:w-3/12">
-            <Link href="/">
-              <a className="text-2xl font-semibold">
+            <Link href="/" className="text-2xl font-semibold">
+           
                 {router.pathname === '/' ? (
                   headerClr ? (
                     <Image
@@ -107,7 +107,7 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
                     className="z-10"
                   ></Image>
                 )}
-              </a>
+         
             </Link>
           </div>
           <div className="flex items-center justify-end w-9/12">
