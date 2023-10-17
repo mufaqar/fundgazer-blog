@@ -16,6 +16,8 @@ import IconBox from './icon_box';
 import PreBuild_Models from './prebuild-models';
 import Customize_Sec from './customize-sec';
 import Testimonials from './testimonials';
+import Faqs_Sec from './faq-sec';
+import AnyQuery_Sec from './any-query';
 
 export default function Posts() {
   const [ref, inView] = useInView();
@@ -77,13 +79,12 @@ export default function Posts() {
                 Download the app
               </h4>
               <Link href="#" className="inline-flex hover:animate-bounce" >
-                <Image src="/images/google-play.png" alt="/images/google-play.png" width={242} height={70} />
+                <Image src="/images/google-play.png" alt="/images/google-play.png" width={234} height={62} />
               </Link>
               <Link href="#" className="inline-flex hover:animate-bounce" >
-                <Image src="/images/app-store.png" alt="/images/app-store.png" width={242} height={70} />
+                <Image src="/images/app-store.png" alt="/images/app-store.png" width={234} height={62} />
               </Link>
             </div>
-
           </div>
           <div className="float-right col-span-2 overflow-x-hidden md:p-4 landingVideo">
             <div className="mt-10 md:mt-0 md:block md:mr-0 md:ml-0">
@@ -162,35 +163,25 @@ export default function Posts() {
       </div> */}
 
       {/* Jion Us Section Start*/}
-      <section className="bg-skin-primary cta" id="cta">
-        <div className="container grid items-center lg:h-[70vh] grid-cols-1 gap-8 py-12 lg:py-20 mx-auto lg:grid-cols-2">
-          <div className="order-last p-4 mt-10 md:order-first md:mt-0">
-            <div>
-              <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-white font-interRegular">
-                <span className='bg-[#E86A34] text-white w-fit p-1 font-bold'>Join</span> Us
-              </h1>
-              <p className="mt-3 text-[15px] md:text-xl font-normal text-skin-light font-interRegular max-w-[500px]">
-                From building your diversified long-term portfolio and tracking
-                you.
-              </p>
-            </div>
-            <div className="mt-8">
-              <JoinForm />
-            </div>
-          </div>
-          <div className="p-4 ">
-            <h1 className="block md:hidden text-[32px] leading-9 md:text-6xl font-normal text-[#D1C6FF] font-interRegular mb-8">
-              What is
-              <br />
-              <span className="font-bold text-skin-light"> Fundgazer? </span>
+      <section className="bg-skin-primary cta " id="cta">
+        <div className="container mx-auto px-5 grid grid-cols-1 md:grid-cols-3 items-center gap-5 py-16">
+          <div className="">
+            <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-white font-interRegular">
+              <span className='bg-[#E86A34] text-white w-fit p-1 font-bold'>Join</span> Waitlist
             </h1>
-            {/* <iframe
-              className="w-full rounded-lg aspect-video"
-              src="https://www.youtube.com/embed/tgbNymZ7vqY"
-            ></iframe> */}
+            <p className="mt-3 text-[15px] md:text-xl font-normal text-skin-light font-interRegular max-w-[500px]">
+              From building your diversified long-term portfolio and tracking
+              you.
+            </p>
+          </div>
+          <div className="md:col-span-2">
+            <JoinForm />
           </div>
         </div>
       </section>
+
+      <Faqs_Sec />
+      <AnyQuery_Sec />
 
       {/* Jion Us Section End*/}
       <div className="md:hidden">

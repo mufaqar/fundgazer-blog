@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { FaFacebook, FaInstagram, FaMediumM, FaTwitter } from 'react-icons/fa';
 import { GrLinkedinOption } from 'react-icons/gr';
@@ -5,10 +6,10 @@ import { GrLinkedinOption } from 'react-icons/gr';
 export default function Footer() {
   return (
     <footer className="h-[25vh]">
-      <section className="bg-skin-bgFooter">
-        <div className="container grid items-center grid-cols-1 py-8 mx-auto md:grid-cols-2">
-          <div className="p-5">
-            <ul className="flex flex-row justify-between gap-5 md:flex-col">
+      <section className="bg-skin-bgFooter px-5">
+        <div className="container grid md:items-end grid-cols-2 py-8 mx-auto md:grid-cols-3 gap-8">
+          <div className="">
+            <ul className="h-full flex flex-col justify-between gap-5">
               <li>
                 <Link
                   href="/about"
@@ -35,7 +36,18 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-          <div className="flex flex-col p-5">
+          <div className='flex md:flex-row flex-col gap-3 justify-end'>
+            <h6 className='text-xl font-semibold text-white md:hidden'>
+              Download the app
+            </h6>
+            <Link href="#" className="inline-flex hover:animate-bounce" >
+              <Image src="/images/google-play.png" alt="/images/google-play.png" width={234} height={62} />
+            </Link>
+            <Link href="#" className="inline-flex hover:animate-bounce" >
+              <Image src="/images/app-store.png" alt="/images/app-store.png" width={234} height={62} />
+            </Link>
+          </div>
+          <div className="flex flex-col p-5 md:col-span-1 col-span-2">
             <ul className="flex justify-center mb-2 md:justify-end">
               <li>
                 <a href="mailto:support@fundgazer.com" rel="noreferrer">
@@ -101,7 +113,6 @@ export default function Footer() {
           </div>
         </div>
       </section>
-
       <section className="bg-skin-dark">
         <div className="container py-6 mx-auto lg:py-3">
           <div>
