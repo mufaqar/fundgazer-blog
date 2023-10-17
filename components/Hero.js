@@ -12,6 +12,10 @@ import JoinForm from './joinForm';
 import Image from 'next/image';
 import Counter_Sec from './counter';
 import Partners from './partners';
+import IconBox from './icon_box';
+import PreBuild_Models from './prebuild-models';
+import Customize_Sec from './customize-sec';
+import Testimonials from './testimonials';
 
 export default function Posts() {
   const [ref, inView] = useInView();
@@ -53,7 +57,7 @@ export default function Posts() {
             className="flex flex-col justify-between h-full p-4 pt-10 pb-0 md:py-20 lg:pb-24"
           >
             <motion.div className="z-10" animate={animationText}>
-              <h1 className="text-[32px] leading-9 md:text-6xl font-thin font-interRegular">
+              <h1 className="text-[32px] leading-9 md:text-6xl font-bold font-interRegular">
                 The <span className="font-bold text-skin-primary">Future </span>
                 of
                 <span className="md:whitespace-nowrap">
@@ -68,11 +72,11 @@ export default function Posts() {
                 <BsCameraVideo strokeWidth={1.1} size={30} className='text-skin-primary' /> Watch Demo
               </Link>
             </motion.div>
-            <div>
+            <div className='grid gap-3'>
               <h4 className='text-xl font-semibold'>
                 Download the app
               </h4>
-              <Link href="#" className="inline-flex my-5 hover:animate-bounce" >
+              <Link href="#" className="inline-flex hover:animate-bounce" >
                 <Image src="/images/google-play.png" alt="/images/google-play.png" width={242} height={70} />
               </Link>
               <Link href="#" className="inline-flex hover:animate-bounce" >
@@ -127,6 +131,30 @@ export default function Posts() {
 
       <Counter_Sec />
       <Partners />
+      <section className='py-16 px-5'>
+        <div className='container mx-auto grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-5 items-center'>
+          <IconBox
+            title="More automation, less worry"
+            content="Composer executes your trading strategy, making
+              trades and rebalancing automatically. Composer executes your trading strategy." />
+          <IconBox
+            title="More automation, less worry"
+            content="Composer executes your trading strategy, making
+              trades and rebalancing automatically. Composer executes your trading strategy." />
+          <IconBox
+            title="More automation, less worry"
+            content="Composer executes your trading strategy, making
+              trades and rebalancing automatically. Composer executes your trading strategy." />
+          <IconBox
+            title="More automation, less worry"
+            content="Composer executes your trading strategy, making
+              trades and rebalancing automatically. Composer executes your trading strategy." />
+        </div>
+      </section>
+
+      <PreBuild_Models />
+      <Customize_Sec />
+      <Testimonials />
 
       {/* Live result  */}
       {/* <div className="hidden lg:block">
@@ -137,13 +165,15 @@ export default function Posts() {
       <section className="bg-skin-primary cta" id="cta">
         <div className="container grid items-center lg:h-[70vh] grid-cols-1 gap-8 py-12 lg:py-20 mx-auto lg:grid-cols-2">
           <div className="order-last p-4 mt-10 md:order-first md:mt-0">
-            <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-[#D1C6FF] font-interRegular">
-              <span className="font-bold text-skin-light">Join </span> Waitlist
-            </h1>
-            <p className="mt-3 text-[15px] md:text-xl font-normal text-skin-light font-interRegular max-w-[500px]">
-              From building your diversified long-term portfolio and tracking
-              you.
-            </p>
+            <div>
+              <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-white font-interRegular">
+                <span className='bg-[#E86A34] text-white w-fit p-1 font-bold'>Join</span> Us
+              </h1>
+              <p className="mt-3 text-[15px] md:text-xl font-normal text-skin-light font-interRegular max-w-[500px]">
+                From building your diversified long-term portfolio and tracking
+                you.
+              </p>
+            </div>
             <div className="mt-8">
               <JoinForm />
             </div>
