@@ -1,8 +1,7 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import React from 'react'
-import { BsCameraVideo } from 'react-icons/bs'
 import Models_Slider from '../components/modelSlider'
+import Compare_Returns from '../components/compare-returns'
+import AnyQuery_Sec from '../components/any-query'
 
 export default function Discover_Models() {
     return (
@@ -33,8 +32,9 @@ export default function Discover_Models() {
                     </div>
                 </div>
             </section>
-
             <Models_Slider />
+            <Compare_Returns />
+            <AnyQuery_Sec />
         </main>
     )
 }

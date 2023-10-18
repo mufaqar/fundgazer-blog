@@ -19,7 +19,7 @@ function AnyQuery_Sec() {
                             id="phone"
                             placeholder="Enter Phone no."
                             name="phone"
-                            className="font-interLight bg-skin-light text-skin-muted text-xl font-normal outline-[#6F49DD] focus:outline-[#6F49DD] py-3 px-4 rounded-md md:max-w-[395px] w-full"
+                            className="font-interLight bg-skin-light text-skin-muted text-xl font-normal border border-[#D9D9D9] outline-[#6F49DD] focus:outline-[#6F49DD] py-3 px-4 rounded-md md:max-w-[395px] w-full"
                         />
                         <button type="submit"
                             className="flex items-center cursor-pointer px-8 py-3 text-xl w-full justify-center md:w-auto font-medium rounded-md font-interMedium bg-[#E86A34] text-skin-light hover:opacity-90 transition ease-in-out delay-75 hover:scale-110 duration-200"
