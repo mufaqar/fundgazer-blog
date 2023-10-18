@@ -31,7 +31,7 @@ export default function OurCommunity() {
   return (
     <>
       {/* Banner Section Start*/}
-      <section className="lg:h-[60vh] flex">
+      <section className="lg:min-h-[60vh] flex">
         <div className="container grid items-center grid-cols-1 gap-8 pb-8 mx-auto mt-24 lg:pt-0 md:grid-cols-2">
           <div className="p-4">
             <h1 className="text-4xl font-normal md:text-6xl font-interRegular">
@@ -79,7 +79,7 @@ export default function OurCommunity() {
 
       {/* Resources Section Start*/}
       <section
-        className={`bg-[#E9E1FF] flex items-center lg:h-[40vh] ${
+        className={`bg-[#E9E1FF] flex items-center lg:min-h-[40vh] ${
           route.pathname === '/our-community' ? 'block' : 'hidden'
         }`}
       >

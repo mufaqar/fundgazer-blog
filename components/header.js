@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { BiSearch } from 'react-icons/bi';
 import Search from '../components/search';
-import {AiFillCaretDown} from 'react-icons/ai'
+import { AiFillCaretDown } from 'react-icons/ai'
 
 
 
@@ -55,6 +55,15 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
   const [open, setOpen] = useState(false);
   const router = useRouter();
   const [handleMobileSearch, setHandleMobileSearch] = useState(false)
+  const [dropDown, setdropDown] = useState(false)
+  const handleMenu = (id) => {
+    if (dropDown === id) {
+      return setdropDown(null)
+    }
+    setdropDown(id)
+    //setDropdown(!dropdown)
+
+  }
 
   return (
     <>
@@ -145,59 +154,76 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
                   }`}
               />
             </div>
-            <div
-              className={`hidden text-xl font-bold md:flex gap-10 ${router.pathname === '/'
-                ? headerClr
-                  ? 'text-[#FAF9FD]'
+            <nav className='hidden md:block'>
+              <ul
+                className={`text-xl font-bold md:flex gap-10 ${router.pathname === '/'
+                  ? headerClr
+                    ? 'text-[#FAF9FD]'
+                    : 'text-black'
                   : 'text-black'
-                : 'text-black'
-                }`}
-            >
-              <Link
-                href="/products"
-                className={`font-interBold tracking-wider  `}
+                  }`}
               >
-                <span
-                  className={`flex gap-2 items-center ${router.pathname === "/products"
-                    ? headerClr
-                      ? 'hover:text-black'
-                      : 'hover:text-[#6F49DD] text-[#6F49DD]'
-                    : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
-                    } `}
-                  onClick={() => setOpen(false)}
-                >
-                  Products <AiFillCaretDown />
-                </span>
-              </Link>
-              <Link
-                href="/resources"
-                className={`font-interBold tracking-wider  `}
-              >
-                <span
-                  className={`flex gap-2 items-center ${router.pathname === "/resources"
-                    ? headerClr
-                      ? 'hover:text-black'
-                      : 'hover:text-[#6F49DD] text-[#6F49DD]'
-                    : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
-                    } `}
-                  onClick={() => setOpen(false)}
-                >
-                  Resources <AiFillCaretDown />
-                </span>
-              </Link>
-              <Link
-                href="/our-community"
-                className={`font-interBold tracking-wider `}
-              >
-                <span
-                  className={`${router.pathname === "/our-community" ? headerClr ? 'hover:text-black ' : 'hover:text-[#6F49DD] text-[#6F49DD]' : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
-                    } `}
-                  onClick={() => setOpen(false)}
-                >
-                  Join Our Community
-                </span>
-              </Link>
-            </div>
+                {NavLinks?.map((item, idx) => {
+                  return (<li key={idx}>
+                    <Link
+                      href={item.url}
+                      className={`font-interBold tracking-wider  `}
+                      onMouseEnter={() => handleMenu(item.id)}
+                    >
+                      <span
+                        className={`flex gap-2 items-center ${router.pathname === item.url
+                          ? headerClr
+                            ? 'hover:text-black'
+                            : 'hover:text-[#6F49DD] text-[#6F49DD]'
+                          : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
+                          } `}
+                        onClick={() => setOpen(false)}
+                      >
+                        {item.name}
+                        {
+                          item?.sub_Nav && <AiFillCaretDown />
+                        }
+                      </span>
+                    </Link>
+                    {
+                      item.sub_Nav &&
+                      <ul
+                        className={`w-60 md:p-4 text-xl font-bold gap-10 md:absolute top-20 md:shadow-md ${dropDown === item.id ? 'flex' : 'hidden'} ${router.pathname === '/'
+                          ? headerClr
+                            ? 'text-[#FAF9FD] bg-skin-primary'
+                            : 'text-black bg-[#FAF9FD]'
+                          : 'text-black bg-[#FAF9FD]'
+                          }`}
+                        onMouseLeave={() => setdropDown(false)}
+                      >
+                        {item.sub_Nav?.map((_item, _idx) => {
+                          return (<li key={_idx}>
+                            <Link
+                              href={`${_item.sub_url}`}
+                              className={`font-interBold tracking-wider  `}
+                            >
+                              <span
+                                className={`flex gap-2 items-center ${router.pathname === _item.sub_url
+                                  ? headerClr
+                                    ? 'hover:text-black'
+                                    : 'hover:text-[#6F49DD] text-[#6F49DD]'
+                                  : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
+                                  } `}
+                                onClick={() => setOpen(false)}
+                              >
+                                {_item.sub_name}
+                              </span>
+                            </Link>
+                          </li>
+                          )
+                        })}
+                      </ul>
+                    }
+                  </li>
+                  )
+                })}
+              </ul>
+            </nav>
           </div>
           <div className="lg:flex hidden items-center justify-end w-full lg:w-3/12">
             <div
@@ -267,3 +293,33 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
     </>
   );
 }
+
+export const NavLinks = [
+  {
+    id: 1,
+    name: 'Products',
+    url: '#',
+    sub_Nav: [
+      {
+        sub_name: 'Products',
+        sub_url: '#',
+      },
+    ]
+  },
+  {
+    id: 2,
+    name: 'Resources',
+    url: '#',
+    sub_Nav: [
+      {
+        sub_name: 'Resources',
+        sub_url: '#',
+      },
+    ]
+  },
+  {
+    id: 3,
+    name: 'Join Our Community',
+    url: '/our-community',
+  },
+]
