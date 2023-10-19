@@ -8,8 +8,9 @@ import { BsChevronDown } from 'react-icons/bs';
 import { useInView } from 'react-hook-inview';
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import JoinOurCommunity from '../../components/joinOurCommunity'
-
+import OurCommunity from '../our-community';
+import AnyQuery_Sec from '../../components/any-query';
+import Join_WaitList from '../../components/join-waitList';
 
 export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
   const [blogsData, setBlogsData] = useState(blogs);
@@ -20,7 +21,7 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
   );
   const [eLimit, setELimit] = useState(8);
   var length = blogs.length;
-  const router  = useRouter();
+  const router = useRouter();
 
   const loadMore = () => {
     setELimit(eLimit + 5);
@@ -30,11 +31,11 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
     const tag = event.target.getAttribute("tag-name");
     sendProps(tag);
   };
-  function sendProps(tag){
+  function sendProps(tag) {
     router.push({
-      pathname : "/blog/tag",
-      query : {
-        tag 
+      pathname: "/blog/tag",
+      query: {
+        tag
       }
     })
   }
@@ -65,14 +66,14 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
                       {tags.slice(0, 15).map((tag, index) => (
                         <li className="py-2" key={index}>
 
-                          <a className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-transparent">
+                          <div className="md:text-base text-xs text-skin-primary font-medium border border-[#6F49DD] rounded-full py-2 px-3 font-interRegular hover:bg-transparent">
                             <button
                               onClick={handleClick}
                               tag-name={tag.tag}
                             >
                               #{tag.tag}
                             </button>
-                          </a>
+                          </div>
 
                         </li>
                       ))}
@@ -134,12 +135,13 @@ export default function Blog({ blogs, tags, serachInput, setSearchInput }) {
           </div>
         </div>
       </section>
-      <div ref={ref}>
-        <BlogFooter />
+      <div className='md:hidden block'>
+        <OurCommunity />
       </div>
-      <div className='fixed bottom-0 left-0 right-0 bg-white shadow-lg md:hidden'>
-        <JoinOurCommunity/>
+      <div className='md:block hidden'>
+        <Join_WaitList />
       </div>
+      <AnyQuery_Sec />
     </>
   );
 }

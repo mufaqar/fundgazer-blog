@@ -18,6 +18,8 @@ import Head from 'next/head';
 import SEO from '@bradgarropy/next-seo';
 import JoinOurCommunity from '../../components/joinOurCommunity';
 import { UpdownButton } from '@lyket/react';
+import AnyQuery_Sec from '../../components/any-query';
+import Join_WaitList from '../../components/join-waitList';
 
 // Queray
 const query = ` *[ _type == "blog" && slug.current == $pageSlug ][0]{
@@ -129,11 +131,11 @@ export default function Single({
           content={
             blog.metatags
               ? blog.metatags.map((metaTag) => {
-                  return metaTag;
-                })
+                return metaTag;
+              })
               : blog.tags.map((tag) => {
-                  return tag.tag;
-                })
+                return tag.tag;
+              })
           }
         />
       </Head>
@@ -194,14 +196,12 @@ export default function Single({
               </div>
               <div>
                 <div
-                  className={`fixed left-0 right-0 z-50 flex justify-center w-full  bg-white border border-gray-200 bottom-16 md:block lg:static md:border-0 ${
-                    socialSticky && 'p-5'
-                  }`}
+                  className={`fixed left-0 right-0 z-50 flex justify-center w-full  bg-white border border-gray-200 bottom-0 md:block lg:static md:border-0 ${socialSticky && 'p-5'
+                    }`}
                 >
                   <ul
-                    className={`lg:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${
-                      socialSticky ? 'lg:fixed' : 'hidden lg:block '
-                    } `}
+                    className={`lg:flex-col flex gap-5 items-center left-4 top-1/3 z-40 ${socialSticky ? 'lg:fixed' : 'hidden lg:block '
+                      } `}
                   >
                     <li className="hidden text-sm font-bold font-productSansBold md:text-xl text-skin-dark md:block">
                       Share
@@ -337,11 +337,9 @@ export default function Single({
         <div className="mx-auto custom_container lg:w-9/12">
           <Comment_Section blog={blog} />
         </div>
-        <BlogFooter />
       </div>
-      <div className="fixed bottom-0 left-0 right-0 z-50 bg-white shadow-lg md:hidden">
-        <JoinOurCommunity />
-      </div>
+      <Join_WaitList />
+      <AnyQuery_Sec />
     </>
   );
 }

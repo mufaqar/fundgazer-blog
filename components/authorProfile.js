@@ -45,18 +45,18 @@ export default function AuthorProfile({ authorName, ProfileURL, linkedinURL }) {
               Author
             </h6>
             <Link href="#">
-              <a className="text-sm font-normal font-interRegular md:text-xl text-skin-dark">
+              <span className="text-sm font-normal font-interRegular md:text-xl text-skin-dark">
                 {authorName}
-              </a>
+              </span>
             </Link>
           </div>
         </div>
         <div>
-          <a href={linkedinURL ? linkedinURL : '#'} target="__blank">
+          <Link href={linkedinURL ? linkedinURL : '#'} target="__blank">
             <span className="md:text-5xl text-2xl text-[#2867B2]">
               <BsLinkedin />
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </>

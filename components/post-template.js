@@ -56,12 +56,12 @@ export default function Post_template({ blog }) {
           <ul className="flex gap-3 text-[15px] font-normal font-interRegular text-skin-muted mt-6">
             <li>
               <div>
-                <a>{blog.author.author.name}</a>
+                <span>{blog.author.author.name}</span>
               </div>
             </li>
             <li>
               <div>
-                <a>{blog.releaseDate}</a>
+                <span>{blog.releaseDate}</span>
               </div>
             </li>
           </ul>

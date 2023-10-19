@@ -38,12 +38,12 @@ export default function FirstBlog({ data }) {
           <ul className="flex md:hidden justify-between mt-5 space-x-3 text-[15px] mb-0 font-normal text-skin-muted font-interRegular">
             <li>
               <div>
-                <a>Shashank Gupta</a>
+                <span>Shashank Gupta</span>
               </div>
             </li>
             <li>
               <div>
-                <a>11 March 2023</a>
+                <span>11 March 2023</span>
               </div>
             </li>
           </ul>
@@ -77,12 +77,12 @@ export default function FirstBlog({ data }) {
           <ul className="hidden md:flex  space-x-3 text-[15px] font-normal text-skin-muted font-interRegular">
             <li>
               <div>
-                <a>{data.author.author.name}</a>
+                <span>{data.author.author.name}</span>
               </div>
             </li>
             <li>
               <div>
-                <a>{data.releaseDate}</a>
+                <span>{data.releaseDate}</span>
               </div>
             </li>
           </ul>

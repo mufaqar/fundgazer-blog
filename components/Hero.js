@@ -164,7 +164,6 @@ export default function Posts() {
       </div> */}
 
      <Join_WaitList />
-
       <Faqs_Sec />
       <AnyQuery_Sec />
     </>
