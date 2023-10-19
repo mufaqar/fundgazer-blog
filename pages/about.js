@@ -4,13 +4,15 @@ import Head from 'next/head'
 import TeamBox from '../components/teamBox'
 import TeamSlider from '../components/teamSlider'
 import BlogFooter from '../components/blogFooter'
+import Testimonials from '../components/testimonials'
+import AnyQuery_Sec from '../components/any-query'
+import Join_WaitList from '../components/join-waitList'
 
 export default function About() {
   return (
     <>
       <Head>
         <title>About Us - Fundgazer</title>
-
       </Head>
 
       <section>
@@ -34,25 +36,14 @@ export default function About() {
           </div>
         </div>
       </section>
-
       <section className='px-4 lg:px-0 py-14'>
-          <div>
-            <TeamSlider />
-          </div>
-      </section>
-
-      <section className='py-14 px-4 md:h-[60vh] flex items-center'>
-        <div className='container flex flex-col gap-5 mx-auto md:flex-row md:gap-12'>
-          <div className='w-full md:w-2/5'>
-            <h3 className='mb-5 text-3xl font-normal md:text-6xl font-interRegular text-skin-dark'>Our <span className='font-bold text-skin-primary'>Community</span></h3>
-          </div>
-          <div className='w-full md:w-3/5'>
-            <p className="mb-5 text-base font-normal md:text-xl font-interRegular text-skin-muted">Investment is the essential part of any individual’s finanacial goals. Every earning individual invests in some sort of instruments according to their risk taking capabilities. New Investors have inclined towards investment in stocks, crypto currency etc. but the amount of time that market requires for proper research and execution is usually underestimated which leads to losses or make the investor to leave the market.It can be hard to know where to start and which investments are right for you, and even harder to execute your investment plan on right timings.</p>
-          </div>
+        <div>
+          <TeamSlider />
         </div>
       </section>
-
-      <BlogFooter />
+      <Testimonials />
+      <AnyQuery_Sec />
+      <Join_WaitList />
     </>
   )
 }

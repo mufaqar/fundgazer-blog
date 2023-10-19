@@ -6,7 +6,7 @@ function Compare_Returns() {
     return (
         <section className='py-20'>
             <div className='container mx-auto md:px-5 px-0'>
-                <div className='max-w-[75%] mx-auto md:bg-[#F8F8F8] md:rounded-tr-md rounded-t-md md:p-16 p-5'>
+                <div className='md:max-w-[75%] mx-auto md:bg-[#F8F8F8] md:rounded-tr-md rounded-t-md md:p-16 p-5'>
                     <div className='flex md:flex-row flex-col-reverse gap-8 justify-between'>
                         <div>
                             <h2 className='md:text-4xl text-xl font-normal font-interRegular md:text-skin-primary'>
@@ -73,7 +73,7 @@ function Compare_Returns() {
                         </div>
                     </div>
                 </div>
-                <div className='max-w-[75%] mx-auto md:bg-[#F8F8F8] md:rounded-br-md rounded-b-md md:p-16 p-5'>
+                <div className='md:max-w-[75%] mx-auto md:bg-[#F8F8F8] md:rounded-br-md rounded-b-md md:p-16 p-5'>
                     <div className='flex md:flex-row flex-col justify-between md:items-center mb-10'>
                         <div className='flex flex-row gap-10 justify-between items-end'>
                             <div>

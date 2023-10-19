@@ -8,7 +8,7 @@ function Testimonials() {
                 <div>
                     <div className='relative max-w-[380px]'>
                         <Image src="/images/qoutel.png" alt="/images/qoutel.png" width={32} height={31} className='absolute left-0 top-2' />
-                        <h2 className='md:text-[58px] md:leading-[64px] text-2xl font-semibold font-interMedium grid md:max-w-[280px] max-w-[114px] mx-auto'>
+                        <h2 className='md:text-[58px] text-[44px] leading-[64px] font-semibold font-interMedium grid md:max-w-[280px] max-w-[215px] mx-auto'>
                             <span className='bg-[#E86A34] text-white w-fit p-1'>What</span>
                             <span className='bg-[#E86A34] text-white w-fit p-1 ml-auto mr-0'>people</span>
                             <span className='bg-[#E86A34] text-white w-fit p-1'>are</span>

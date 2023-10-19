@@ -18,6 +18,7 @@ import Customize_Sec from './customize-sec';
 import Testimonials from './testimonials';
 import Faqs_Sec from './faq-sec';
 import AnyQuery_Sec from './any-query';
+import Join_WaitList from './join-waitList';
 
 export default function Posts() {
   const [ref, inView] = useInView();
@@ -162,31 +163,10 @@ export default function Posts() {
         <LiveResult />
       </div> */}
 
-      {/* Jion Us Section Start*/}
-      <section className="bg-skin-primary cta " id="cta">
-        <div className="container mx-auto px-5 grid grid-cols-1 md:grid-cols-3 items-center gap-5 py-16">
-          <div className="">
-            <h1 className="text-[32px] leading-9 md:text-6xl font-normal text-white font-interRegular">
-              <span className='bg-[#E86A34] text-white w-fit p-1 font-bold'>Join</span> Waitlist
-            </h1>
-            <p className="mt-3 text-[15px] md:text-xl font-normal text-skin-light font-interRegular max-w-[500px]">
-              From building your diversified long-term portfolio and tracking
-              you.
-            </p>
-          </div>
-          <div className="md:col-span-2">
-            <JoinForm />
-          </div>
-        </div>
-      </section>
+     <Join_WaitList />
 
       <Faqs_Sec />
       <AnyQuery_Sec />
-
-      {/* Jion Us Section End*/}
-      <div className="md:hidden">
-        <OurCommunity />
-      </div>
     </>
   );
 }

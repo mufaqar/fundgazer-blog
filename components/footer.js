@@ -37,7 +37,7 @@ export default function Footer() {
             </ul>
           </div>
           <div className='flex md:flex-row flex-col gap-3 justify-end'>
-            <h6 className='text-xl font-semibold text-white md:hidden'>
+            <h6 className='text-xs font-semibold text-end text-white md:hidden'>
               Download the app
             </h6>
             <Link href="#" className="inline-flex hover:animate-bounce" >
