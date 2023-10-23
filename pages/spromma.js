@@ -1,9 +1,10 @@
 import React from 'react'
+import Statics from '../components/statics'
 
 export default function Spromma() {
     return (
         <main>
-            <section className='md:pt-40 pt-32 pb-20 px-5 bg-[#F7F7F9]'>
+            <section className='md:pt-40 pt-32 pb-32 px-5 bg-[#F7F7F9]'>
                 <div className='container mx-auto'>
                     <h2 className='md:text-[48px] text-2xl leading-[64px] font-semibold font-interRegular text-skin-primary'>
                         Spromma
@@ -28,6 +29,9 @@ export default function Spromma() {
                         </p>
                     </div>
                 </div>
+            </section>
+            <section className='-mt-14 mb-16'>
+                <Statics />
             </section>
         </main>
     )
