@@ -4,8 +4,8 @@ import { FiThumbsDown, FiThumbsUp } from 'react-icons/fi'
 
 export default function ArticleContent({ data }) {
     return (
-        <div className={`bg-white pt-[46px] px-[47px] pb-[293.17px] w-full h-full`}>
-            <h2 className='md:text-[30px] leading-[36px] font-semibold font-interMedium mb-5 text-[#222222]'>
+        <div className={`bg-white md:pt-[46px] md:px-[47px] md:pb-[293.17px] w-full h-full px-5`}>
+            <h2 className='md:text-[30px] md:leading-[36px] font-semibold font-interMedium mb-5 text-[#222222]'>
                 {data?.art_name}
             </h2>
             <div>
@@ -15,7 +15,7 @@ export default function ArticleContent({ data }) {
                 <p className='text-sm font-normal font-interRegular text-[#494949] mt-3'>
                     There are two reasons for this suggested minimum.
                 </p>
-                <div className='pl-5'>
+                <div className='md:pl-5'>
                     <p className='text-sm font-normal font-interRegular text-[#494949] mt-3'>
                         Symphonies can contain fractionable and non-fractionable assets. For assets that are fractionable, wecan place orders for exact dollar amounts needed to match intended symphony allocations (e.g.,purchase $100 of SPY). For assets that are not fractionable, we will round down purchases to the nearest share. If you do not have enough funds to purchase one full share of a non-fractionable asset, then the money that would be allocated to this asset following symphony logic will instead be kept in cash.
                     </p>

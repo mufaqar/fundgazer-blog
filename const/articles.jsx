@@ -3,19 +3,19 @@ export const Categories = [
         cat_name: 'Getting Started',
         articles: [
             {
-                art_name: 'Getting Started',
+                art_name: 'Money got debited from OneCard but not credited to merchant.',
                 art_cont: 'To avoid unfilled orders, we recommend investing a minimum of $2500 across your portfolio. ',
             },
             {
-                art_name: 'Minimum to invest',
+                art_name: 'Unable to make card transaction.',
                 art_cont: 'To avoid unfilled orders, we recommend investing a minimum of $2500 across your portfolio. ',
             },
             {
-                art_name: 'Minimum to invest',
+                art_name: 'Money got debited from OneCard but not credited to merchant.',
                 art_cont: 'To avoid unfilled orders, we recommend investing a minimum of $2500 across your portfolio. ',
             },
             {
-                art_name: 'Minimum to invest',
+                art_name: 'Unable to make card transaction.',
                 art_cont: 'To avoid unfilled orders, we recommend investing a minimum of $2500 across your portfolio. ',
             },
         ]
@@ -24,11 +24,11 @@ export const Categories = [
         cat_name: 'Opus',
         articles: [
             {
-                art_name: 'Opus',
+                art_name: 'Money got debited from OneCard but not credited to merchant.',
                 art_cont: 'To avoid unfilled orders, we recommend investing a minimum of $2500 across your portfolio. ',
             },
             {
-                art_name: 'Minimum to invest',
+                art_name: 'Unable to make card transaction.',
                 art_cont: 'To avoid unfilled orders, we recommend investing a minimum of $2500 across your portfolio. ',
             },
         ]
@@ -37,7 +37,7 @@ export const Categories = [
         cat_name: 'Video Library',
         articles: [
             {
-                art_name: 'Video Library',
+                art_name: 'Unable to make card transaction.',
                 art_cont: 'To avoid unfilled orders, we recommend investing a minimum of $2500 across your portfolio. ',
             },
             {

@@ -3,6 +3,7 @@ import { Categories } from '../../const/articles'
 import { BiChevronRight } from 'react-icons/bi'
 import { AiOutlineClose, AiOutlineFileText } from 'react-icons/ai'
 import ArticleContent from '../../components/article-Content'
+import Mbl_Help_Cate from '../../components/mbl-help-cate'
 
 function Help_Category() {
   const [openCate, setOpenCate] = useState(0)
@@ -20,8 +21,8 @@ function Help_Category() {
     setOpenArticle(idx)
   }
   return (
-    <main className='bg-[#F0F0F0]'>
-      <section className='py-32 px-5'>
+    <main className='md:bg-[#F0F0F0]'>
+      <section className='py-32 px-5 md:block hidden'>
         <div className='container mx-auto flex md:flex-row gap-8'>
           <div className='md:w-1/4 pt-10'>
             <h2 className='text-base font-bold font-interMedium uppercase mb-10'>
@@ -60,6 +61,11 @@ function Help_Category() {
               </ul>
             </div>
           ))}
+        </div>
+      </section>
+      <section className='py-32  md:hidden block relative'>
+        <div className='container mx-auto '>
+          <Mbl_Help_Cate />
         </div>
       </section>
     </main>

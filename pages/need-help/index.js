@@ -45,17 +45,38 @@ export default function Need_Help() {
                     </div>
                 </div>
             </section>
-            <section className='py-20 px-5'>
+            <section className='pt-20 px-5 md:hidden block'>
                 <div className='container mx-auto'>
                     <div>
-                        <h2>
+                        <h2 className='text-base font-bold font-interMedium text-[#161616] mb-10'>
                             Frequently asked questions.
                         </h2>
                         <div>
-                            <ul>
-                                <li>
-                                    Money got debited from OneCard but not credited to merchant.
-                                </li>
+                            {Categories?.slice(0, 2).map((item, index) => (
+                                <ul key={index} className='divide-y divide-[#F4F4F4]'>
+                                    {item?.articles?.map((article, idx) => (
+                                        <li key={idx} className='text-base font-normal text-skin-primary py-4 cursor-pointer'>
+                                            {article.art_name}
+                                        </li>
+                                    ))}
+                                </ul>
+                            ))}
+                        </div>
+                        <div className='mt-12'>
+                            <h2 className='text-base font-bold font-interMedium uppercase mb-10'>
+                                Categories
+                            </h2>
+                            <ul className='grid gap-4'>
+                                {[1, 2, 3, 4, 5].map((idx) => (
+                                    <li key={idx} className='text-base font-normal text-skin-primary py-1 px-[10px] bg-[#F4F4F4] rounded-[5px] flex items-center gap-2 cursor-pointer'>
+                                        <span className='bg-[#8D8D8D] min-w-[27px] min-h-[27px] rounded'></span>  <span className='text-base font-normal text-[#161616]'>
+                                            Transactions & Refund
+                                            <span className='text-xs font-normal text-[#161616]'>
+                                                Spends, cashbacks, refunds, swipe to pay
+                                            </span>
+                                        </span>
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </div>
