@@ -14,7 +14,7 @@ export default function Need_Help() {
                     </h1>
                 </div>
             </section>
-            <section className='py-20 px-5'>
+            <section className='py-20 px-5 md:block hidden'>
                 <div className='container mx-auto'>
                     <div>
                         <h2 className='text-[27px] leading-[36px] font-bold font-interMedium text-center text-[#333333]'>
@@ -42,6 +42,22 @@ export default function Need_Help() {
                                 </p>
                             </div>
                         ))}
+                    </div>
+                </div>
+            </section>
+            <section className='py-20 px-5'>
+                <div className='container mx-auto'>
+                    <div>
+                        <h2>
+                            Frequently asked questions.
+                        </h2>
+                        <div>
+                            <ul>
+                                <li>
+                                    Money got debited from OneCard but not credited to merchant.
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>
