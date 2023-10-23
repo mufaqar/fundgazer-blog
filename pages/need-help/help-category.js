@@ -40,19 +40,19 @@ function Help_Category() {
             </ul>
           </div>
           {Categories?.map((item, index) => (
-            <div key={index} className={`relative md:w-3/4 h-full bg-white border border-[#E9E5E5] pt-[46px] px-[47px] pb-[293.17px] ${openCate === index ? 'block mt-4 text-gray-500' : 'hidden'}`}>
+            <div key={index} className={`relative md:w-3/4 w-full h-[750px] bg-white border border-[#E9E5E5] pt-[46px] px-[47px] ${openCate === index ? 'block mt-4 text-gray-500' : 'hidden'}`}>
               <h2 className='md:text-[30px] leading-[36px] font-semibold font-interMedium mb-10 text-[#222222]'>
                 {item?.cat_name}
               </h2>
               <ul className='grid gap-4'>
                 {item?.articles.map((article, idx) => (
-                  <li key={idx} className='flex gap-3 text-[15.6px] leading-[23.4px] font-medium font-interRegular text-skin-primary items-center'
+                  <li key={idx} className='flex gap-3 text-[15.6px] leading-[23.4px] font-medium font-interRegular text-skin-primary items-center cursor-pointer'
                     onClick={() => handleArticles(idx)}>
                     <AiOutlineFileText className='text-[#A7A7A7]' /> {article?.art_name}
                   </li>
                 ))}
                 {item?.articles.map((article, idx) => (
-                  <div key={idx} className={openArticle === idx ? 'absolute w-full h-full top-0 bottom-0 left-0 right-0 block text-gray-500' : 'hidden'}>
+                  <div key={idx} className={openArticle === idx ? 'absolute w-full h-full top-0  left-0 right-0 block text-gray-500' : 'hidden'}>
                     <AiOutlineClose className='text-4xl font-bold text-[#222222] absolute right-10 top-10 cursor-pointer' onClick={() => setOpenArticle(false)} />
                     <ArticleContent data={article} />
                   </div>
