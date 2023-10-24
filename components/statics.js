@@ -2,6 +2,7 @@ import React from 'react'
 import AlertBox from './alert-box'
 import { BsArrowDownShort, BsQuestionLg } from 'react-icons/bs'
 import Image from 'next/image'
+import Link from 'next/link'
 
 function Statics() {
     return (
@@ -126,10 +127,10 @@ function Statics() {
                 </div>
             </div>
             <div>
-                <button className='text-xl font-extrabold font-interMedium text-white rounded-[5px] bg-[#6D44DD] shadow-md md:w-[333px] mx-auto p-5 block mb-5'>
+                <Link href="/customize" className='text-xl font-extrabold font-interMedium text-white rounded-[5px] bg-[#6D44DD] shadow-md md:w-[333px] mx-auto text-center p-5 block mb-5'>
                     Start Backtesting
-                </button>
-            </div>
+                </Link>
+            </div>            
         </div>
     )
 }
