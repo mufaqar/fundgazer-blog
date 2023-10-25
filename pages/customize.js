@@ -1,6 +1,8 @@
 import React from 'react'
 import Holdings from '../components/holdings'
 import Step1 from '../components/steps/step-one'
+import Step2 from '../components/steps/step-two'
+import MainForm from '../components/steps/mainform'
 
 export default function Customize() {
     return (
@@ -34,8 +36,8 @@ export default function Customize() {
             <section className='-mt-14 mb-16 hidden'>
                 <Holdings />
             </section>
-            <section className='-mt-14 mb-16'>
-               <Step1 />
+            <section className='-mt-14 mb-16 '>
+             <MainForm />
             </section>
         </main>
     )
