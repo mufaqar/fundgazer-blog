@@ -25,10 +25,10 @@ const MainForm = () => {
     };
     const [activeTab, setActiveTab] = useState(0)
     const formElements = [
-        <Step1 data={data} handleChange={handleChange} />,
-        <Step2 data={data} handleChange={handleChange} />,
-        <Step3 data={data} handleChange={handleChange} />,
-        <Step4 data={data} handleChange={handleChange} />,
+        <Step1 data={data} handleChange={handleChange} key="1" />,
+        <Step2 data={data} handleChange={handleChange} key="2" />,
+        <Step3 data={data} handleChange={handleChange} key="3" />,
+        <Step4 data={data} handleChange={handleChange} key="4" />,
 
     ]
 
