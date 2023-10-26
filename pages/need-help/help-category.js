@@ -45,7 +45,7 @@ function Help_Category() {
               <h2 className='md:text-[30px] leading-[36px] font-semibold font-interMedium mb-10 text-[#222222]'>
                 {item?.cat_name}
               </h2>
-              <ul className='grid gap-4'>
+              {/* <ul className='grid gap-4'>
                 {item?.articles.map((article, idx) => (
                   <li key={idx} className='flex gap-3 text-[15.6px] leading-[23.4px] font-medium font-interRegular text-skin-primary items-center cursor-pointer'
                     onClick={() => handleArticles(idx)}>
@@ -55,10 +55,10 @@ function Help_Category() {
                 {item?.articles.map((article, idx) => (
                   <div key={idx} className={openArticle === idx ? 'absolute w-full h-full top-0  left-0 right-0 block text-gray-500' : 'hidden'}>
                     <AiOutlineClose className='text-4xl font-bold text-[#222222] absolute right-10 top-10 cursor-pointer' onClick={() => setOpenArticle(false)} />
-                    {/* <ArticleContent data={article} /> */}
+                    <ArticleContent data={article} />
                   </div>
                 ))}
-              </ul>
+              </ul> */}
             </div>
           ))}
         </div>
