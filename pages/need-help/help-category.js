@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Categories } from '../../const/articles'
 import { BiChevronRight } from 'react-icons/bi'
 import { AiOutlineClose, AiOutlineFileText } from 'react-icons/ai'
-import ArticleContent from '../../components/article-Content'
+import ArticleContent from '../../components/article-content'
 import Mbl_Help_Cate from '../../components/mbl-help-cate'
 
 function Help_Category() {
@@ -45,7 +45,7 @@ function Help_Category() {
               <h2 className='md:text-[30px] leading-[36px] font-semibold font-interMedium mb-10 text-[#222222]'>
                 {item?.cat_name}
               </h2>
-              {/* <ul className='grid gap-4'>
+              <ul className='grid gap-4'>
                 {item?.articles.map((article, idx) => (
                   <li key={idx} className='flex gap-3 text-[15.6px] leading-[23.4px] font-medium font-interRegular text-skin-primary items-center cursor-pointer'
                     onClick={() => handleArticles(idx)}>
@@ -58,7 +58,7 @@ function Help_Category() {
                     <ArticleContent data={article} />
                   </div>
                 ))}
-              </ul> */}
+              </ul>
             </div>
           ))}
         </div>
