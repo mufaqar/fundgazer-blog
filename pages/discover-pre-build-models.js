@@ -2,6 +2,7 @@ import React from 'react'
 import Models_Slider from '../components/modelSlider'
 import Compare_Returns from '../components/compare-returns'
 import AnyQuery_Sec from '../components/any-query'
+import Mbl_Discover_Models from '../components/mbl-discover-models'
 
 export default function Discover_Models() {
     return (
@@ -32,8 +33,15 @@ export default function Discover_Models() {
                     </div>
                 </div>
             </section>
-            <Models_Slider />
-            <Compare_Returns />
+            <div className="md:block hidden">
+                <Models_Slider />
+            </div>
+            <div className="md:block hidden">
+                <Compare_Returns />
+            </div>
+            <div className="md:hidden block">
+                <Mbl_Discover_Models />
+            </div>
             <AnyQuery_Sec />
         </main>
     )
