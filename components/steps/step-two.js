@@ -43,13 +43,22 @@ export default function Step2() {
                     </div>
                 </div>
                 <div className='mt-8'>
-                    <div className='grid grid-cols-3 gap-4'>
+                    <div className='w-full overflow-x-scroll flex flex-row gap-4'>
                         {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((idx) => {
-                            return (<div key={idx}>
-                                <p className='text-base font-normal font-interRegular bg-white rounded-[5px] py-3.5 px-5 flex items-center gap-3 justify-between'>
+                            return (<ul key={idx} className='w-full flex flex-col gap-x-4 gap-4 pb-4'>
+                                <li className='text-base font-normal font-interRegular bg-white rounded-[5px] py-3.5 px-5 flex flex-row min-w-[286px] items-center gap-3 justify-between'>
                                     Stock Name <AiOutlineClose className='text-skin-primary text-xl font-extrabold' />
-                                </p>
-                            </div>
+                                </li>
+                                <li className='text-base font-normal font-interRegular bg-white rounded-[5px] py-3.5 px-5 flex flex-row min-w-[286px] items-center gap-3 justify-between'>
+                                    Stock Name <AiOutlineClose className='text-skin-primary text-xl font-extrabold' />
+                                </li>
+                                <li className='text-base font-normal font-interRegular bg-white rounded-[5px] py-3.5 px-5 flex flex-row min-w-[286px] items-center gap-3 justify-between'>
+                                    Stock Name <AiOutlineClose className='text-skin-primary text-xl font-extrabold' />
+                                </li>
+                                <li className='text-base font-normal font-interRegular bg-white rounded-[5px] py-3.5 px-5 flex flex-row min-w-[286px] items-center gap-3 justify-between'>
+                                    Stock Name <AiOutlineClose className='text-skin-primary text-xl font-extrabold' />
+                                </li>
+                            </ul>
                             )
                         })}
                     </div>

@@ -1,13 +1,12 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Holdings from '../components/holdings'
-import Step1 from '../components/steps/step-one'
-import Step2 from '../components/steps/step-two'
 import MainForm from '../components/steps/mainform'
 
 export default function Customize() {
+    const [openForm, setOpenForm] = useState(false)
     return (
         <main>
-            <section className='md:pt-40 pt-32 pb-32 px-5 bg-[#F7F7F9]'>
+            <section className={`md:pt-40 pt-32 pb-32 px-5 bg-[#F7F7F9] ${openForm ? "hidden" : "block"}`}>
                 <div className='container mx-auto'>
                     <h2 className='md:text-[48px] text-2xl leading-[64px] font-semibold font-interRegular text-skin-primary'>
                         Customize
@@ -33,11 +32,11 @@ export default function Customize() {
                     </div>
                 </div>
             </section>
-            <section className='-mt-14 mb-16 hidden'>
-                <Holdings />
+            <section className={`-mt-14 mb-16 ${openForm ? "hidden" : "block"}`}>
+                <Holdings openForm={() => setOpenForm(true)} />
             </section>
-            <section className='-mt-14 mb-16 '>
-             <MainForm />
+            <section className={`-mt-14 mb-16 ${openForm ? "block" : "hidden"}`}>
+                <MainForm />
             </section>
         </main>
     )

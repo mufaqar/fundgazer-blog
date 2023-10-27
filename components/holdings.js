@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 
-function Holdings() {
+function Holdings({openForm}) {
     return (
         <div className='bg-[#F2EDFF] shadow-md max-w-[1137px] mx-auto px-5 rounded-[5px] py-10'>
             <div className='max-w-[901px] mx-auto'>
@@ -23,7 +23,7 @@ function Holdings() {
                     </p>
                 </div>
                 <div className='h-[340px] w-full bg-[url("/images/customize-bg.png")] bg-center bg-cover bg-no-repeat flex items-center justify-center'>
-                    <Link href="#" className='rounded-[5px] bg-gradient-to-b bg-[#EF9C20] from-[#E86A34] shadow-xl md:w-[380px] mx-auto text-center p-4 grid gap-3 mb-5'>
+                    <button onClick={openForm} className='rounded-[5px] bg-gradient-to-b bg-[#EF9C20] from-[#E86A34] shadow-xl md:w-[380px] mx-auto text-center p-4 grid gap-3 mb-5'>
                         <span className='text-xl font-semibold font-interRegular text-white'>
                             Go Live on our Mobile-Application
                         </span>
@@ -31,7 +31,7 @@ function Holdings() {
                             Add your broker for real-time execution of portfolio or
                             Add portfolio to watchlist for live testing on virtual amount.
                         </span>
-                    </Link>
+                    </button>
                 </div>
                 <div className='grid gap-5'>
                     <h4 className='text-2xl font-semibold text-[#2B195A] text-center'>
