@@ -2,6 +2,7 @@ import React from 'react'
 import AlertBox from '../alert-box'
 import { BsArrowDownShort, BsQuestionLg } from 'react-icons/bs'
 import Image from 'next/image'
+import { Statics } from '../statics'
 
 function Step3() {
     return (
