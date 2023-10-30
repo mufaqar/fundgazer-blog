@@ -17,16 +17,21 @@ export default function Step1() {
         arrows: true,
     };
     return (
-        <div className='max-w-[901px] mx-auto'>
+        <div className='max-w-[901px] mx-auto grid-cols-1 grid'>
+            <div className='md:hidden block'>
+                <p className='text-sm font-bold font-interRegular mb-10'>
+                    Start customizing your algo-driven portfolio
+                </p>
+            </div>
             <div className='flex md:flex-row flex-col gap-8 justify-between'>
                 <div className='md:w-[68%]'>
                     <h3 className='text-4xl leading-5 font-semibold font-interMedium text-skin-primary mb-5'>
                         Step 1
                     </h3>
-                    <p className='text-2xl font-bold font-interRegular mt-3'>
+                    <p className='md:text-2xl text-sm font-bold font-interRegular mt-3'>
                         Select your risk level
                     </p>
-                    <p className='text-xl font-normal font-interRegular mt-3 max-w-[440px]'>
+                    <p className='md:text-xl text-xs font-normal font-interRegular mt-3 max-w-[440px]'>
                         Use our no-code, visual editor to modify
                         symphonies or create your own from scratch.
                     </p>
@@ -40,28 +45,28 @@ export default function Step1() {
                     </Slider>
                 </div>
             </div>
-            <div className='flex md:flex-row flex-col gap-8 justify-between items-center mt-16'>
-                <div>
-                    <span className='bg-[#EF9C20] text-xl font-extrabold font-interBold text-white block w-fit py-[14px] px-16 rounded-[5px]'>
+            <div className='flex md:flex-row flex-row gap-8 justify-between items-center mt-16 md:order-1 order-2'>
+                <div className='md:w-auto w-2/3'>
+                    <span className='bg-[#EF9C20] md:text-xl text-[8px] font-extrabold font-interBold text-white block w-fit md:py-[14px] py-1 md:px-16 px-5 rounded-[5px]'>
                         Low
                     </span>
-                    <p className='text-xl font-normal font-interRegular mt-3 max-w-[440px]'>
+                    <p className='md:text-xl text-xs font-normal font-interRegular mt-3 max-w-[440px]'>
                         Use our no-code, visual editor to modify
                         symphonies or create your own from scratch.
                     </p>
                 </div>
-                <div>
+                <div className='md:w-auto w-1/3'>
                     <p className='grid gap-2'>
-                        <span className='text-xl leading-4 font-normal font-interRegular text-[#8D8D8D] flex gap-2 items-start'>
-                            Max Drawdown <BsQuestionLg className='bg-[#D9D9D9] p-1 rounded-full' />
+                        <span className='md:text-xl md:leading-4 text-xs font-normal font-interRegular text-[#8D8D8D] flex gap-2 items-start'>
+                            Max Drawdown <BsQuestionLg className='bg-[#D9D9D9] p-1 rounded-full md:block hidden' />
                         </span>
-                        <span className='text-2xl leading-6 font-bold font-interMedium text-[#2B195A]'>
+                        <span className='md:text-2xl md:leading-6 text-sm font-bold font-interMedium text-[#2B195A]'>
                             10000 <span className='text-[#28C300]'>(+31%)</span>
                         </span>
                     </p>
                 </div>
             </div>
-            <div className='mt-16'>
+            <div className='mt-16 md:order-2 order-1'>
                 <Progressbar progressPercentage={50} />
             </div>
         </div>

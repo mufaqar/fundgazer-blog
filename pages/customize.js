@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Holdings from '../components/holdings'
 import MainForm from '../components/steps/mainform'
+import AnyQuery_Sec from '../components/any-query'
 
 export default function Customize() {
     const [openForm, setOpenForm] = useState(false)
@@ -38,6 +39,7 @@ export default function Customize() {
             <section className={`-mt-14 mb-16 ${openForm ? "block" : "hidden"}`}>
                 <MainForm />
             </section>
+            <AnyQuery_Sec />
         </main>
     )
 }

@@ -34,7 +34,7 @@ const MainForm = () => {
 
     return (
         <main>
-            <section className={`md:pt-40 pt-32 pb-32 px-5 bg-[#F7F7F9] `}>
+            <section className={`md:pt-40 pt-32 md:pb-32 px-5 md:bg-[#F7F7F9] `}>
                 <div className='container mx-auto'>
                     <h2 className='md:text-[48px] text-2xl leading-[64px] font-semibold font-interRegular text-skin-primary'>
                         Customize <span className='text-black'>
@@ -81,8 +81,8 @@ const MainForm = () => {
                 </div>
             </section>
 
-            <section className={`-mt-14 mb-16`}>
-                <div className='bg-[#F2EDFF] shadow-md max-w-[1137px] mx-auto px-5 rounded-[5px] py-10'>
+            <section className={`md:-mt-14 mb-16`}>
+                <div className='md:bg-[#F2EDFF] shadow-md max-w-[1137px] mx-auto px-5 rounded-[5px] py-10'>
                     <div>
                         {
                             formElements[activeTab]
