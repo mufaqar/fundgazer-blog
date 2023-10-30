@@ -5,10 +5,9 @@ import AnyQuery_Sec from '../components/any-query'
 import Mbl_Discover_Models from '../components/mbl-discover-models'
 
 export default function Discover_Models() {
-    
     return (
         <main>
-            <section className='md:pt-40 pt-32 pb-20 px-5 bg-[#F7F7F9]'>
+            <section className={`md:pt-40 pt-32 pb-20 px-5 bg-[#F7F7F9]`}>
                 <div className='container mx-auto'>
                     <h2 className='md:text-[54px] text-2xl leading-[64px] font-semibold font-interRegular'>
                         Discover <span className='text-skin-primary'>pre-build</span> models

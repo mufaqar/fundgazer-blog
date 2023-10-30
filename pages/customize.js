@@ -32,7 +32,7 @@ export default function Customize() {
                     </div>
                 </div>
             </section>
-            <section className={`-mt-14 mb-16 ${openForm ? "hidden" : "block"}`}>
+            <section className={`-mt-14 mb-16 ${openForm ? "hidden" : "md:lock"}`}>
                 <Holdings openForm={() => setOpenForm(true)} />
             </section>
             <section className={`-mt-14 mb-16 ${openForm ? "block" : "hidden"}`}>
