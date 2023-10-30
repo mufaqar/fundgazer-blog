@@ -4,7 +4,7 @@ import { FiThumbsDown, FiThumbsUp } from 'react-icons/fi'
 
 export default function ArticleContent({ data }) {
     return (
-        <div className={`bg-white md:pt-[46px] md:px-[47px] md:pb-[293.17px] w-full h-full px-5`}>
+        <div className={`bg-white md:pt-[46px] pt-[90px] md:px-[47px] md:pb-[293.17px] w-full h-full px-5`}>
             <h2 className='md:text-[30px] md:leading-[36px] font-semibold font-interMedium mb-5 text-[#222222]'>
                 {data?.art_name}
             </h2>

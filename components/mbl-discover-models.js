@@ -2,9 +2,11 @@ import React, { useState } from 'react'
 import ModelBox from './models-box'
 import { BiChevronDown } from 'react-icons/bi'
 import Mbl_Return_Calc from './mbl-return-calc'
+import Mbl_InvestAmount from './mbl-invest-amount'
 
 function Mbl_Discover_Models() {
     const [openCalc, setOpenCalc] = useState(false)
+    const [openInvestPlan, setOpenInvestPlan] = useState(false)
     return (
         <>
             <section className={`'py-16 px-5 md:bg-[#F2EDFF] relative ${openCalc ? "hidden" : "block"}`}>
@@ -35,8 +37,11 @@ function Mbl_Discover_Models() {
                     </div>
                 </div>
             </section>
-            <section className={`${openCalc ? "block" : "hidden"}`}>
-                <Mbl_Return_Calc />
+            <section className={`${openCalc ? "block" : "hidden"} ${openInvestPlan ? "hidden" : "block"}`}>
+                <Mbl_Return_Calc onClick={() => setOpenInvestPlan(true)} />
+            </section>
+            <section className={`${openInvestPlan ? "block" : "hidden"}`}>
+                <Mbl_InvestAmount />
             </section>
         </>
     )

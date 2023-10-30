@@ -3,6 +3,7 @@ import { AiOutlineFileText } from 'react-icons/ai'
 import { Categories } from '../../const/articles'
 import AnyQuery_Sec from '../../components/any-query'
 import OurCommunity from '../our-community'
+import Link from 'next/link'
 
 export default function Need_Help() {
     return (
@@ -24,8 +25,11 @@ export default function Need_Help() {
                     <div className='max-w-[780px] mx-auto my-12'>
                         <ul className='grid md:grid-cols-2 justify-between w-full'>
                             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((item, index) => (
-                                <li key={index} className='flex gap-2 justify-center text-base font-semibold font-interMedium text-skin-primary'>
-                                    <AiOutlineFileText className='text-[#A7A7A7]' /> Minimum to invest
+                                <li key={index}>
+                                    <Link href="/need-help/help-category"
+                                        className='flex gap-2 justify-center text-base font-semibold font-interMedium text-skin-primary'>
+                                        <AiOutlineFileText className='text-[#A7A7A7]' /> Minimum to invest
+                                    </Link>
                                 </li>
                             ))}
                         </ul>
@@ -33,9 +37,9 @@ export default function Need_Help() {
                     <div className='grid md:grid-cols-3 gap-8'>
                         {Categories?.map((item, index) => (
                             <div key={index} className='border border-[#E0E0E0] py-7 px-[13px] rounded-[5px] cursor-pointer'>
-                                <h4 className='text-xl font-semibold font-interMedium text-[#333333] text-center'>
+                                <Link href="/need-help/help-category" className='text-xl font-semibold font-interMedium text-[#333333] text-center'>
                                     {item?.cat_name}
-                                </h4>
+                                </Link>
 
                                 <p className='text-sm font-medium font-interMedium text-skin-primary text-center mt-4'>
                                     {item?.articles.length} questions

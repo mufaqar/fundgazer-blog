@@ -54,7 +54,7 @@ function Help_Category() {
                 ))}
                 {item?.articles.map((article, idx) => (
                   <div key={idx} className={openArticle === idx ? 'absolute w-full h-full top-0  left-0 right-0 block text-gray-500' : 'hidden'}>
-                    <AiOutlineClose className='text-4xl font-bold text-[#222222] absolute right-10 top-10 cursor-pointer' onClick={() => setOpenArticle(false)} />
+                    <AiOutlineClose className='text-4xl font-bold text-[#222222] absolute md:right-10 right-4 md:top-10 top-24 cursor-pointer' onClick={() => setOpenArticle(false)} />
                     <ArticleContent data={article} />
                   </div>
                 ))}

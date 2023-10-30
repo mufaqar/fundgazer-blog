@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiAlertTriangle } from 'react-icons/fi'
 
-function Mbl_Return_Calc() {
+function Mbl_Return_Calc({onClick}) {
     return (
         <div className='md:pt-40 pt-32 pb-20 px-5'>
             <h3 className='text-2xl font-semibold font-interRegular mb-5'>
@@ -52,7 +52,7 @@ function Mbl_Return_Calc() {
                             <option value="NIFTY" className='text-xl font-medium text-skin-primary font-interRegular'>NIFTY</option>
                         </select>
                     </div>
-                    <button className='md:text-2xl text-sm font-bold inline-flex gap-2 items-center border-2 border-[#6f49dd] md:py-5 md:px-14 py-4 px-8 rounded-full hover:animate-bounce mt-10 bg-transparent  text-skin-primary '>
+                    <button onClick={onClick} className='md:text-2xl text-sm font-bold inline-flex gap-2 items-center border-2 border-[#6f49dd] md:py-5 md:px-14 py-4 px-8 rounded-full hover:animate-bounce mt-10 bg-transparent  text-skin-primary '>
                         <FiAlertTriangle size={20} strokeWidth={2} className='text-[#E86A34]' />  Calculate
                     </button>
                 </div>

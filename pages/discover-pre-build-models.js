@@ -5,6 +5,7 @@ import AnyQuery_Sec from '../components/any-query'
 import Mbl_Discover_Models from '../components/mbl-discover-models'
 
 export default function Discover_Models() {
+    
     return (
         <main>
             <section className='md:pt-40 pt-32 pb-20 px-5 bg-[#F7F7F9]'>
