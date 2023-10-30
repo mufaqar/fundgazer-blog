@@ -25,7 +25,7 @@ export default function Step1() {
             </div>
             <div className='flex md:flex-row flex-col gap-8 justify-between'>
                 <div className='md:w-[68%]'>
-                    <h3 className='text-4xl leading-5 font-semibold font-interMedium text-skin-primary mb-5'>
+                    <h3 className='md:text-4xl md:leading-5 text-base font-semibold font-interMedium text-skin-primary mb-5'>
                         Step 1
                     </h3>
                     <p className='md:text-2xl text-sm font-bold font-interRegular mt-3'>

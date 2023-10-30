@@ -7,13 +7,13 @@ export default function Step2() {
         <div className='max-w-[901px] mx-auto'>
             <div className='flex md:flex-row flex-col gap-8 justify-between'>
                 <div className='md:w-[68%]'>
-                    <h3 className='text-4xl leading-5 font-semibold font-interMedium text-skin-primary mb-5'>
+                    <h3 className='md:text-4xl md:leading-5 text-base font-semibold font-interMedium text-skin-primary mb-5'>
                         Step 2
                     </h3>
-                    <p className='text-2xl font-bold font-interRegular mt-3'>
+                    <p className='md:text-2xl text-sm font-bold font-interRegular mt-3'>
                         Select your risk level
                     </p>
-                    <p className='text-xl font-normal font-interRegular mt-3 max-w-[440px]'>
+                    <p className='md:text-xl text-xs font-normal font-interRegular mt-3 max-w-[440px]'>
                         Use our no-code, visual editor to modify
                         symphonies or create your own from scratch.
                     </p>

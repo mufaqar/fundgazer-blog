@@ -2,14 +2,13 @@ import React from 'react'
 import AlertBox from '../alert-box'
 import { BsArrowDownShort, BsQuestionLg } from 'react-icons/bs'
 import Image from 'next/image'
-import Link from 'next/link'
 
 function Step3() {
     return (
         <div className='max-w-[901px] mx-auto'>
             <div className='flex justify-between items-center max-w-[901px] mx-auto'>
                 <div>
-                    <h3 className='text-4xl leading-5 font-semibold font-interMedium text-skin-primary mb-5'>
+                    <h3 className='md:text-4xl md:leading-5 text-base font-semibold font-interMedium text-skin-primary mb-5'>
                         Step 3
                     </h3>
                     <p className='text-xl font-medium font-interRegular text-[#747474] mt-3'>

@@ -34,14 +34,14 @@ const MainForm = () => {
 
     return (
         <main>
-            <section className={`md:pt-40 pt-32 md:pb-32 px-5 md:bg-[#F7F7F9] `}>
+            <section className={`pt-40 md:pb-32 px-5 md:bg-[#F7F7F9] `}>
                 <div className='container mx-auto'>
                     <h2 className='md:text-[48px] text-2xl leading-[64px] font-semibold font-interRegular text-skin-primary'>
                         Customize <span className='text-black'>
                             and Create
                         </span>
                     </h2>
-                    <div className={`grid md:grid-cols-3 grid-cols-1 md:gap-16 gap-0 mt-5 ${activeTab === 0 ? "block" : "hidden"}`}>
+                    <div className={`grid md:grid-cols-3 grid-cols-1 md:gap-16 gap-0 mt-5 ${activeTab === 0 ? "block" : "md:hidden block"}`}>
                         <p className='md:text-[22px] md:leading-[36.4px] text-sm font-normal font-interRegular max-w-[392px]'>
                             Every strategy on Composer is fully
                             editable. Swap out assets, adjust
@@ -60,7 +60,7 @@ const MainForm = () => {
                             parameters.
                         </p>
                     </div>
-                    <div className={`mt-5 ${activeTab >= 1 ? "block" : "hidden"}`}>
+                    <div className={`mt-5 ${activeTab >= 1 ? "md:block hidden" : "hidden"}`}>
                         <ul className='flex flex-row overflow-hidden w-full [&>*:nth-child(4)>div]:w-0'>
                             {formElements.map((item, idx) => {
                                 return (
@@ -82,7 +82,7 @@ const MainForm = () => {
             </section>
 
             <section className={`md:-mt-14 mb-16`}>
-                <div className='md:bg-[#F2EDFF] shadow-md max-w-[1137px] mx-auto px-5 rounded-[5px] py-10'>
+                <div className='md:bg-[#F2EDFF] md:shadow-md max-w-[1137px] mx-auto px-5 rounded-[5px] py-10'>
                     <div>
                         {
                             formElements[activeTab]
