@@ -11,7 +11,7 @@ function Holdings({ openForm }) {
                 {openForm ? (<h3 className='text-4xl leading-5 font-semibold font-interMedium'>
                         Holdings
                     </h3>) : (<h3 className='text-4xl leading-5 font-semibold font-interMedium text-skin-primary mb-5'>
-                        Step 3
+                        Step 4
                     </h3>)
                     }
                     <p className='text-xl font-medium font-interRegular text-[#747474] mt-3'>
