@@ -2,9 +2,9 @@ import Link from 'next/link'
 import React from 'react'
 import { BiChevronRight } from 'react-icons/bi'
 
-export default function ModelBox() {
+export default function ModelBox({onClick}) {
     return (
-        <Link href="/spromma">
+        <button onClick={onClick}>
             <div className='md:bg-white bg-[#F2EDFF] p-7 shadow-md rounded-md relative'>
                 <h4 className='md:text-2xl text-xl font-medium md:text-skin-primary text-black font-interMedium flex justify-between'>
                     Spromma
@@ -40,6 +40,6 @@ export default function ModelBox() {
                     </p>
                 </div>
             </div>
-        </Link>
+        </button>
     )
 }

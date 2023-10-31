@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Models_Slider from '../components/modelSlider'
 import Compare_Returns from '../components/compare-returns'
 import AnyQuery_Sec from '../components/any-query'
 import Mbl_Discover_Models from '../components/mbl-discover-models'
+import Spromma from '../pages/spromma'
 
 export default function Discover_Models() {
+    const [OpenStatic, setOpenStatic] = useState(false)
+
     return (
         <main>
-            <section className={`md:pt-40 pt-32 pb-20 px-5 bg-[#F7F7F9]`}>
+            <section className={`md:pt-40 pt-32 pb-20 px-5 bg-[#F7F7F9] ${OpenStatic ? "hidden" : "block"}`}>
                 <div className='container mx-auto'>
                     <h2 className='md:text-[54px] text-2xl leading-[64px] font-semibold font-interRegular'>
                         Discover <span className='text-skin-primary'>pre-build</span> models
@@ -33,15 +36,18 @@ export default function Discover_Models() {
                     </div>
                 </div>
             </section>
-            <div className="md:block hidden">
-                <Models_Slider />
+            <div className={` ${OpenStatic ? "hidden" : "md:block hidden"}`}>
+                <Models_Slider onClick={() => setOpenStatic(true)} />
             </div>
-            <div className="md:block hidden">
+            <div className={` ${OpenStatic ? "hidden" : "md:block hidden"}`}>
                 <Compare_Returns />
             </div>
-            <div className="md:hidden block">
-                <Mbl_Discover_Models />
+            <div className={`${OpenStatic ? "hidden" : "md:hidden block"}`}>
+                <Mbl_Discover_Models onClick={() => setOpenStatic(true)} />
             </div>
+            <section className={`${OpenStatic ? "block" : "hidden"}`}>
+                <Spromma />
+            </section>
             <AnyQuery_Sec />
         </main>
     )

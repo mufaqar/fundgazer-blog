@@ -5,6 +5,8 @@ import Step1 from './step-one';
 import Step2 from './step-two';
 import Step3 from './step-three';
 import Step4 from './step-four';
+import Statics from '../statics';
+import Holdings from '../holdings';
 
 const MainForm = () => {
 
@@ -27,14 +29,14 @@ const MainForm = () => {
     const formElements = [
         <Step1 data={data} handleChange={handleChange} key="1" />,
         <Step2 data={data} handleChange={handleChange} key="2" />,
-        <Step3 data={data} handleChange={handleChange} key="3" />,
-        <Step4 data={data} handleChange={handleChange} key="4" />,
+        <Statics data={data} handleChange={handleChange} key="3" />,
+        <Holdings data={data} handleChange={handleChange} key="4" />,
 
     ]
 
     return (
         <main>
-            <section className={`pt-40 md:pb-32 px-5 md:bg-[#F7F7F9] `}>
+            <section className={`pt-40 md:pb-32 px-5 md:bg-[#F7F7F9] md:block hidden`}>
                 <div className='container mx-auto'>
                     <h2 className='md:text-[48px] text-2xl leading-[64px] font-semibold font-interRegular text-skin-primary'>
                         Customize <span className='text-black'>

@@ -2,17 +2,19 @@ import React from 'react'
 import AlertBox from './alert-box'
 import { BsArrowDownShort, BsQuestionLg } from 'react-icons/bs'
 import Image from 'next/image'
-import Link from 'next/link'
 import Progressbar from './steps/progressbar'
 
-function Statics() {
+function Statics({ openForm }) {
     return (
-        <div className='md:bg-[#F2EDFF] md:shadow-md max-w-[1137px] mx-auto md:p-5 rounded-[5px] pb-10'>
+        <div className=''>
             <div className='justify-between items-center max-w-[901px] mx-auto md:flex hidden'>
                 <div>
-                    <h3 className='text-4xl leading-5 font-semibold font-interMedium'>
+                    {openForm ? (<h3 className='text-4xl leading-5 font-semibold font-interMedium'>
                         Statistics
-                    </h3>
+                    </h3>) : (<h3 className='text-4xl leading-5 font-semibold font-interMedium text-skin-primary mb-5'>
+                        Step 3
+                    </h3>)
+                    }
                     <p className='text-xl font-medium font-interRegular text-[#747474] mt-3'>
                         Add your preferred list of stocks
                     </p>
@@ -157,12 +159,14 @@ function Statics() {
                 </ul>
             </div>
             <div>
-                <Link href="/customize" className='md:block hidden text-xl font-extrabold font-interMedium text-white rounded-[5px] bg-[#6D44DD] shadow-md md:w-[333px] mx-auto text-center p-5 mb-5'>
+                {openForm ? (<button onClick={openForm} className='md:block hidden text-xl font-extrabold font-interMedium text-white rounded-[5px] bg-[#6D44DD] shadow-md md:w-[333px] mx-auto text-center p-5 mb-5'>
                     Start Backtesting
-                </Link>
-                <Link href="/customize" className='md:hidden block text-xl font-extrabold font-interMedium text-white rounded-[5px] bg-[#6D44DD] shadow-md md:w-[333px] mx-auto text-center p-5 mb-5'>
+                </button>) : ""
+                }
+
+                {openForm && <button onClick={openForm} className='md:hidden block text-xl font-extrabold font-interMedium text-white rounded-[5px] bg-[#6D44DD] shadow-md md:w-[333px] mx-auto text-center p-5 mb-5'>
                     Go back
-                </Link>
+                </button>}
             </div>
         </div>
     )

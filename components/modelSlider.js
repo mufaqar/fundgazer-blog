@@ -46,6 +46,8 @@ export default class Models_Slider extends Component {
             ]
         };
 
+        const OpenStatic =  this.props.onClick
+
         return (
             <section className='py-16 px-5 md:bg-[#F2EDFF] relative'>
                 <div className='container mx-auto'>
@@ -56,10 +58,10 @@ export default class Models_Slider extends Component {
                     </div>
                     <div className=''>
                         <Slider {...settings} ref={c => (this.slider = c)}>
-                            <ModelBox />
-                            <ModelBox />
-                            <ModelBox />
-                            <ModelBox />
+                            <ModelBox onClick={OpenStatic} />
+                            <ModelBox onClick={OpenStatic} />
+                            <ModelBox onClick={OpenStatic} />
+                            <ModelBox onClick={OpenStatic} />
                         </Slider>
                         <button className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-[#F8F8F8] rounded-full text-black p-2.5 text-3xl md:block hidden" onClick={this.previous}><IoIosArrowBack /></button>
                         <button className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-[#F8F8F8] rounded-full text-black p-2.5 text-3xl md:block hidden" onClick={this.next}><IoIosArrowForward /></button>

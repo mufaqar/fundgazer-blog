@@ -3,18 +3,20 @@ import Statics from './statics'
 import Holdings from './holdings'
 import Link from 'next/link'
 import Image from 'next/image'
+import MainForm from './steps/mainform'
 
 function Mbl_StaticHolding() {
     const [Static, setStatic] = useState(true)
     const [Holding, setHolding] = useState(false)
-
+    const [openForm, setOpenForm] = useState(false)
     return (
-        <div className='py-20 px-5'>
+        <>
+        <div className={`py-20 px-5 ${openForm ? "hidden" : "block"}`}>
             <ul className='flex w-full'>
-                <li onClick={() => {setStatic(true), setHolding(false)}} className={`w-full text-base font-bold text-center pb-2 border-b-2 ${Static ? "text-skin-primary border-[#6F49DD]" : "text-[#9B9797] border-[#9B9797]"}`}>
+                <li onClick={() => { setStatic(true), setHolding(false) }} className={`w-full text-base font-bold text-center pb-2 border-b-2 ${Static ? "text-skin-primary border-[#6F49DD]" : "text-[#9B9797] border-[#9B9797]"}`}>
                     Statics
                 </li>
-                <li onClick={() => {setHolding(true), setStatic(false)}} className={`w-full text-base font-bold text-center pb-2 border-b-2 ${Holding ? "text-skin-primary border-[#6F49DD]" : "text-[#9B9797] border-[#9B9797]"}`}>
+                <li onClick={() => { setHolding(true), setStatic(false) }} className={`w-full text-base font-bold text-center pb-2 border-b-2 ${Holding ? "text-skin-primary border-[#6F49DD]" : "text-[#9B9797] border-[#9B9797]"}`}>
                     Holdings
                 </li>
             </ul>
@@ -36,10 +38,14 @@ function Mbl_StaticHolding() {
                     </div>
                 </div>
                 <div className={` ${Holding ? "block" : "hidden"}`}>
-                    <Holdings />
+                    <Holdings openForm={() => setOpenForm(true)} />
                 </div>
             </div>
         </div>
+         <section className={`-mt-14 mb-16 ${openForm ? "block" : "hidden"}`}>
+         <MainForm />
+     </section>
+     </>
     )
 }
 

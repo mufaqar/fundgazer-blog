@@ -5,7 +5,7 @@ import { BsArrowDownShort } from 'react-icons/bs'
 
 function Holdings({ openForm }) {
     return (
-        <div className='md:bg-[#F2EDFF] md:shadow-md max-w-[1137px] mx-auto md:px-5 rounded-[5px] py-10'>
+        <div className=''>
             <div className='max-w-[901px] mx-auto'>
                 <div className='md:block hidden'>
                     <h3 className='text-4xl leading-5 font-semibold font-interMedium'>

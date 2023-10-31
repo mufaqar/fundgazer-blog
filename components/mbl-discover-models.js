@@ -4,17 +4,17 @@ import { BiChevronDown } from 'react-icons/bi'
 import Mbl_Return_Calc from './mbl-return-calc'
 import Mbl_InvestAmount from './mbl-invest-amount'
 
-function Mbl_Discover_Models() {
+function Mbl_Discover_Models({onClick}) {
     const [openCalc, setOpenCalc] = useState(false)
     const [openInvestPlan, setOpenInvestPlan] = useState(false)
     return (
         <>
             <section className={`'py-16 px-5 md:bg-[#F2EDFF] relative ${openCalc ? "hidden" : "block"}`}>
                 <div className='container mx-auto grid gap-5'>
-                    <ModelBox />
-                    <ModelBox />
-                    <ModelBox />
-                    <ModelBox />
+                    <ModelBox onClick={onClick} />
+                    <ModelBox onClick={onClick} />
+                    <ModelBox onClick={onClick} />
+                    <ModelBox onClick={onClick} />
                     <div>
                         <button className='text-sm font-normal text-skin-primary font-interRegular flex w-fit ml-auto mr-0 items-center mt-5 md:hidden'>
                             See More Comments <BiChevronDown className='text-4xl animate-bounce' />
