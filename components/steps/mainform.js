@@ -3,10 +3,9 @@
 import { useState } from 'react'
 import Step1 from './step-one';
 import Step2 from './step-two';
-import Step3 from './step-three';
-import Step4 from './step-four';
 import Statics from '../statics';
 import Holdings from '../holdings';
+import { BsCheck } from 'react-icons/bs';
 
 const MainForm = () => {
 
@@ -33,7 +32,13 @@ const MainForm = () => {
         <Holdings data={data} handleChange={handleChange} key="4" />,
 
     ]
-
+    const [stepCompleted, setStepCompleted] = useState([false, false, false, false]); // Initialize with as many elements as there are steps
+    const handleClickStep = (stepIndex) => {
+        // Update the stepCompleted state when a step is clicked
+        const updatedStepCompleted = [...stepCompleted];
+        updatedStepCompleted[stepIndex] = true;
+        setStepCompleted(updatedStepCompleted);
+    };
     return (
         <main>
             <section className={`pt-40 md:pb-32 px-5 md:bg-[#F7F7F9] md:block hidden`}>
@@ -63,16 +68,21 @@ const MainForm = () => {
                         </p>
                     </div>
                     <div className={`mt-5 ${activeTab >= 1 ? "md:block hidden" : "hidden"}`}>
-                        <ul className='flex flex-row overflow-hidden w-full [&>*:nth-child(4)>div]:w-0'>
+                        <ul className='flex flex-row overflow-hidden w-full [&>*:nth-child(1)>div]:w-0 md:pt-20'>
                             {formElements.map((item, idx) => {
+                                const isCompleted = stepCompleted[idx];
+                                const isActive = activeTab === idx;
                                 return (
                                     <li key={idx} className={`w-full flex flex-col justify-center items-center relative`}>
-                                        <div className={`${activeTab === item.key ? "bg-red-900" : "bg-black"} bg-[#747474] w-full h-1 absolute top-[9px] left-[53%] `}></div>
-                                        <span className={`bg-[#747474] h-[22px] w-[22px]  mx-auto rounded-full block`}></span>
-                                        <p className={`text-2xl font-bold text-[#747474] grid text-center`}>
+                                        {
+                                            isCompleted && <BsCheck className={`text-3xl mb-6 absolute top-[-60px] bg-[#279145] rounded-full text-white font-extrabold h-12 w-12`} />
+                                        }
+                                        <div className={`${isActive && "bg-skin-primary"} ${isCompleted ? "bg-[#279145]" : "bg-[#747474]"} w-full h-1 absolute top-[9px] left-[-53%] `}></div>
+                                        <span className={`${isActive && "bg-skin-primary"} ${isCompleted ? "bg-[#279145]" : "bg-[#747474]"} h-[22px] w-[22px] mx-auto rounded-full block z-10`}></span>
+                                        <p className={`text-2xl font-bold ${isActive && "text-skin-primary"} ${isCompleted ? "text-[#279145]" : "text-[#747474]"}  grid text-center`}>
                                             Step {item.key}.
-                                            <span className={`text-xl font-bold text-[#747474]`}>
-                                                Select your risk level
+                                            <span className={`text-xl font-bold ${isActive && "text-black"} ${isCompleted ? "text-black" : "text-[#747474]"}`}>
+                                                {isCompleted ? "Step Completed" : "Select your risk level"}
                                             </span>
                                         </p>
                                     </li>
@@ -91,10 +101,11 @@ const MainForm = () => {
                         }
                     </div>
                     <div className='flex flex-wrap gap-x-6 mx-auto mt-10'>
+
                         {
                             activeTab === formElements.length == 0 && <button className='text-xl font-extrabold font-interMedium text-white rounded-[5px] bg-[#6D44DD] shadow-md md:w-[333px] mx-auto text-center p-5 block mb-5'
                                 disabled={activeTab === formElements.length - 1 ? "disabled" : ""}
-                                onClick={() => setActiveTab(prev => prev + 1)}>
+                                onClick={() => { setActiveTab(prev => prev + 1), handleClickStep(activeTab) }}>
                                 {activeTab === formElements.length - 1 ? (<span>Start Backtesting</span>) : (<span>Proceed : Step {activeTab + 2}</span>)}
                             </button>
                         }

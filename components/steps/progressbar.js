@@ -1,41 +1,47 @@
 import React, { useEffect, useState } from 'react'
+import ReactSlider from 'react-slider'
+import cn from "classnames";
 
-function Progressbar() {
-    const [value, setValue] = useState(10);
-
-    useEffect(() => {
-        const range = document.querySelector("input[type=range]");
-        const tooltip = document.getElementById("tooltip");
-
-        let thumbSize = 8;
-        const ratio = (range.value - range.min) / (range.max - range.min)
-        let amountToMove = ratio * ((range.offsetWidth - thumbSize) - thumbSize) + thumbSize
-        tooltip.style.left = amountToMove + "px"
-    }, [value]);
-
+function Progressbar(props) {
+    const isVertical = props.orientation === "vertical";
     return (
-        <div>
-            <div className={`range-wrap relative flex h-[11px] w-full items-center `}>
-                <input
-                    className="range relative flex w-full"
-                    aria-valuemin={0}
-                    type="range"
-                    min="0"
-                    max="100"
-                    value={value}
-                    id="slider"
-                    onChange={({ target: { value: radius } }) => {
-                        setValue(radius);
+        <div className='grid'>
+            <div className=''>
+                <ReactSlider
+                    renderThumb={(props, state) => (
+                        <div
+                            {...props}
+                            className={cn({
+                                "h-[72px]": !isVertical,
+                                "w-full": isVertical,
+                                "aspect-square relative rounded-full bg-[#E9B020] border-[15px] shadow border-white py-2 text-xs text-white flex items-center justify-center cursor-grab top-[-30px]":
+                                    true,
+                            })}
+                        >
+                            {state.valueNow}
+                        </div>
+                    )}
+                    renderTrack={(props, state) => {
+                        const points = Array.isArray(state.value) ? state.value.length : null;
+                        const isMulti = points && points > 0;
+                        const isLast = isMulti ? state.index === points : state.index != 0;
+                        const isFirst = state.index === 0;
+                        return (
+                            <div
+                                {...props}
+                                className={cn({
+                                    "h-[11px] border-y border-[#D1D1D6] top-0": !isVertical,
+                                    "w-full left-1/2 -translate-x-1/2": isVertical,
+                                    "rounded-full": true,
+                                    "bg-transparent": isMulti ? isFirst || isLast : isLast,
+                                    "bg-[#E9B020]": isMulti ? !isFirst || !isLast : isFirst,
+                                })}
+                            ></div>
+                        );
                     }}
                 />
-                <div
-                    id="tooltip"
-                    className={`bubble absolute top-[-40px] flex h-[38px] w-[32px] -translate-x-1/2 items-center justify-center rounded-full bg-purple-400 align-middle text-body-medium text-white `}
-                >
-                    {value}
-                </div>
             </div>
-            <div className='flex flex-row justify-between mt-10'>
+            <div className='flex flex-row justify-between mt-16'>
                 <p className='md:text-xl text-[10px] font-semibold text-[#2AC702] '>
                     Very Low
                 </p>
@@ -54,15 +60,3 @@ function Progressbar() {
 }
 
 export default Progressbar
-
-// const ProgressBar = ({ progressPercentage }) => {
-//     return (
-//         <div className='h-[11px] w-full bg-transparent border-y border-[#D1D1D6] rounded-[50px]'>
-//             <div
-//                 style={{ width: `${progressPercentage}%`}}
-//                 className={`h-full rounded-[50px] }${
-//                     progressPercentage <= 25 && 'bg-[#2AC702]' || progressPercentage <= 50 && 'bg-[#E9B020]' || progressPercentage <= 75 && 'bg-[#E86A34]' || progressPercentage <= 100 && 'bg-[#E71D1D]'`}>
-//             </div>
-//         </div>
-//     );
-// };
