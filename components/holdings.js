@@ -8,9 +8,12 @@ function Holdings({ openForm }) {
         <div className=''>
             <div className='max-w-[901px] mx-auto'>
                 <div className='md:block hidden'>
-                    <h3 className='text-4xl leading-5 font-semibold font-interMedium'>
+                {openForm ? (<h3 className='text-4xl leading-5 font-semibold font-interMedium'>
                         Holdings
-                    </h3>
+                    </h3>) : (<h3 className='text-4xl leading-5 font-semibold font-interMedium text-skin-primary mb-5'>
+                        Step 3
+                    </h3>)
+                    }
                     <p className='text-xl font-medium font-interRegular text-[#747474] mt-3'>
                         Add your preferred list of stocks
                     </p>

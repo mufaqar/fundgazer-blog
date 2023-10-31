@@ -34,7 +34,9 @@ export default function Customize() {
                 </div>
             </section>
             <section className={`-mt-14 mb-16 ${openForm ? "hidden" : "md:lock"}`}>
-                <Holdings openForm={() => setOpenForm(true)} />
+            <div className='md:bg-[#F2EDFF] md:shadow-md max-w-[1137px] mx-auto md:px-5 rounded-[5px] py-10'>
+                    <Holdings openForm={() => setOpenForm(true)} />
+                </div>
             </section>
             <section className={`-mt-14 mb-16 ${openForm ? "block" : "hidden"}`}>
                 <MainForm />
