@@ -9,20 +9,94 @@ import { BiSearch } from 'react-icons/bi';
 import Search from '../components/search';
 import { AiFillCaretDown } from 'react-icons/ai'
 
-
-
-
-function MobileNav({ open, setOpen }) {
-
-
+function MobileNav({ open, setOpen, dropDown, router, headerClr, setdropDown, handleMenu }) {
   return (
     <div
       className={`absolute top-0 left-0 h-screen w-screen bg-[#FAF9FD] transform ${open ? '-translate-x-0' : '-translate-x-full'
         } transition-transform duration-300 ease-in-out filter drop-shadow-md h-80`}
     >
       <div className="flex items-center justify-center filter bg-[#FAF9FD] h-20">
-        {/*logo container*/}
+        <Link href="/" className="text-2xl font-semibold">
+          <Image
+            src={Logo}
+            alt="logo"
+            width={165}
+            height={40}
+            className="z-10"
+          ></Image>
+        </Link>
       </div>
+      <ul
+        className={`text-xl font-bold md:flex grid p-5 gap-5 ${router.pathname === '/'
+          ? headerClr
+            ? 'text-[#FAF9FD]'
+            : 'text-black'
+          : 'text-black'
+          }`}
+      >
+        {NavLinks?.map((item, idx) => {
+          return (<li key={idx}>
+            <Link
+              href={item.url}
+              className={`font-interBold tracking-wider flex gap-2 items-center `}
+            >
+              <span
+                className={` ${router.pathname === item.url
+                  ? headerClr
+                    ? 'hover:text-black'
+                    : 'hover:text-[#6F49DD] text-[#6F49DD]'
+                  : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
+                  } `}
+                onClick={() =>
+                  setTimeout(() => {
+                    setOpen(!open);
+                  }, 100)
+                }
+              >
+                {item.name}
+              </span>
+              {
+                item?.sub_Nav && <AiFillCaretDown onMouseEnter={() => handleMenu(item.id)} />
+              }
+            </Link>
+            {
+              item.sub_Nav &&
+              <ul
+                className={`max-w-[300px] md:p-4 text-xl font-bold gap-10 md:absolute top-20 mt-5 md:shadow-md ${dropDown === item.id ? 'flex' : 'hidden'} ${router.pathname === '/'
+                  ? headerClr
+                    ? 'text-[#FAF9FD] bg-skin-primary'
+                    : 'text-black bg-[#FAF9FD]'
+                  : 'text-black bg-[#FAF9FD]'
+                  }`}
+                onMouseLeave={() => setdropDown(false)}
+              >
+                {item.sub_Nav?.map((_item, _idx) => {
+                  return (<li key={_idx}>
+                    <Link
+                      href={`${_item.sub_url}`}
+                      className={`font-interBold tracking-wider  `}
+                    >
+                      <span
+                        className={`flex gap-2 items-center ${router.pathname === _item.sub_url
+                          ? headerClr
+                            ? 'hover:text-black'
+                            : 'hover:text-[#6F49DD] text-[#6F49DD]'
+                          : headerClr ? 'hover:underline' : 'hover:text-[#6F49DD]'
+                          } `}
+                        onClick={() => setOpen(false)}
+                      >
+                        {_item.sub_name}
+                      </span>
+                    </Link>
+                  </li>
+                  )
+                })}
+              </ul>
+            }
+          </li>
+          )
+        })}
+      </ul>
       {/* <div className={`flex space-y-2 flex-col ml-4 ${open ? 'mt-8' : 'mt-0'}`}> */}
       {/* <Link
           className="my-4 text-xl font-bold "
@@ -47,7 +121,6 @@ function MobileNav({ open, setOpen }) {
           Blogs
         </Link> */}
     </div>
-    // </div>
   );
 }
 
@@ -84,7 +157,7 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
         }`}
       >
         <div className="container flex items-center justify-between mx-auto">
-          <MobileNav open={open} setOpen={setOpen} />
+          <MobileNav open={open} setOpen={setOpen} handleMenu={handleMenu} setdropDown={setdropDown} dropDown={dropDown} router={router.pathname} headerClr={headerClr} onclick={() => setdropDown(null)} />
           <div className="flex items-center w-2/3 lg:w-3/12">
             <Link href="/" className="text-2xl font-semibold">
 
@@ -188,7 +261,7 @@ export default function Header({ headerClr, serachInput, setSearchInput }) {
                     {
                       item.sub_Nav &&
                       <ul
-                        className={`w-60 md:p-4 text-xl font-bold gap-10 md:absolute top-20 md:shadow-md ${dropDown === item.id ? 'flex' : 'hidden'} ${router.pathname === '/'
+                        className={`w-[300px] md:p-4 text-xl font-bold gap-10 md:absolute top-20 md:shadow-md ${dropDown === item.id ? 'flex' : 'hidden'} ${router.pathname === '/'
                           ? headerClr
                             ? 'text-[#FAF9FD] bg-skin-primary'
                             : 'text-black bg-[#FAF9FD]'
@@ -301,8 +374,8 @@ export const NavLinks = [
     url: '#',
     sub_Nav: [
       {
-        sub_name: 'Products',
-        sub_url: '#',
+        sub_name: 'Discover-Pre-Build-Models',
+        sub_url: '/discover-pre-build-models',
       },
     ]
   },
