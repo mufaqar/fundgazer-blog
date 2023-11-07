@@ -9,7 +9,7 @@ export default function Discover_Models() {
     const [OpenStatic, setOpenStatic] = useState(false)
 
     return (
-        <main>
+        <main className='relative'>
             <section className={`md:pt-40 pt-32 pb-20 px-5 bg-[#F7F7F9] ${OpenStatic ? "hidden" : "block"}`}>
                 <div className='container mx-auto'>
                     <h2 className='md:text-[54px] text-2xl leading-[64px] font-semibold font-interRegular'>

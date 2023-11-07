@@ -37,7 +37,7 @@ function Compare_Returns() {
                 <div className='md:bg-[#F8F8F8] md:drop-shadow-[0_4px_20px_rgba(0,0,0,0.1)] rounded-md md:p-16 p-5'>
                     <div className='flex md:flex-row flex-col justify-between gap-8 items-center'>
                         <div className='w-full'>
-                            <label for="year" className='md:text-xl text-base font-normal font-interRegular text-[#747474] w-full'>
+                            <label htmlFor="year" className='md:text-xl text-base font-normal font-interRegular text-[#747474] w-full'>
                                 Starting Year
                             </label>
                             <select id="year" className='w-full mt-2 py-2.5 px-5 border border-[#D9D9D9] focus:border focus:outline-0 text-xl font-medium text-skin-primary font-interRegular'>
@@ -49,7 +49,7 @@ function Compare_Returns() {
                             </select>
                         </div>
                         <div className='w-full'>
-                            <label for="type" className='md:text-xl text-base font-normal font-interRegular text-[#747474] w-full'>
+                            <label htmlFor="type" className='md:text-xl text-base font-normal font-interRegular text-[#747474] w-full'>
                                 Algo Type
                             </label>
                             <select id="type" className='w-full mt-2 py-2.5 px-5 border border-[#D9D9D9] focus:border focus:outline-0 text-xl font-medium text-skin-primary font-interRegular'>
@@ -63,7 +63,7 @@ function Compare_Returns() {
                             </p>
                         </div>
                         <div className='w-full'>
-                            <label for="market" className='md:text-xl text-base font-normal font-interRegular text-[#747474] w-full'>
+                            <label htmlFor="market" className='md:text-xl text-base font-normal font-interRegular text-[#747474] w-full'>
                                 Market
                             </label>
                             <select id="market" className='w-full mt-2 py-2.5 px-5 border border-[#D9D9D9] focus:border focus:outline-0 text-xl font-medium text-skin-primary font-interRegular'>

@@ -15,7 +15,7 @@ function Mbl_InvestAmount() {
             </div>
             <form className='grid md:grid-cols-1 grid-cols-2 justify-between gap-8 items-center mt-8'>
                 <div className='w-full'>
-                    <label for="year" className='md:text-xl text-sm font-normal font-interRegular text-[#747474] w-full'>
+                    <label htmlFor="year" className='md:text-xl text-sm font-normal font-interRegular text-[#747474] w-full'>
                         Starting Year
                     </label>
                     <select id="year" className='w-full mt-2 py-2.5 px-4 border border-[#D9D9D9] focus:border focus:outline-0 text-sm font-medium text-skin-primary font-interRegular rounded-[5px]'>
@@ -32,7 +32,7 @@ function Mbl_InvestAmount() {
                     </button>
                 </div>
                 <div className='w-full'>
-                    <label for="type" className='md:text-xl text-sm font-normal font-interRegular text-[#747474] w-full'>
+                    <label htmlFor="type" className='md:text-xl text-sm font-normal font-interRegular text-[#747474] w-full'>
                         Algo Type
                     </label>
                     <select id="type" className='w-full mt-2 py-2.5 px-4 border border-[#D9D9D9] focus:border focus:outline-0 text-sm font-medium text-skin-primary font-interRegular rounded-[5px]'>
@@ -41,7 +41,7 @@ function Mbl_InvestAmount() {
                     </select>
                 </div>
                 <div className='w-full'>
-                    <label for="market" className='md:text-xl text-sm font-normal font-interRegular text-[#747474] w-full'>
+                    <label htmlFor="market" className='md:text-xl text-sm font-normal font-interRegular text-[#747474] w-full'>
                         Market
                     </label>
                     <select id="market" className='w-full mt-2 py-2.5 px-4 border border-[#D9D9D9] focus:border focus:outline-0 text-sm font-medium text-skin-primary font-interRegular rounded-[5px]'>
