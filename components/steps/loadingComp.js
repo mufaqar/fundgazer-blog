@@ -15,8 +15,7 @@ function LoadingComp() {
 
   return (
     <div style={{textAlign:"center"}}>
-      <h4>Circular progress bar in React </h4>
-      <div style={{ width: 150, marginLeft: 550}}>
+      <div style={{ width: 200, margin : "auto", color: "#EF9C20"}}>
         <CircularProgressbar value={percentage} text={`${percentage}%`} />
       </div>
     </div>
