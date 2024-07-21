@@ -131,32 +131,11 @@ export default function Posts() {
         </div>
       </section>
 
-      <Counter_Sec />
-      <Partners />
-      <section className='py-16 px-5'>
-        <div className='container mx-auto grid md:grid-cols-2 grid-cols-1 md:gap-16 gap-5 items-center'>
-          <IconBox
-            title="More automation, less worry"
-            content="Composer executes your trading strategy, making
-              trades and rebalancing automatically. Composer executes your trading strategy." />
-          <IconBox
-            title="More automation, less worry"
-            content="Composer executes your trading strategy, making
-              trades and rebalancing automatically. Composer executes your trading strategy." />
-          <IconBox
-            title="More automation, less worry"
-            content="Composer executes your trading strategy, making
-              trades and rebalancing automatically. Composer executes your trading strategy." />
-          <IconBox
-            title="More automation, less worry"
-            content="Composer executes your trading strategy, making
-              trades and rebalancing automatically. Composer executes your trading strategy." />
-        </div>
-      </section>
+     
 
-      <PreBuild_Models />
+      {/* <PreBuild_Models />
       <Customize_Sec />
-      <Testimonials />
+      <Testimonials /> */}
 
       {/* Live result  */}
       {/* <div className="hidden lg:block">
@@ -164,8 +143,8 @@ export default function Posts() {
       </div> */}
 
      <Join_WaitList />
-      <Faqs_Sec />
-      <AnyQuery_Sec />
+      {/* <Faqs_Sec /> */}
+      {/* <AnyQuery_Sec /> */}
     </>
   );
 }
