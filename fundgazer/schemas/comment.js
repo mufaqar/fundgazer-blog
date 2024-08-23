@@ -1,32 +1,34 @@
-export default {
-    name: "comment",
-    type: "document",
-    title: "Comment",
-    fields: [
-      {
-        name: "name",
-        type: "string",
-        title: "Name",
-      },
-      {
-        name: "approved",
-        type: "boolean",
-        title: "Approved",
-      },
-      {
-        name: "email",
-        type: "string",
-        title: "Email",
-      },
-      {
-        name: "comment",
-        type: "string",
-        title: "Comment",
-      },
-      {
-        name: "blog",
-        type: "reference",
-        to: [{ type: "blog" }],
-      },
-    ]
-}
+import { defineField, defineType } from 'sanity';
+
+export const comment = defineType({
+  name: 'comment',
+  type: 'document',
+  title: 'Comment',
+  fields: [
+    defineField({
+      name: 'name',
+      type: 'string',
+      title: 'Name',
+    }),
+    defineField({
+      name: 'approved',
+      type: 'boolean',
+      title: 'Approved',
+    }),
+    defineField({
+      name: 'email',
+      type: 'string',
+      title: 'Email',
+    }),
+    defineField({
+      name: 'comment',
+      type: 'string',
+      title: 'Comment',
+    }),
+    defineField({
+      name: 'blog',
+      type: 'reference',
+      to: [{ type: 'blog' }],
+    }),
+  ],
+});

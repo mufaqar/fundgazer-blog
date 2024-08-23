@@ -1,12 +1,14 @@
-export default {
-    name: "tags",
-    type: "document",
-    title: "Tags",
-    fields: [
-      {
-        name: "tag",
-        type: "string",
-        title: "Tag",
-      },
-    ]
-}
+import { defineField, defineType } from 'sanity';
+
+export const tags = defineType({
+  name: 'tags',
+  type: 'document',
+  title: 'Tags',
+  fields: [
+    defineField({
+      name: 'tag',
+      type: 'string',
+      title: 'Tag',
+    }),
+  ],
+});
