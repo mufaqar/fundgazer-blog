@@ -20,9 +20,12 @@ https://fundgazer-blog.vercel.app/about
 
 //https://github.com/mufaqar/fundgazer-blog.git
 
-//https://github.com/Apurv-Salunke/fg-website.git
 
 
-git remote set-url origin https://github.com/Apurv-Salunke/fg-website.git
+
+git remote set-url origin https://github.com/fundgazer/fg-website
 
 git remote set-url origin https://github.com/mufaqar/fundgazer-blog.git
+
+
+https://github.com/fundgazer/fg-website/commits/main/
