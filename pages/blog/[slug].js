@@ -241,11 +241,9 @@ export default function Single({
                   </ul>
                 </div>
                 <div className="single_inner_content">
-                  <PortableText
-                    // Pass in block content straight from Sanity.io
+                  <PortableText projectId={"oqiio9tb"}
+                    dataset={"production"}
                     content={blog.content}
-                    // Optionally override marks, decorators, blocks, etc. in a flat
-                    // structure without doing any gymnastics
                     serializers={{
                       h6: ({ children }) => (
                         <h6 className="mb-5 text-xl font-bold font-productSansBold md:text-2xl text-skin-dark">
@@ -282,8 +280,8 @@ export default function Single({
                           {children}
                         </li>
                       ),
-                    }}
-                  />
+                    }} />
+
                 </div>
               </div>
               {/* author profile  */}
